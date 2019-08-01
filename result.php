@@ -1,10 +1,17 @@
 <?php
+// データベースに接続
 $url = parse_url(getenv('DATABASE_URL'));
 
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
-var_dump($pdo->getAttribute(PDO::ATTR_SERVER_VERSION));
+// sql
+$result = pg_query('SELECT * from sample0801_db');
+if (!$result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+} else {
+  echo $result;
+}
 ?>
 
 
