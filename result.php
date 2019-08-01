@@ -5,13 +5,21 @@ $url = parse_url(getenv('DATABASE_URL'));
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
-// sql
-$result = pg_query('SELECT * from sample0801_db');
-if (!$result) {
-    die('クエリーが失敗しました。'.pg_last_error());
-} else {
-  echo $result;
-}
+
+// sq
+$stmt = $pdo->query('SELECT * FROM sample0801_db');
+echo $stmt;
+// while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+//
+// }
+
+// pgでやるときのやつ。PDOなので使わない
+// $result = pg_query('SELECT * from sample0801_db');
+// if (!$result) {
+//     die('クエリーが失敗しました。'.pg_last_error());
+// } else {
+//   echo $result;
+// }
 ?>
 
 
