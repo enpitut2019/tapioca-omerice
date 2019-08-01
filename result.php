@@ -1,3 +1,13 @@
+<?php
+$url = parse_url(getenv('DATABASE_URL'));
+try {
+$pdo = new PDO('mysql:host='$url['host']';dbname='substr($url['path'], 1)';charset=utf8', $url['user'],$url['pass'],array(PDO::ATTR_EMULATE_PREPARES => false));
+} catch (PDOException $e) {
+ exit('データベース接続失敗。'.$e->getMessage());
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
