@@ -9,8 +9,14 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 // sq
 $stmt = $pdo->query('SELECT * FROM sample0801_db');
 //echo $stmt;
+
 if($stmt){
   echo 'yoi';
+
+  // パターン２
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
+  print($result['id']);
+  print($result['name']);
 }else{
   echo 'dame';
 }
