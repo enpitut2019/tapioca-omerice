@@ -14,9 +14,11 @@ if($stmt){
   echo 'yoi';
 
   // パターン２
-  $result = $stmt->fetch(PDO::FETCH_ASSOC);
-  echo $result['store_id'];
-  echo $result['store_name'];
+  for($i = 0; $i < 3; $i++) {
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    echo $result['store_id'];
+    echo $result['store_name'];
+  }
 }else{
   echo 'dame';
 }
