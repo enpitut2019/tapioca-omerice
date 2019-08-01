@@ -7,7 +7,7 @@
 <body>
   <h1>検索結果</h1>
 <?php
-echo $_post[kensaku]."です！";
+echo $_get["kensaku"]."です！";
 ?>
 <a href = "http://tapiome.herokuapp.com/store_info.php">店舗情報</a>
 </body>
