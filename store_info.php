@@ -24,29 +24,17 @@
   $vote_o = "2";
   $vote_c = "1";
 ?>
-<p>
-  営業中票数:
-  <?php
-    echo $vote_o;
-  ?>
-</p>
 
-<p>
-  閉店中票数:
-  <?php
-    echo $vote_c;
-  ?>
-</p> <!-- あとでDBから持ってくる -->
 
 <?php
 if($vote_o > $vote_c){
-  echo "営業中票数:".$vote_o;
+  echo "営業中票数:".<font color="RED">$vote_o</font>."<br />";
   echo "閉店中票数:".$vote_c;
 } else if($vote_o < $vote_c){
-  echo "営業中票数:".$vote_o;
-  echo "閉店中票数:".$vote_c;
+  echo "営業中票数:".$vote_o."<br />";
+  echo "閉店中票数:".<font color="RED">$vote_c</font>;
 } else {
-  echo "営業中票数:".$vote_o;
+  echo "営業中票数:".$vote_o."<br />";
   echo "閉店中票数:".$vote_c;
 }
 
