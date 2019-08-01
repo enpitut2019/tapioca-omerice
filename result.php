@@ -15,8 +15,8 @@ if($stmt){
 
   // パターン２
   $result = $stmt->fetch(PDO::FETCH_ASSOC);
-  print($result['id']);
-  print($result['name']);
+  echo $result['id'];
+  echo $result['name'];
 }else{
   echo 'dame';
 }
