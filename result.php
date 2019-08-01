@@ -8,7 +8,12 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 
 // sq
 $stmt = $pdo->query('SELECT * FROM sample0801_db');
-echo $stmt;
+//echo $stmt;
+if($stmt){
+  echo 'yoi';
+}else{
+  echo 'dame';
+}
 // while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
 //
 // }
