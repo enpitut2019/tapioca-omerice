@@ -7,7 +7,7 @@
 <body>
   <h1>龍郎公式サイト(仮)</h1>
 <?php
-    echo "Hello tapioka";
+    echo "Hello tapioka!";
 ?>
 
 <form method="get" action="result.php">
