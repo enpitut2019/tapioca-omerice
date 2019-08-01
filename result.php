@@ -8,7 +8,6 @@ $stmt = $pdo->query('SELECT * FROM sample0801_db');
 
 if($stmt){
   while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
     echo $result['store_id'];
     echo $result['store_name'];
   }
