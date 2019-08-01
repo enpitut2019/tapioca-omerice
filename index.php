@@ -11,7 +11,7 @@
 ?>
 
 <form method="get" action="result.php">
-<input type="search" name="検索" ><input type="submit" value="検索">
+<input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
 
 <a href = "http://tapiome.herokuapp.com/store_info.php">店舗情報</a>
