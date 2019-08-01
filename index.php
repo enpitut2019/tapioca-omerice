@@ -8,12 +8,13 @@
 <body>
 <?php
     echo "Hello Tapioka";
+    ?>
 =======
 <title>Hello World</title>
 </head>
 <body>
 <?php
-    echo "Hello Tapioka";       
+    echo "Hello Tapioka";
 >>>>>>> origin/master
 ?>
 </body>
