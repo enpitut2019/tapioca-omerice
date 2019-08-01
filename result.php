@@ -1,20 +1,13 @@
 <?php
 // データベースに接続
 $url = parse_url(getenv('DATABASE_URL'));
-
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
-
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
 
-// sq
 $stmt = $pdo->query('SELECT * FROM sample0801_db');
-//echo $stmt;
 
 if($stmt){
-  echo 'yoi';
-
-  // パターン２
-  for($i = 0; $i < 3; $i++) {
+  while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     echo $result['store_id'];
     echo $result['store_name'];
@@ -22,17 +15,6 @@ if($stmt){
 }else{
   echo 'dame';
 }
-// while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-//
-// }
-
-// pgでやるときのやつ。PDOなので使わない
-// $result = pg_query('SELECT * from sample0801_db');
-// if (!$result) {
-//     die('クエリーが失敗しました。'.pg_last_error());
-// } else {
-//   echo $result;
-// }
 ?>
 
 
