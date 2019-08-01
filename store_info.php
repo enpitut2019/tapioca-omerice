@@ -34,9 +34,23 @@
 <p>
   閉店中票数:
   <?php
-    echo $vote_c;  
+    echo $vote_c;
   ?>
 </p> <!-- あとでDBから持ってくる -->
+
+<?php
+if($vote_o > $vote_c){
+  echo "営業中票数:".$vote_o;
+  echo "閉店中票数:".$vote_c;
+} else if($vote_o < $vote_c){
+  echo "営業中票数:".$vote_o;
+  echo "閉店中票数:".$vote_c;
+} else {
+  echo "営業中票数:".$vote_o;
+  echo "閉店中票数:".$vote_c;
+}
+
+?>
 
 </body>
 </html>
