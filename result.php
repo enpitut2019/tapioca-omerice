@@ -16,7 +16,7 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
   <h1>検索結果</h1>
 <?php
 $word = $_GET["kensaku"]; //検索ワード
-$stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_name LIKE'.$word);
+$stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_name LIKE¥'%'.$word'%¥''');
 
 if($stmt){
   while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
