@@ -8,7 +8,7 @@ $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1))
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
 $stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
- // var_dump($store_name);//store_nameが取れているか確認
+ // var_dump($store_name);//store_nameが取れているか確認 //確認
  // print_r($store_name);
  $stmt2 = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
  $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
