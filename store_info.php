@@ -12,6 +12,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  // print_r($store_name);
  $stmt2 = $pdo->query('UPDATE sample0801_db SET vote_open=1000 WHERE store_id = '.$store_id);
  $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
+ var_dump($vote_open);
 
 
 ?>
