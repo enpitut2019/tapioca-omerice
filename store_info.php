@@ -6,7 +6,8 @@ $store_id = $_GET["store_id"];
 $url = parse_url(getenv('DATABASE_URL'));
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
-$store_name = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
+$stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
+$store_name = $stmt -> fetch(PDO::FETCH_ASSOC);
  var_dump($store_name);//store_nameが取れているか確認
  print_r($store_name);
 ?>
