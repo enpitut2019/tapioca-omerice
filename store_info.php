@@ -54,15 +54,15 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 
 
 <?php
-if($result['vote_o'] > $result['vote_c']){
-  echo '営業中票数:<font color="RED">'.$result[vote_o].'</font><br />';
-  echo '閉店中票数:'.$result['vote_c'];
-} else if($result['vote_o'] < $result['vote_c']){
-  echo '営業中票数:'.$result['vote_o'].'<br />';
-  echo '閉店中票数:<font color="RED">'.$result['vote_c'].'</font>';
+if($result['vote_open'] > $result['vote_close']){
+  echo '営業中票数:<font color="RED">'.$result['vote_open'].'</font><br />';
+  echo '閉店中票数:'.$result['vote_close'];
+} else if($result['vote_open'] < $result['vote_close']){
+  echo '営業中票数:'.$result['vote_open'].'<br />';
+  echo '閉店中票数:<font color="RED">'.$result['vote_close'].'</font>';
 } else {
-  echo '営業中票数:'.$result['vote_o'].'<br />';
-  echo '閉店中票数:'.$result['vote_c'];
+  echo '営業中票数:'.$result['vote_open'].'<br />';
+  echo '閉店中票数:'.$result['vote_close'];
 }
 
 ?>
