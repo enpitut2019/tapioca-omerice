@@ -13,11 +13,9 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <!-- 投票数のカウント -->
 <?php
 $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id ='.$store_id);
-while($result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC)) {
+$result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
   echo $result_vote['c0_2'];
-  echo "回る";
-}
-var_dump($result_vote);
+// var_dump($result_vote);
 ?>
 
 <!DOCTYPE html>
