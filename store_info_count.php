@@ -39,7 +39,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id ='.$store_id);
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
   // echo $result_vote['c0_2'];
-var_dump($result_vote);
+// var_dump($result_vote);
 if($result_vote['o0_2'] > $result_vote['c0_2']){
   echo '営業中票数:<font color="RED">'.$result_vote['o0_2'].'</font><br />';
   echo '閉店中票数:'.$result_vote['c0_2'];
