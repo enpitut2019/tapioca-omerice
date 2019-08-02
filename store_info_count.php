@@ -48,7 +48,7 @@ var_dump($result_vote);
 //   echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
 //   echo '閉店中票数:'.$reslut_vote['c0_2'];
 // }
-var_dump($reslut_vote['c0_2']);
+var_dump($result_vote['c0_2']);
 
 ?>
 
