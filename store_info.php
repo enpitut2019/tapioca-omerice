@@ -10,7 +10,7 @@ $stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$st
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  // var_dump($store_name);//store_nameが取れているか確認
  // print_r($store_name);
- $stmt2 = $pdo->query('UPDATE sample0801_db SET vote_open++ WHERE store_id = '.$store_id);
+ $stmt2 = $pdo->query('UPDATE sample0801_db SET vote_open=1000 WHERE store_id = '.$store_id);
  $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
 
 
@@ -54,15 +54,15 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 
 
 <?php
-if($vote_o > $vote_c){
-  echo '営業中票数:<font color="RED">'.$vote_o.'</font><br />';
-  echo '閉店中票数:'.$vote_c;
-} else if($vote_o < $vote_c){
-  echo '営業中票数:'.$vote_o.'<br />';
-  echo '閉店中票数:<font color="RED">'.$vote_c.'</font>';
+if($result['vote_o'] > $result['vote_c']){
+  echo '営業中票数:<font color="RED">'.$result[vote_o].'</font><br />';
+  echo '閉店中票数:'.$result['vote_c'];
+} else if($result['vote_o'] < $result['vote_c']){
+  echo '営業中票数:'.$result['vote_o'].'<br />';
+  echo '閉店中票数:<font color="RED">'.$result['vote_c'].'</font>';
 } else {
-  echo '営業中票数:'.$vote_o.'<br />';
-  echo '閉店中票数:'.$vote_c;
+  echo '営業中票数:'.$result['vote_o'].'<br />';
+  echo '閉店中票数:'.$result['vote_c'];
 }
 
 ?>
