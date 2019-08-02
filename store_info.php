@@ -1,6 +1,11 @@
 <?php
-  $store_name = "龍郎"
-?> <!-- POSTで店名を引っ張ってくる -->
+$store_name = $_GET["store_id"];
+
+// データベースに接続
+$url = parse_url(getenv('DATABASE_URL'));
+$dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
+$pdo = new PDO($dsn, $url['user'], $url['pass']);
+?>
 
 
 <!DOCTYPE html>
