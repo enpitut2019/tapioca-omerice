@@ -35,8 +35,8 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   </h1> <!-- あとで変数 -->
 
   <?php
-  if (isset($_POST["store_name"])) {
-  $kbn = htmlspecialchars($_POST["store_name"], ENT_QUOTES, "UTF-8");
+  if (isset($_POST["vote"])) {
+  $kbn = htmlspecialchars($_POST["vote"], ENT_QUOTES, "UTF-8");
     switch ($kbn) {
         case "営業中": $vote_o++; break;
         case "閉店中": $vote_c++; break;
@@ -46,8 +46,8 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  ?><!-- ボタンの実装 -->
 
   <form method="POST" action="">
-<input type="submit" value="営業中" name="store_name">　
-<input type="submit" value="閉店中" name="store_name">　
+<input type="submit" value="営業中" name="vote">　
+<input type="submit" value="閉店中" name="vote">　
 </form>
 
 
