@@ -30,6 +30,11 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
     ?>
   </h1> <!-- あとで変数 -->
 
+  <form method="POST" action="">
+<input type="submit" value="営業中" name="store_name">　
+<input type="submit" value="閉店中" name="store_name">　
+</form>
+
 <?php
   $vote_o = "4";
   $vote_c = "4";
