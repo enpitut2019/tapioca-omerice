@@ -10,7 +10,6 @@ $stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$st
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  var_dump($result);//store_nameが取れているか確認
 ?>
-
 <!-- 投票数のカウント -->
 <?php
 $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id ='.$store_id);
