@@ -7,7 +7,7 @@ $url = parse_url(getenv('DATABASE_URL'));
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
 $store_name = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
-// var_dump($stmt);//store_nameが取れているか確認
+ var_dump($store_name);//store_nameが取れているか確認
 ?>
 
 
@@ -16,9 +16,9 @@ $store_name = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id =
 <head>
 <meta charset="UTF-8">
 <title>
-  <?php
-    echo $store_name;
-  ?>
+  <!-- <?php
+    // echo $store_name;
+  ?>-->
 </title> <!-- あとで変数 -->
 </head>
 <body>
