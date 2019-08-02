@@ -35,18 +35,13 @@ var_dump($result_vote);
     ?>
   </h1> <!-- あとで変数 -->
 
-<?php
-  $vote_o = "4";
-  $reslut_vote['c0_2'] = "4";
-?>
-
 <!-- 0時から2時の営業 -->
 
 <?php
 if($reslut_vote['o0_2'] > $reslut_vote['c0_2']){
   echo '営業中票数:<font color="RED">'.$reslut_vote['o0_2'].'</font><br />';
   echo '閉店中票数:'.$reslut_vote['c0_2'];
-} else if($vote_o < $reslut_vote['c0_2']){
+} else if($reslut_vote['o0_2'] < $reslut_vote['c0_2']){
   echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
   echo '閉店中票数:<font color="RED">'.$reslut_vote['c0_2'].'</font>';
 } else {
