@@ -10,8 +10,9 @@ $stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$st
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  // var_dump($store_name);//store_nameが取れているか確認
  // print_r($store_name);
- $stmt2 = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
+ $stmt2 = $pdo->query('UPDATE sample0801_db SET vote_open +=1 WHERE store_id = '.$store_id);
  $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
+
 
 ?>
 
@@ -37,7 +38,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   if (isset($_POST["store_name"])) {
   $kbn = htmlspecialchars($_POST["store_name"], ENT_QUOTES, "UTF-8");
     switch ($kbn) {
-        case "営業中": echo "maru"; break;
+        case "営業中": $vote_o++; break;
         case "閉店中": echo "batsu"; break;
         default:  echo "エラー"; exit;
     }
