@@ -12,7 +12,6 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  // print_r($store_name);
  $stmt2 = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
  $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
-
 ?>
 
 
