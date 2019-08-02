@@ -38,7 +38,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   if (isset($_POST["vote"])) {
   $kbn = htmlspecialchars($_POST["vote"], ENT_QUOTES, "UTF-8");
     switch ($kbn) {
-        case "営業中": $vote_o++; break;
+        case "営業中": echo $result['vote_o']; break;
         case "閉店中": $vote_c++; break;
         default:  echo "エラー"; exit;
     }
