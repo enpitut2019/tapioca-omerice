@@ -10,8 +10,8 @@ $stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$st
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  // var_dump($store_name);//store_nameが取れているか確認
  // print_r($store_name);
- //$stmt2 = $pdo->query('UPDATE sample0801_db SET vote_open +=1 WHERE store_id = '.$store_id);
- //$result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
+ $stmt2 = $pdo->query('UPDATE sample0801_db SET vote_open +=1 WHERE store_id = '.$store_id);
+ $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
 
 
 ?>
