@@ -1,10 +1,13 @@
 <?php
-$store_name = $_GET["store_id"];
+//idの取得
+$store_id = $_GET["store_id"];
 
 // データベースに接続
 $url = parse_url(getenv('DATABASE_URL'));
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
+$stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$result['store_id']);
+var_dump($stmt);//store_nameが取れているか確認
 ?>
 
 
