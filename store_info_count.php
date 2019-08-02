@@ -8,7 +8,7 @@ $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1))
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
 $stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
- // var_dump($store_name);//store_nameが取れているか確認
+ var_dump($result);//store_nameが取れているか確認
 ?>
 
 <!-- 投票数のカウント -->
@@ -37,17 +37,18 @@ var_dump($result_vote);
 
 <!-- 0時から2時の営業 -->
 <?php
-if($reslut_vote['o0_2'] > $reslut_vote['c0_2']){
-  echo '営業中票数:<font color="RED">'.$reslut_vote['o0_2'].'</font><br />';
-  echo '閉店中票数:'.$reslut_vote['c0_2'];
-} else if($reslut_vote['o0_2'] < $reslut_vote['c0_2']){
-  echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
-  echo '閉店中票数:<font color="RED">'.$reslut_vote['c0_2'].'</font>';
-} else {
-  echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
-  echo '閉店中票数:'.$reslut_vote['c0_2'];
-}
-
+// if($reslut_vote['o0_2'] > $reslut_vote['c0_2']){
+//   echo '営業中票数:<font color="RED">'.$reslut_vote['o0_2'].'</font><br />';
+//   echo '閉店中票数:'.$reslut_vote['c0_2'];
+// } else if($reslut_vote['o0_2'] < $reslut_vote['c0_2']){
+//   echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
+//   echo '閉店中票数:<font color="RED">'.$reslut_vote['c0_2'].'</font>';
+// } else {
+//   echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
+//   echo '閉店中票数:'.$reslut_vote['c0_2'];
+// }
+var_dump($reslut_vote['c0_2']);
+// echo $reslut_vote['c0_2'];
 ?>
 
 </body>
