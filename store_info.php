@@ -39,7 +39,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   $kbn = htmlspecialchars($_POST["store_name"], ENT_QUOTES, "UTF-8");
     switch ($kbn) {
         case "営業中": $vote_o++; break;
-        case "閉店中": echo "batsu"; break;
+        case "閉店中": $vote_c++; break;
         default:  echo "エラー"; exit;
     }
   }
@@ -50,10 +50,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <input type="submit" value="閉店中" name="store_name">　
 </form>
 
-<?php
-  $vote_o = "4";
-  $vote_c = "4";
-?>
+
 
 
 <?php
