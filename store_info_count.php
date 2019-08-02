@@ -36,7 +36,6 @@ var_dump($result_vote);
   </h1> <!-- あとで変数 -->
 
 <!-- 0時から2時の営業 -->
-
 <?php
 if($reslut_vote['o0_2'] > $reslut_vote['c0_2']){
   echo '営業中票数:<font color="RED">'.$reslut_vote['o0_2'].'</font><br />';
