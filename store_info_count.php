@@ -8,7 +8,7 @@ $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1))
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
 $stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
- var_dump($result);//store_nameが取れているか確認
+ // var_dump($result);//store_nameが取れているか確認
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +27,11 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
       echo $result['store_name'];
     ?>
   </h1> <!-- あとで変数 -->
+
+  <form method="POST" action="">
+<input type="submit" value="営業中" name="vote">　
+<input type="submit" value="閉店中" name="vote">　
+</form>
 
 <!-- 投票数のカウント -->
 <!-- 0時から2時の営業 -->
