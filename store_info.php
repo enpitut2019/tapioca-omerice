@@ -12,7 +12,10 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  // print_r($store_name);
  $stmt2 = $pdo->query('UPDATE sample0801_db SET vote_open=1000 WHERE store_id = '.$store_id);
  $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
- var_dump($vote_open);
+
+
+ $stmt3 = $pdo->query('SELECT vote_open FROM sample0801_db WHERE store_id = '.$store_id);
+ $result3 = $stmt3 -> fetch(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -31,7 +34,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <body>
   <h1>
     <?php
-      echo $result['vote_open'];
+      echo $result3['vote_open'];
     ?>
   </h1> <!-- あとで変数 -->
 
