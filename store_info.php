@@ -31,7 +31,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <body>
   <h1>
     <?php
-      echo $result['store_name'];
+      echo $result['vote_open'];
     ?>
   </h1> <!-- あとで変数 -->
 
