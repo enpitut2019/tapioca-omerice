@@ -20,8 +20,8 @@ $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_name LIKE \'%'.$wor
 
 if($stmt){
   while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-    // echo $result['store_id'];
     echo $result['store_name'];
+    echo '<a href ="https://tapiome.herokuapp.com/store_info.php?store_id='.$result['store_id'].'">詳細情報</a>'
   }
 }else{
   echo 'dame';
