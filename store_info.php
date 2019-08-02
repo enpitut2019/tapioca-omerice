@@ -13,9 +13,10 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  $stmt2 = $pdo->query('UPDATE sample0801_db SET vote_open=1000 WHERE store_id = '.$store_id);
  $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
 
-
  $stmt3 = $pdo->query('SELECT vote_open FROM sample0801_db WHERE store_id = '.$store_id);
  $result3 = $stmt3 -> fetch(PDO::FETCH_ASSOC);
+ $stmt4 = $pdo->query('SELECT vote_close FROM sample0801_db WHERE store_id = '.$store_id);
+ $result4 = $stmt4 -> fetch(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -34,7 +35,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <body>
   <h1>
     <?php
-      echo $result3['vote_open'];
+      echo $result['store_name'];
     ?>
   </h1> <!-- あとで変数 -->
 
@@ -42,8 +43,8 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   if (isset($_POST["vote"])) {
   $kbn = htmlspecialchars($_POST["vote"], ENT_QUOTES, "UTF-8");
     switch ($kbn) {
-        case "営業中": echo $result['vote_open']; break;
-        case "閉店中": echo $result['vote_close']; break;
+        case "営業中": echo $result3['vote_open']; break;
+        case "閉店中": echo $result4['vote_close']; break;
         default:  echo "エラー"; exit;
     }
   }
@@ -58,15 +59,15 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 
 
 <?php
-if($result['vote_open'] > $result['vote_close']){
-  echo '営業中票数:<font color="RED">'.$result['vote_open'].'</font><br />';
-  echo '閉店中票数:'.$result['vote_close'];
-} else if($result['vote_open'] < $result['vote_close']){
-  echo '営業中票数:'.$result['vote_open'].'<br />';
-  echo '閉店中票数:<font color="RED">'.$result['vote_close'].'</font>';
+if($result3['vote_open'] > $result4['vote_close']){
+  echo '営業中票数:<font color="RED">'.$result3['vote_open'].'</font><br />';
+  echo '閉店中票数:'.$result4['vote_close'];
+} else if($result3['vote_open'] < $result4['vote_close']){
+  echo '営業中票数:'.$result3['vote_open'].'<br />';
+  echo '閉店中票数:<font color="RED">'.$result4['vote_close'].'</font>';
 } else {
-  echo '営業中票数:'.$result['vote_open'].'<br />';
-  echo '閉店中票数:'.$result['vote_close'];
+  echo '営業中票数:'.$result3['vote_open'].'<br />';
+  echo '閉店中票数:'.$result4['vote_close'];
 }
 
 ?>
