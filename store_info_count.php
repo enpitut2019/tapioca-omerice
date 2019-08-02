@@ -37,17 +37,17 @@ var_dump($result_vote);
 
 <!-- 0時から2時の営業 -->
 <?php
-if($reslut_vote['o0_2'] > $reslut_vote['c0_2']){
-  echo '営業中票数:<font color="RED">'.$reslut_vote['o0_2'].'</font><br />';
-  echo '閉店中票数:'.$reslut_vote['c0_2'];
-} else if($reslut_vote['o0_2'] < $reslut_vote['c0_2']){
-  echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
-  echo '閉店中票数:<font color="RED">'.$reslut_vote['c0_2'].'</font>';
-} else {
-  echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
-  echo '閉店中票数:'.$reslut_vote['c0_2'];
-}
-
+// if($reslut_vote['o0_2'] > $reslut_vote['c0_2']){
+//   echo '営業中票数:<font color="RED">'.$reslut_vote['o0_2'].'</font><br />';
+//   echo '閉店中票数:'.$reslut_vote['c0_2'];
+// } else if($reslut_vote['o0_2'] < $reslut_vote['c0_2']){
+//   echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
+//   echo '閉店中票数:<font color="RED">'.$reslut_vote['c0_2'].'</font>';
+// } else {
+//   echo '営業中票数:'.$reslut_vote['o0_2'].'<br />';
+//   echo '閉店中票数:'.$reslut_vote['c0_2'];
+// }
+echo $reslut_vote['c0_2'];
 ?>
 
 </body>
