@@ -5,7 +5,7 @@
 <title>ごっっはにゃさん</title>
 </head>
 <body>
-  <h1>ごっっはにゃさん</h1>
+  <h1>ごっっっはにゃさん</h1>
 <?php
     echo "Hello tapioka!";
 ?>
@@ -14,6 +14,7 @@
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
 
+<a href = "http://tapiome.herokuapp.com/store_info.php">店舗情報</a>
 
 
 </body>
