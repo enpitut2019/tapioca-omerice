@@ -8,12 +8,8 @@ $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1))
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
 $stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
- // var_dump($store_name);//store_nameが取れているか確認 //確認
+ // var_dump($store_name);//store_nameが取れているか確認
  // print_r($store_name);
-<<<<<<< HEAD
- $stmt2 = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
- $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
-=======
  // $stmt2 = $pdo->query('UPDATE sample0802_open SET o0_2=1000 WHERE store_id = '.$store_id);
  // $result2 = $stmt2 -> fetch(PDO::FETCH_ASSOC);
 
@@ -24,7 +20,6 @@ $result4 = $stmt4 -> fetch(PDO::FETCH_ASSOC);
 
 
 
->>>>>>> 3a96cdeaf2a39de7d912d52948de0d5052b5074f
 ?>
 
 
@@ -45,8 +40,6 @@ $result4 = $stmt4 -> fetch(PDO::FETCH_ASSOC);
     ?>
   </h1> <!-- あとで変数 -->
 
-<<<<<<< HEAD
-=======
   <?php
   if (isset($_POST["vote"])) {
   $kbn = htmlspecialchars($_POST["vote"], ENT_QUOTES, "UTF-8");
@@ -58,7 +51,6 @@ $result4 = $stmt4 -> fetch(PDO::FETCH_ASSOC);
   }
  ?><!-- ボタンの実装 -->
 
->>>>>>> 8a6e1acb179f43753ef928851be7a159fbdbd2e6
   <form method="POST" action="">
 <input type="submit" value="営業中" name="vote">　
 <input type="submit" value="閉店中" name="vote">　
