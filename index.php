@@ -12,6 +12,7 @@
 >>>>>>> 3a96cdeaf2a39de7d912d52948de0d5052b5074f
 <?php
     echo "Hello tapioka!";
+    echo "gohhhanyasan";
 ?>
 
 <form method="get" action="result.php">
