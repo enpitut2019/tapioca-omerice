@@ -5,11 +5,9 @@
 <title>ごっっはにゃさん</title>
 </head>
 <body>
-<<<<<<< HEAD
-  <h1>龍郎公式(仮)</h1>
-=======
+  
   <h1>ごっっはにゃさん</h1>
->>>>>>> 3a96cdeaf2a39de7d912d52948de0d5052b5074f
+
 <?php
     echo "Hello tapioka!";
     echo "gohhhanyasan";
