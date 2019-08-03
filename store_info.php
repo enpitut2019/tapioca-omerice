@@ -45,7 +45,7 @@ $result4 = $stmt4 -> fetch(PDO::FETCH_ASSOC);
   $kbn = htmlspecialchars($_POST["vote"], ENT_QUOTES, "UTF-8");
     switch ($kbn) {
         case "営業中": echo $result3['vote_open'];break;
-        case "閉店中": echo $result4['vote_close']; break;
+        case "閉店": echo $result4['vote_close']; break;
         default:  echo "エラー"; exit;
     }
   }
@@ -62,13 +62,13 @@ $result4 = $stmt4 -> fetch(PDO::FETCH_ASSOC);
 <?php
 if($result3['vote_open'] > $result4['vote_close']){
   echo '営業中票数:<font color="RED">'.$result3['vote_open'].'</font><br />';
-  echo '閉店中票数:'.$result4['vote_close'];
+  echo '閉店票数:'.$result4['vote_close'];
 } else if($result3['vote_open'] < $result4['vote_close']){
   echo '営業中票数:'.$result3['vote_open'].'<br />';
-  echo '閉店中票数:<font color="RED">'.$result4['vote_close'].'</font>';
+  echo '閉店票数:<font color="RED">'.$result4['vote_close'].'</font>';
 } else {
   echo '営業中票数:'.$result3['vote_open'].'<br />';
-  echo '閉店中票数:'.$result4['vote_close'];
+  echo '閉店票数:'.$result4['vote_close'];
 }
 
 ?>
