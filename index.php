@@ -5,7 +5,7 @@
 <title>ごっっはにゃさん</title>
 </head>
 <body>
-  <h1>ごっっはにゃさん</h1>
+  <h1>ごっっはにゃさんん</h1>
 <?php
     echo "Hello tapioka!";
 ?>
