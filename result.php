@@ -10,7 +10,7 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Good Bye tapioka</title>
+<title>ごっっはにゃさん検索結果</title>
 </head>
 <body>
   <h1>検索結果</h1>
