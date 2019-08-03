@@ -5,12 +5,9 @@
 <title>ごっっはにゃさん</title>
 </head>
 <body>
-  
   <h1>ごっっはにゃさん</h1>
-
 <?php
     echo "Hello tapioka!";
-    echo "gohhhanyasan";
 ?>
 
 <form method="get" action="result.php">
