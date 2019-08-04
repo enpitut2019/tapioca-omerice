@@ -6,6 +6,7 @@
 </head>
 <body>
   <h1>ごっっはにゃさん</h1>
+  <h2>テスト：ブランチで分業中にherokuにpushできるか</h2>
 <?php
     echo "Hello tapioka!";
 ?>
