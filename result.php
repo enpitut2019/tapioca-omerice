@@ -13,7 +13,7 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 <title>ごっっはにゃさん検索結果</title>
 </head>
 <body>
-  <h1>ごっっはにゃさん検索結果</h1>
+  <h1>ごっっはにゃさん結果</h1>
 <?php
 $word = $_GET["kensaku"]; //検索ワード
 $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_name LIKE \'%'.$word.'%\'');
