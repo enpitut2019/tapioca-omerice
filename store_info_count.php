@@ -33,6 +33,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <input type="submit" value="閉店中" name="vote">　
 </form>
 
+
 <!-- 投票数のカウント -->
 <!-- 0時から2時の営業 -->
 <?php
