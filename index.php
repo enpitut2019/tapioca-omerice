@@ -8,13 +8,23 @@
   <h1>ごっっはにゃさん</h1>
   <h2>テスト：ブランチで分業中にherokuにpushできるか</h2>
 
+<?php
+    echo "Hello tapioka!";
+?>
+
+<form method="get" action="result.php">
+<input type="search" name="kensaku" ><input type="submit" value="検索">
+</form>
+
+
   <?php
+  echo "test";
   // データベースに接続
   $url = parse_url(getenv('DATABASE_URL'));
   $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
   $pdo = new PDO($dsn, $url['user'], $url['pass']);
   // var_dump($_POST);
-
+  echo "test2";
   // 投票数を取得
   $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id ='.$_POST['store_id']);
   $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
@@ -40,16 +50,6 @@
     $stmt_c->execute();
   }
   ?>
-<?php
-    echo "Hello tapioka!";
-?>
-
-<form method="get" action="result.php">
-<input type="search" name="kensaku" ><input type="submit" value="検索">
-</form>
-
-
-
 
 
 </body>
