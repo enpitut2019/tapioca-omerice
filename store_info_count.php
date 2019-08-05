@@ -60,18 +60,19 @@ $date = date("H");
 // 投票数の表示
 for ($i = 0; $i < 12; $i++) {
   if($i ==(intval($date)/2)) {
+    echo '<strong>'
     if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
-      echo '<strong>'.$time[$i].' ... </strong>';
-      echo '<strong class="red">'.$result_vote[$o_key[$i]].'</strong><strong> : </strong>';
-      echo '<strong>'.$result_vote[$c_key[$i]].'</strong>';
+      echo $time[$i].' ... ';
+      echo '<span class="red">'.$result_vote[$o_key[$i]].'</span> : ';
+      echo $result_vote[$c_key[$i]];
     } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
-      echo '<strong>'.$time[$i].' ... </strong>';
-      echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-      echo '<strong class="red">'.$result_vote[$c_key[$i]].'</strong>';
+      echo $time[$i].' ... ';
+      echo $result_vote[$o_key[$i]].' : ';
+      echo '<span class="red">'.$result_vote[$c_key[$i]].'</span>';
     } else {
-      echo '<strong>'.$time[$i].' ... </strong>';
-      echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-      echo '<strong>'.$result_vote[$c_key[$i]].'</strong>';
+      echo $time[$i].' ... ';
+      echo $result_vote[$o_key[$i]].' : ';
+      echo $result_vote[$c_key[$i]];
     }
   }else {
     echo '<span class="gray">';
