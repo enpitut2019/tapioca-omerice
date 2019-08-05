@@ -16,6 +16,8 @@
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
 
+<a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
+
 
   <?php
 
@@ -37,13 +39,12 @@
   date_default_timezone_set('Asia/Tokyo');
   $date = date("H");
 
-  $index = intval($date)/2;
+  $index = intval($date/2);
 
   for($i=0; $i<8; $i++) {
     $j = $index-(4+$i);
-    echo $j;
     if($j<=-1){
-      $j+=13;
+      $j+=12;
     }
     $stmt_o = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$j].'= 0');
     $stmt_o->execute();
