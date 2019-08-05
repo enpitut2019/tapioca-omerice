@@ -13,6 +13,9 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 <title>ごっっはにゃさん検索結果</title>
 </head>
 <body>
+  <p>
+    <a href=https://tapiome.herokuapp.com/>ごっっはにゃさん</a>
+  </p>
   <h1>ごっっはにゃさん結果</h1>
 <?php
 $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');

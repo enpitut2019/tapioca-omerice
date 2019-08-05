@@ -17,7 +17,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <meta charset="UTF-8">
 <title>
   <?php
-    echo $result['store_name'];
+    echo 'ごっっはにゃさん|'.$result['store_name'];
   ?>
 </title> <!-- あとで変数 -->
 <style>
@@ -30,6 +30,9 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 </style>
 </head>
 <body>
+<p>
+  <a href=https://tapiome.herokuapp.com/>ごっっはにゃさん</a>
+</p>
   <h1>
     <?php
       echo $result['store_name'];
