@@ -96,7 +96,7 @@ for ($i = 0; $i < 12; $i++) {
 // 詳細情報の取得
 $stmt_detail_info = $pdo->query('SELECT * FROM info WHERE store_id = '.$store_id);
 $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
-var_dump($result_detail_info);
+
 
 echo 'ランチ：'.$result_detail_info["l_time_o"].'~'.$result_detail_info["l_time_c"].'<br>';
 echo 'ディナー：'.$result_detail_info["d_time_o"].'~'.$result_detail_info["d_time_c"].'<br>';
