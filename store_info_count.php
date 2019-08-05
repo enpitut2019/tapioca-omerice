@@ -57,7 +57,6 @@ $time = array( ' 0:00~ 2:00', ' 2:00~ 4:00', ' 4:00~ 6:00', ' 6:00~ 8:00', ' 8:0
 date_default_timezone_set('Asia/Tokyo');
 $date = date("H");
 $key = intval($date/2);
-echo 'key: '.$key;
 
 // 投票数の表示
 for ($i = 0; $i < 12; $i++) {
@@ -70,7 +69,7 @@ for ($i = 0; $i < 12; $i++) {
     echo '</span>';
 
   } else {
-    /*if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
+    if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
       echo '<strong>';
       echo $time[$i].' ... ';
       echo '<span class="red">'.$result_vote[$o_key[$i]].'</span> : ';
@@ -82,13 +81,13 @@ for ($i = 0; $i < 12; $i++) {
       echo $result_vote[$o_key[$i]].' : ';
       echo '<span class="red">'.$result_vote[$c_key[$i]].'</span>';
       echo '</strong>';
-    } else {*/
+    } else {
       echo '<strong>';
       echo $time[$i].' ... ';
       echo $result_vote[$o_key[$i]].' : ';
       echo $result_vote[$c_key[$i]];
       echo '</strong>';
-    // }
+    }
   }
   echo '<br>';
 }
