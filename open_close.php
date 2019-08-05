@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
 <?php
 // データベースに接続
 $url = parse_url(getenv('DATABASE_URL'));
@@ -28,3 +32,4 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 // exit();
 
 ?>
+</html>
