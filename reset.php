@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
 <?php
 // データベースに接続
 $url = parse_url(getenv('DATABASE_URL'));
@@ -21,32 +17,16 @@ $c_key = array('c0_2','c2_4','c4_6','c6_8','c8_10','c10_12','c12_14','c14_16','c
 date_default_timezone_set('Asia/Tokyo');
 $date = date("H");
 
-// 投票データの更新
-// o_key[0]=o0_2
-// o_key[1]=o2_4
-// o_key[2]=o4_6
-// ....
-// o_key[11]=o22_24
-
-// var_dump($date);
-// var_dump(intval($date));
-
 $index = intval($date)/2;
 
-if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
-  $result_vote[ $o_key[$index]]+=1;
-  $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
-  $stmt->execute();
-} else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
-  $result_vote[ $c_key[$index]]+=1;
-  $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].'='.$result_vote[$c_key[$index]].'WHERE store_id='.$_POST['store_id']);
-  $stmt->execute();
+for($i=0; $i<8; $i++) {
+  $j = $index-(4+$i);
+  if($j<=-1){
+    $j+=12;
+  }
+  $stmt_o = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$j].'= 0');
+  $stmt_o->execute();
+  $stmt_c = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$j].'= 0');
+  $stmt_c->execute();
 }
-
-
-
- header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
- exit();
-
 ?>
-</html>
