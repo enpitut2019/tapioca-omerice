@@ -16,6 +16,7 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
   <h1>ごっっはにゃさん結果</h1>
 <?php
 $stmt2 = $pdo->query('SELECT store_id FROM info WHERE status = 1');
+var_dump($stmt2);
 $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id LIKE \'%'.$stmt2.'%\'');
 
   if($stmt){
