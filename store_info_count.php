@@ -68,7 +68,7 @@ for ($i = 0; $i < 12; $i++) {
     echo '</span>';
 
   }else {
-    if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
+    /*if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
       echo '<strong>';
       echo $time[$i].' ... ';
       echo '<span class="red">'.$result_vote[$o_key[$i]].'</span> : ';
@@ -80,13 +80,13 @@ for ($i = 0; $i < 12; $i++) {
       echo $result_vote[$o_key[$i]].' : ';
       echo '<span class="red">'.$result_vote[$c_key[$i]].'</span>';
       echo '</strong>';
-    } else {
+    } else {*/
       echo '<strong>';
       echo $time[$i].' ... ';
       echo $result_vote[$o_key[$i]].' : ';
       echo $result_vote[$c_key[$i]];
       echo '</strong>';
-    }
+    // }
   }
   echo '<br>';
 }
