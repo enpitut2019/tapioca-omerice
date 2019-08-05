@@ -91,8 +91,8 @@ for ($i = 0; $i < 12; $i++) {
       echo '</strong>';
     }
   }
-  echo '</p>';
 }
+echo '</p>';
 
 // 詳細情報の取得
 $stmt_detail_info = $pdo->query('SELECT * FROM info WHERE store_id = '.$store_id);
