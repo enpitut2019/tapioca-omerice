@@ -51,8 +51,7 @@ $date = date("H");
 
 // 投票数の表示
 for ($i = 0; $i < 12; $i++) {
-  for($j = 0; $j < 24; $j = $j+2) {
-    if($j <= intval($date) && intval($date) < $j+2) {
+    if(i < (intval($date)/2) && (intval($date)/2) < $i+1) {
       if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
         echo '<strong>'.$time[$i].' ... </strong>';
         echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
@@ -80,7 +79,6 @@ for ($i = 0; $i < 12; $i++) {
       echo $result_vote[$o_key[$i]].' : ';
       echo $result_vote[$c_key[$i]];
     }
-  }
     echo '<br>';
 }
 
