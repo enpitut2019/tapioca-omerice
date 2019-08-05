@@ -42,18 +42,27 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id ='.$store_id);
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
+// 投票のハッシュのキーの配列
+$o_key = array('o0_2','o2_4','o4_6','o6_8','o8_10','o10_12','o12_14','o14_16','o16_18','o18_20','o20_22','o22_24');
+$c_key = array('c0_2','c2_4','c4_6','c6_8','c8_10','c10_12','c12_14','c14_16','c16_18','c18_20','c20_22','c22_24');
+
 // 投票数の表示
-if($result_vote['o0_2'] > $result_vote['c0_2']){
-  echo '営業中票数:<font color="RED">'.$result_vote['o0_2'].'</font><br />';
-  echo '閉店中票数:'.$result_vote['c0_2'];
-} else if($result_vote['o0_2'] < $result_vote['c0_2']){
-  echo '営業中票数:'.$result_vote['o0_2'].'<br />';
-  echo '閉店中票数:<font color="RED">'.$result_vote['c0_2'].'</font>';
-} else {
-  echo '営業中票数:'.$result_vote['o0_2'].'<br />';
-  echo '閉店中票数:'.$result_vote['c0_2'];
+for ($i = 0; $i < 12; $i++) {
+  if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
+    echo '<font color="RED">'.$result_vote[$o_key[$i]].' : ';
+    echo $result_vote[$c_key[$i]];
+  } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
+    echo $result_vote[$o_key[$i]].' : ';
+    echo '<font color="RED">'.$result_vote[$c_key[$i]].'</font>';
+  } else {
+    echo $result_vote[$o_key[$i]].' : ';
+    echo $result_vote[$c_key[$i]];
+  }
 }
+
 ?>
+
+
 
 </body>
 </html>
