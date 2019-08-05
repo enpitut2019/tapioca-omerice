@@ -24,6 +24,9 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 .red{
   color:RED;
 }
+.gray{
+  color:#4F4F4F;
+}
 </style>
 </head>
 <body>
@@ -64,26 +67,28 @@ for ($i = 0; $i < 12; $i++) {
     } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
       echo '<strong>'.$time[$i].' ... </strong>';
       echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-      echo '<strong>'.$result_vote[$c_key[$i]].'</strong>';
+      echo '<strong class="red">'.$result_vote[$c_key[$i]].'</strong>';
     } else {
       echo '<strong>'.$time[$i].' ... </strong>';
       echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
       echo '<strong>'.$result_vote[$c_key[$i]].'</strong>';
     }
   }else {
+    echo '<span class="gray">';
     if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
-    echo $time[$i].' ... ';
-    echo $result_vote[$o_key[$i]].' : ';
-    echo $result_vote[$c_key[$i]];
-  } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
-    echo $time[$i].' ... ';
-    echo $result_vote[$o_key[$i]].' : ';
-    echo $result_vote[$c_key[$i]];
-  } else {
-    echo $time[$i].' ... ';
-    echo $result_vote[$o_key[$i]].' : ';
-    echo $result_vote[$c_key[$i]];
-  }
+      echo $time[$i].' ... ';
+      echo $result_vote[$o_key[$i]].' : ';
+      echo $result_vote[$c_key[$i]];
+    } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
+      echo $time[$i].' ... ';
+      echo $result_vote[$o_key[$i]].' : ';
+      echo $result_vote[$c_key[$i]];
+    } else {
+      echo $time[$i].' ... ';
+      echo $result_vote[$o_key[$i]].' : ';
+      echo $result_vote[$c_key[$i]];
+    }
+  echo '</span>';
 }
   echo '<br>';
 }
