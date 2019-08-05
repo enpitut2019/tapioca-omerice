@@ -97,6 +97,15 @@ for ($i = 0; $i < 12; $i++) {
 $stmt_detail_info = $pdo->query('SELECT * FROM info WHERE store_id = '.$store_id);
 $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
 var_dump($result_detail_info);
+
+echo 'ランチ：'.$result_detail_info["l_time_o"].'~'.$result_detail_info["l_time_c"].'<br>';
+echo 'ディナー：'.$result_detail_info["d_time_o"].'~'.$result_detail_info["d_time_c"].'<br>';
+echo '定休日：'.$result_detail_info["holiday"].'<br>';
+echo 'ジャンル：'.$result_detail_info["genre"].'<br>';
+echo '価格帯：'.$result_detail_info["price_min"].'~'.$result_detail_info["price_max"].'<br>';
+echo 'TEL：'.$result_detail_info["tel"].'<br>';
+echo 'URL：<a href ='.$result_detail_info["url"].'>'.$result_detail_info["url"].'</a>';
+
 ?>
 
 
