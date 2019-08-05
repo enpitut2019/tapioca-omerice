@@ -10,7 +10,7 @@ $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
 
 if(strcmp($_POST['vote'], '営業中') == 0) { // 営業中
-  echo '営業中'
+  echo '営業中';
   $result_vote['o0_2']+=1;
   $stmt = $pdo->prepare('UPDATE sample0802_open SET o0_2='.$result_vote['o0_2'].'WHERE store_id='.$_POST['store_id']);
   $stmt->execute();
