@@ -50,7 +50,7 @@ $c_key = array('c0_2','c2_4','c4_6','c6_8','c8_10','c10_12','c12_14','c14_16','c
 for ($i = 0; $i < 12; $i++) {
   if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
     echo $o_key.' >> ';
-    echo '<font color="RED">'.$result_vote[$o_key[$i]].' : ';
+    echo '<font color="RED">'.$result_vote[$o_key[$i]].'</font> : ';
     echo $result_vote[$c_key[$i]];
   } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
     echo $o_key.' >> ';
