@@ -63,8 +63,10 @@ for ($i = 0; $i < 12; $i++) {
     echo $result_vote[$c_key[$i]];
   }
   echo '<br>';
-  echo date("H");
 }
+
+  date_default_timezone_set('Asia/Tokyo');
+  echo date("H");
 
 ?>
 
