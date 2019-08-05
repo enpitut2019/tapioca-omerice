@@ -20,6 +20,14 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
     echo $result['store_name'];
   ?>
 </title> <!-- あとで変数 -->
+<style>
+.red{
+  color:RED;
+}
+.gray{
+  color:#4F4F4F;
+}
+</style>
 </head>
 <body>
   <h1>
@@ -43,48 +51,46 @@ $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open 
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
 // 投票のハッシュのキーの配列
-$o_key = array('o4_6','o6_8','o8_10','o10_12','o12_14','o14_16','o16_18','o18_20','o20_22','o22_24','o0_2','o2_4');
-$c_key = array('c4_6','c6_8','c8_10','c10_12','c12_14','c14_16','c16_18','c18_20','c20_22','c22_24','c0_2','c2_4');
-$time = array(' 4:00~ 6:00', ' 6:00~ 8:00', ' 8:00~10:00', '10:00~12:00', '12:00~14:00', '14:00~16:00', '16:00~18:00', '18:00~20:00', '20:00~22:00', '22:00~ 0:00', ' 0:00~ 2:00', ' 2:00~ 4:00');
+$o_key = array('o0_2','o2_4', 'o4_6','o6_8','o8_10','o10_12','o12_14','o14_16','o16_18','o18_20','o20_22','o22_24');
+$c_key = array('c0_2','c2_4', 'c4_6','c6_8','c8_10','c10_12','c12_14','c14_16','c16_18','c18_20','c20_22','c22_24');
+$time = array( ' 0:00~ 2:00', ' 2:00~ 4:00', ' 4:00~ 6:00', ' 6:00~ 8:00', ' 8:00~10:00', '10:00~12:00', '12:00~14:00', '14:00~16:00', '16:00~18:00', '18:00~20:00', '20:00~22:00', '22:00~ 0:00');
 date_default_timezone_set('Asia/Tokyo');
 $date = date("H");
+$key = intval($date/2);
 
 // 投票数の表示
 for ($i = 0; $i < 12; $i++) {
-  for($j = 4; $j < 28; j += 2) {
-    if($j <= $date && $date < j+2) {
-      if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
-        echo '<strong>'.$time[$i].' ... </strong>';
-        echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-        echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
-      } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
-        echo '<strong>'.$time[$i].' ... </strong>';
-        echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-        echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
-      } else {
-        echo '<strong>'.$time[$i].' ... </strong>';
-        echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-        echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
-      }
-    }else {
-      echo $time[$i].' ... ';
-      echo $result_vote[$o_key[$i]].' : ';
-      echo $result_vote[$c_key[$i]];
-    } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
-      echo $time[$i].' ... ';
-      echo $result_vote[$o_key[$i]].' : ';
-      echo $result_vote[$c_key[$i]];
-    } else {
-      echo $time[$i].' ... ';
-      echo $result_vote[$o_key[$i]].' : ';
-      echo $result_vote[$c_key[$i]];
-    }
-    echo '<br>';
-  }
-}
+  if($i != $key ) {
 
-  date_default_timezone_set('Asia/Tokyo');
-  echo date("H");
+    echo '<span class="gray">';
+    echo $time[$i].' ... ';
+    echo $result_vote[$o_key[$i]].' : ';
+    echo $result_vote[$c_key[$i]];
+    echo '</span>';
+
+  } else {
+    if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
+      echo '<strong>';
+      echo $time[$i].' ... ';
+      echo '<span class="red">'.$result_vote[$o_key[$i]].'</span> : ';
+      echo $result_vote[$c_key[$i]];
+      echo '</strong>';
+    } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
+      echo '<strong>';
+      echo $time[$i].' ... ';
+      echo $result_vote[$o_key[$i]].' : ';
+      echo '<span class="red">'.$result_vote[$c_key[$i]].'</span>';
+      echo '</strong>';
+    } else {
+      echo '<strong>';
+      echo $time[$i].' ... ';
+      echo $result_vote[$o_key[$i]].' : ';
+      echo $result_vote[$c_key[$i]];
+      echo '</strong>';
+    }
+  }
+  echo '<br>';
+}
 
 ?>
 
