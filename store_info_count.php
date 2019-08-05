@@ -91,6 +91,7 @@ for ($i = 0; $i < 12; $i++) {
       echo '</strong>';
     }
   }
+  echo '<br>';
 }
 echo '</p>';
 
