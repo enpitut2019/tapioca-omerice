@@ -37,22 +37,15 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   </h1> <!-- あとで変数 -->
 
 <!-- 営業状態の投票 -->
-<<<<<<< HEAD
-<div>
-=======
+
 <p>
->>>>>>> 0fea2e227284d99629b1bf89e9ebdf1aa6436057
   <form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
   <input type="hidden" value=<?php echo $store_id; ?> name="store_id">
   <input type="submit" value="営業中" name="vote_open">　<!-- 営業中 -->
   <input type="submit" value="閉店中" name="vote_close">　<!-- 閉店中 -->
   </form>
-<<<<<<< HEAD
-</div>
-
-=======
 </p>
->>>>>>> 0fea2e227284d99629b1bf89e9ebdf1aa6436057
+
 
 <!-- 投票数のカウント -->
 <!-- 0時から2時の営業 -->
