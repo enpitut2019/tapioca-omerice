@@ -37,14 +37,22 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   </h1> <!-- あとで変数 -->
 
 <!-- 営業状態の投票 -->
+<<<<<<< HEAD
 <div>
+=======
+<p>
+>>>>>>> 0fea2e227284d99629b1bf89e9ebdf1aa6436057
   <form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
   <input type="hidden" value=<?php echo $store_id; ?> name="store_id">
   <input type="submit" value="営業中" name="vote_open">　<!-- 営業中 -->
   <input type="submit" value="閉店中" name="vote_close">　<!-- 閉店中 -->
   </form>
+<<<<<<< HEAD
 </div>
 
+=======
+</p>
+>>>>>>> 0fea2e227284d99629b1bf89e9ebdf1aa6436057
 
 <!-- 投票数のカウント -->
 <!-- 0時から2時の営業 -->
@@ -61,6 +69,7 @@ $date = date("H");
 $key = intval($date/2);
 
 // 投票数の表示
+echo '<p>';
 for ($i = 0; $i < 12; $i++) {
   if($i != $key ) {
 
@@ -93,7 +102,21 @@ for ($i = 0; $i < 12; $i++) {
   }
   echo '<br>';
 }
+echo '</p>';
 
+// 詳細情報の取得
+$stmt_detail_info = $pdo->query('SELECT * FROM info WHERE store_id = '.$store_id);
+$result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
+
+echo '<p>';
+echo 'ランチ：'.$result_detail_info["l_time_o"].'~'.$result_detail_info["l_time_c"].'<br>';
+echo 'ディナー：'.$result_detail_info["d_time_o"].'~'.$result_detail_info["d_time_c"].'<br>';
+echo '定休日：'.$result_detail_info["holiday"].'<br>';
+echo 'ジャンル：'.$result_detail_info["genre"].'<br>';
+echo '価格帯：'.$result_detail_info["price_min"].'~'.$result_detail_info["price_max"].'<br>';
+echo 'TEL：'.$result_detail_info["tel"].'<br>';
+echo 'URL：<a href ='.$result_detail_info["url"].'>'.$result_detail_info["url"].'</a>';
+echo '</p>';
 ?>
 
 
