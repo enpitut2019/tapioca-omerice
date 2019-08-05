@@ -52,7 +52,7 @@ $date = date("H");
 // 投票数の表示
 for ($i = 0; $i < 12; $i++) {
   for($j = 4; $j < 28; $j = $j+2) {
-    if($j <= $date && $date < $j+2) {
+    if($j <= (int)$date && (int)$date < $j+2) {
       if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
         echo '<strong>'.$time[$i].' ... </strong>';
         echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
@@ -79,8 +79,8 @@ for ($i = 0; $i < 12; $i++) {
       echo $result_vote[$o_key[$i]].' : ';
       echo $result_vote[$c_key[$i]];
     }
-    echo '<br>';
   }
+    echo '<br>';
 }
 
   date_default_timezone_set('Asia/Tokyo');
