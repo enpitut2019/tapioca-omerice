@@ -20,6 +20,11 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
     echo $result['store_name'];
   ?>
 </title> <!-- あとで変数 -->
+<style>
+.red{
+  color:RED;
+}
+</style>
 </head>
 <body>
   <h1>
@@ -54,7 +59,7 @@ for ($i = 0; $i < 12; $i++) {
   if($i ==(intval($date)/2)) {
     if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
       echo '<strong>'.$time[$i].' ... </strong>';
-      echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
+      echo '<strong class="red">'.$result_vote[$o_key[$i]].' : </strong>';
       echo '<strong>'.$result_vote[$c_key[$i]].'</strong>';
     } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
       echo '<strong>'.$time[$i].' ... </strong>';
@@ -82,9 +87,6 @@ for ($i = 0; $i < 12; $i++) {
 }
   echo '<br>';
 }
-
-  //date_default_timezone_set('Asia/Tokyo');
-  echo date("H");
 
 ?>
 
