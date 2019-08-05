@@ -51,7 +51,7 @@ $date = date("H");
 
 // 投票数の表示
 for ($i = 0; $i < 12; $i++) {
-  if($i < (intval($date)/2) && (intval($date)/2) < $i+1) {
+  if($i ==(intval($date)/2)) {
     if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
       echo '<strong>'.$time[$i].' ... </strong>';
       echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
