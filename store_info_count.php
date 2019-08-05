@@ -51,35 +51,35 @@ $date = date("H");
 
 // 投票数の表示
 for ($i = 0; $i < 12; $i++) {
-    if(i < (intval($date)/2) && (intval($date)/2) < $i+1) {
-      if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
-        echo '<strong>'.$time[$i].' ... </strong>';
-        echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-        echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
-      } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
-        echo '<strong>'.$time[$i].' ... </strong>';
-        echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-        echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
-      } else {
-        echo '<strong>'.$time[$i].' ... </strong>';
-        echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
-        echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
-      }
-    }else {
-      if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
-      echo $time[$i].' ... ';
-      echo $result_vote[$o_key[$i]].' : ';
-      echo $result_vote[$c_key[$i]];
+  if($i < (intval($date)/2) && (intval($date)/2) < $i+1) {
+    if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
+      echo '<strong>'.$time[$i].' ... </strong>';
+      echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
+      echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
     } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
-      echo $time[$i].' ... ';
-      echo $result_vote[$o_key[$i]].' : ';
-      echo $result_vote[$c_key[$i]];
+      echo '<strong>'.$time[$i].' ... </strong>';
+      echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
+      echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
     } else {
-      echo $time[$i].' ... ';
-      echo $result_vote[$o_key[$i]].' : ';
-      echo $result_vote[$c_key[$i]];
+      echo '<strong>'.$time[$i].' ... </strong>';
+      echo '<strong>'.$result_vote[$o_key[$i]].' : </strong>';
+      echo '<strong>'.$result_vote[$c_key[$i]]'</strong>';
     }
-    echo '<br>';
+  }else {
+    if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
+    echo $time[$i].' ... ';
+    echo $result_vote[$o_key[$i]].' : ';
+    echo $result_vote[$c_key[$i]];
+  } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
+    echo $time[$i].' ... ';
+    echo $result_vote[$o_key[$i]].' : ';
+    echo $result_vote[$c_key[$i]];
+  } else {
+    echo $time[$i].' ... ';
+    echo $result_vote[$o_key[$i]].' : ';
+    echo $result_vote[$c_key[$i]];
+  }
+  echo '<br>';
 }
 
   //date_default_timezone_set('Asia/Tokyo');
