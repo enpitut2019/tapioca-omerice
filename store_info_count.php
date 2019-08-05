@@ -28,9 +28,11 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
     ?>
   </h1> <!-- あとで変数 -->
 
-  <form method="POST" action="">
-<input type="submit" value="営業中" name="vote">　
-<input type="submit" value="閉店中" name="vote">　
+<!-- 営業状態の投票 -->
+<form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
+<input type="hidden" value=<?php $store_id ?> name="store_id">
+<input type="submit" value="0" name="vote">　<!-- 営業中 -->
+<input type="submit" value="1" name="vote">　<!-- 閉店中 -->
 </form>
 
 
@@ -39,8 +41,8 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <?php
 $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id ='.$store_id);
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
-// echo $result_vote['c0_2'];
-// var_dump($result_vote);
+
+// 投票数の表示
 if($result_vote['o0_2'] > $result_vote['c0_2']){
   echo '営業中票数:<font color="RED">'.$result_vote['o0_2'].'</font><br />';
   echo '閉店中票数:'.$result_vote['c0_2'];
@@ -51,8 +53,6 @@ if($result_vote['o0_2'] > $result_vote['c0_2']){
   echo '営業中票数:'.$result_vote['o0_2'].'<br />';
   echo '閉店中票数:'.$result_vote['c0_2'];
 }
-// var_dump($result_vote['c0_2']);
-
 ?>
 
 </body>
