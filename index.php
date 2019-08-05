@@ -41,8 +41,8 @@
 
   for($i=0; $i<8; $i++) {
     $j = $index-(4+$i);
-    if($j<=-1){
-      $j+=13;
+    if($j < 0){
+      $j+=12;
     }
     $stmt_o = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$j].'= 0');
     $stmt_o->execute();
