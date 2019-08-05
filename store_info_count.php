@@ -59,7 +59,7 @@ for ($i = 0; $i < 12; $i++) {
   if($i ==(intval($date)/2)) {
     if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
       echo '<strong>'.$time[$i].' ... </strong>';
-      echo '<strong class="red">'.$result_vote[$o_key[$i]].' : </strong>';
+      echo '<strong class="red">'.$result_vote[$o_key[$i]].'</strong><strong> : </strong>';
       echo '<strong>'.$result_vote[$c_key[$i]].'</strong>';
     } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
       echo '<strong>'.$time[$i].' ... </strong>';
