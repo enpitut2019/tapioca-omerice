@@ -9,15 +9,18 @@ $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open 
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
 
-if($_POST['vote'] == 0) { // 営業中
+if(strcmp($_POST['vote'], '営業中') == 0) { // 営業中
   $result_vote['o0_2']+=1;
-  $stmt = $pdo->query('UPDATE sample0802_open SET o0_2='.$result_vote['o0_2'].'WHERE store_id='.$_POST['store_id']);
-} else if($_POST['vote'] == 1) { // 閉店中
+  $stmt = $pdo->prepare('UPDATE sample0802_open SET o0_2='.$result_vote['o0_2'].'WHERE store_id='.$_POST['store_id']);
+  $stmt->execute();
+
+} else if(strcmp($_POST['vote'], '閉店中') == 0) { // 閉店中
   $result_vote['c0_2']+=1;
-  $stmt = $pdo->query('UPDATE sample0802_close SET c0_2='.$result_vote['c0_2'].'WHERE store_id='.$_POST['store_id']);
+  $stmt = $pdo->prepare('UPDATE sample0802_close SET c0_2='.$result_vote['c0_2'].'WHERE store_id='.$_POST['store_id']);
+  $stmt->execute();
 }
 
-header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
-exit();
+// header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
+// exit();
 
 ?>
