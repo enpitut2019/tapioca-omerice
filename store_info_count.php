@@ -63,6 +63,7 @@ for ($i = 0; $i < 12; $i++) {
     echo $result_vote[$c_key[$i]];
   }
   echo '<br>';
+  echo date("H");
 }
 
 ?>
