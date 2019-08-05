@@ -61,13 +61,13 @@ $date = date("H");
 for ($i = 0; $i < 12; $i++) {
   if($i !=(intval($date)/2)) {
 
-    // echo '<span class="gray">';
-    // echo $time[$i].' ... ';
-    // echo $result_vote[$o_key[$i]].' : ';
-    // echo $result_vote[$c_key[$i]];
-    // echo '</span>';
+    echo '<span class="gray">';
+    echo $time[$i].' ... ';
+    echo $result_vote[$o_key[$i]].' : ';
+    echo $result_vote[$c_key[$i]];
+    echo '</span>';
 
-  }else {
+  } else {
     /*if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
       echo '<strong>';
       echo $time[$i].' ... ';
