@@ -16,6 +16,8 @@
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
 
+<a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
+
 
   <?php
 
