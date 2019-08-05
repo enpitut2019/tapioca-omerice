@@ -59,7 +59,7 @@ $date = date("H");
 
 // 投票数の表示
 for ($i = 0; $i < 12; $i++) {
-  if($i =!(intval($date)/2)) {
+  if($i !=(intval($date)/2)) {
 
     echo '<span class="gray">';
     echo $time[$i].' ... ';
