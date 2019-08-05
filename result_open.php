@@ -15,11 +15,11 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 <body>
   <h1>ごっっはにゃさん結果</h1>
 <?php
-$stmt2 = $pdo->query('SELECT store_id FROM info WHERE status = 1');
+$stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
 $result = $stmt2 -> fetch(PDO::FETCH_ASSOC);
-var_dump($result);
-$stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id LIKE \'%'.$result.'%\'');
-
+// var_dump($result);
+$stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id LIKE \'%'.$result['store_id'].'%\'');
+var_dump($stmt);
   if($stmt){
     while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
       echo $result['store_name'];
