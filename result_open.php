@@ -17,16 +17,15 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 <?php
 $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
 $result = $stmt2 -> fetch(PDO::FETCH_ASSOC);
-// var_dump($result);
 $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id = '.$result['store_id']);
-var_dump($stmt);
+
   if($stmt){
     while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
       echo $result['store_name'];
       echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
     }
   }else{
-    echo 'dame';
+    echo '営業中の店舗はありません';
   }
  
 ?>
