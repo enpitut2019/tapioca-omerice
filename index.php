@@ -69,6 +69,10 @@ for($i=0; $i<8; $i++) {
         $stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
         $stmt->execute();
         $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+        echo $result2['store_name'];
+        echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
+      }
+    }
   }else{
     echo "dame";
   }
