@@ -124,6 +124,36 @@ if($result_detail_info['twitter']){
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <?php
 }
+
+echo '<p>';
+echo '↓↓↓同じジャンルのお店を探す↓↓↓<br>';
+$stmt_genre = $pdo->prepare('SELECT * FROM info LEFT JOIN sample0801_db ON info.store_id = sample0801_db.store_id WHERE genre=:genre');
+$stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
+$stmt_genre->execute();
+if($stmt_genre) {
+  // $i = 0;
+  while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
+    if($result_genre['store_id'] != $store_id ) {
+      echo $result_genre['store_name'];
+      echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">詳細情報</a><br>';
+
+      // $genre_array[$i] = $result_genre['store_id'];
+      // $i += 1;
+    }
+  }
+//ランダムに同ジャンルのお店を表示 genre_sidはstore_id
+// $rand_ar = range(0, $i);
+// shuffle($rand_ar);
+// for($j=0;$j<5;$j++){
+//   if($j == $i) {
+//     break;
+//     }
+//   $genre_sid = $genre_array[$rand_ar[$j]];
+
+  }
+//}
+
+echo '</p>';
 ?>
 
 </body>
