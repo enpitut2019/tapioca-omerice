@@ -93,13 +93,13 @@ $key = intval($date/2);
 // 投票数の表示
 echo '<p>';
 
-echo 'open :'.(h($result_vote[$o_key[$key-1]]) + h($result_vote[$o_key[$key]]));
-echo '<br>';
-echo 'close :'.(h($result_vote[$c_key[$key-1]]) + h($result_vote[$c_key[$key]]));
-echo '<br>';
+echo (h($result_vote[$o_key[$key-1]]) + h($result_vote[$o_key[$key]]));
+echo '人が営業中と言っています<br>';
+echo (h($result_vote[$c_key[$key-1]]) + h($result_vote[$c_key[$key]]));
+echo '人が閉店中と言っています';
 
-echo '集計時間 :'.h($time_4h[$key-1]);
-echo '<br>';
+echo '<p style="font-size:80%">集計時間 :'.h($time_4h[$key-1]);
+echo '</p>';
 
 echo h($time[$key-1]).' ... ';
 echo 'open:'.h($result_vote[$o_key[$key-1]]);
