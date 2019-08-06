@@ -320,7 +320,7 @@
 		height:50vh;
 	}
 	.twi_pc{
-		/* displasy:none; */
+		display:none;
 	}
 	.twi_mobile{}
 }
