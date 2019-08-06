@@ -47,13 +47,12 @@ $stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
   if(($result99['l_time_o'] < $open_flag && $open_falg < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
-    $result98 -> execute();
-    var_dump($result99);
+    $stmt98 -> execute();
     if($result99['holiday'] == $monday){
-      $result97 -> execute();
+      $stmt97 -> execute();
     }
   }else {
-    $result97 -> execute();
+    $stmt97 -> execute();
   }
 }
 }
@@ -110,14 +109,14 @@ for($i=0; $i<8; $i++) {
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
           if(($result11['l_time_o'] < $open_flag && $open_falg < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
-            $result98 -> execute();
+            $stmt98 -> execute();
             if($result11['holiday'] == $monday){
               $rikiya = '営業時間外';
-              $result97 -> execute();
+              $stmt97 -> execute();
             }
           }else {
             $rikiya = '営業時間外';
-            $result97 -> execute();
+            $stmt97 -> execute();
           }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">';
          echo '<div class="box1">'.$result11['store_name'].'<br>';
@@ -134,14 +133,14 @@ for($i=0; $i<8; $i++) {
          while($result10 = $stmt10 -> fetch(PDO::FETCH_ASSOC)) {
            if(($result10['l_time_o'] < $open_flag && $open_falg < $result10['l_time_c']) || ($result10['d_time_o'] < $open_flag && $open_flag < $result10['d_time_c'])) {
              $rikiya = '営業時間内';
-             $result98 -> execute();
+             $stmt98 -> execute();
              if($result10['holiday'] == $monday){
                $rikiya = '営業時間外';
-               $result97 -> execute();
+               $stmt97 -> execute();
              }
            }else {
              $rikiya = '営業時間外';
-             $result97 -> execute();
+             $stmt97 -> execute();
            }
            echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result10['store_id']).'">';
            echo '<div class="box1">'.$result10['store_name'].'<br>';
@@ -159,14 +158,14 @@ for($i=0; $i<8; $i++) {
        while($result01 = $stmt01 -> fetch(PDO::FETCH_ASSOC)) {
          if(($result01['l_time_o'] < $open_flag && $open_falg < $result01['l_time_c']) || ($result01['d_time_o'] < $open_flag && $open_flag < $result01['d_time_c'])) {
            $rikiya = '営業時間内';
-           $result98 -> execute();
+           $stmt98 -> execute();
            if($result01['holiday'] == $monday){
              $rikiya = '営業時間外';
-             $result97 -> execute();
+             $stmt97 -> execute();
            }
          }else {
            $rikiya = '営業時間外';
-           $result97 -> execute();
+           $stmt97 -> execute();
          }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result01['store_id']).'">';
          echo '<div class="box1">'.$result01['store_name'].'<br>';
@@ -182,14 +181,14 @@ for($i=0; $i<8; $i++) {
        while($result00 = $stmt00 -> fetch(PDO::FETCH_ASSOC)) {
          if(($result00['l_time_o'] < $open_flag && $open_falg < $result00['l_time_c']) || ($result00['d_time_o'] < $open_flag && $open_flag < $result00['d_time_c'])) {
            $rikiya = '営業時間内';
-           $result98 -> execute();
+           $stmt98 -> execute();
            if($result00['holiday'] == $monday){
              $rikiya = '営業時間外';
-             $result97 -> execute();
+             $stmt97 -> execute();
            }
          }else {
            $rikiya = '営業時間外';
-           $result97 -> execute();
+           $stmt97 -> execute();
          }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result00['store_id']).'">';
          echo '<div class="box1">'.$result00['store_name'].'<br>';
