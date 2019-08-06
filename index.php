@@ -41,7 +41,7 @@ if($wd == 1){
 }else{
   $monday = '日曜日';
 }
-var_dump($monday);
+
 $index = intval($date/2);
 
 for($i=0; $i<8; $i++) {
@@ -95,6 +95,7 @@ for($i=0; $i<8; $i++) {
           }else {
             $rikiya = '営業時間外';
           }
+          var_dump($rikiya);
          echo '<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">'.$result11['store_name'].$rikiya.'</a><br>';
 
        }
