@@ -78,7 +78,7 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 <body>
   <!-- <p>ありがとうございます！</p> -->
   <a href=https://tapiome.herokuapp.com/>
-  <img class = "head_img" src="img/thanks.png" width="335px" height="60px">
+  <img class = "head_img" src="img/thanks.png" width="455px" height="55px">
   </a>
   <script type="text/javascript">
   setTimeout(function(){
