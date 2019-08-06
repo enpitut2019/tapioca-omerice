@@ -12,6 +12,12 @@ $stmt_vote->bindValue(':store_id', $store_id, PDO::PARAM_INT);
 $stmt_vote->execute();
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
+$stmt_info = $pdo->prepare('SELECT * FROM info WHERE store_id = :store_id');
+$stmt_info->bindValue(':store_id', $store_id, PDO::PARAM_INT);
+$stmt_info->execute();
+$result_info = $stmt_info -> fetch(PDO::FETCH_ASSOC);
+
+
 // hashのkeyの配列
 $o_key = array('o0_2','o2_4','o4_6','o6_8','o8_10','o10_12','o12_14','o14_16','o16_18','o18_20','o20_22','o22_24');
 $c_key = array('c0_2','c2_4','c4_6','c6_8','c8_10','c10_12','c12_14','c14_16','c16_18','c18_20','c20_22','c22_24');
@@ -30,28 +36,40 @@ $date = date("H");
 // var_dump($date);
 // var_dump(intval($date));
 
-$index = intval($date)/2;
+$index = intval($date/2);
 
 if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $result_vote[ $o_key[$index]]+=1;
   // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
   // $stmt->execute();
-  $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].' = :result_vote WHERE store_id = :store_id');
+  $stmt = $pdo->prepare('UPDATE sample0802_open SET :o_key = :result_vote WHERE store_id = :store_id');
+  $stmt->bindValue(':o_key', $o_key[$index], PDO::PARAM_STR);
   $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
   $stmt->execute();
 } else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
   $result_vote[ $c_key[$index]]+=1;
-  // $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].'='.$result_vote[$c_key[$index]].'WHERE store_id='.$_POST['store_id']);
-  $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
+  $stmt = $pdo->prepare('UPDATE sample0802_close SET :c_key = :result_vote WHERE store_id = :store_id');
+  $stmt->bindValue(':c_key', $c_key[$index], PDO::PARAM_STR);
   $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
   $stmt->execute();
 }
 
+  if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
+    $stmt = $pdo->prepare('UPDATE info SET :result_info = 1 WHERE store_id = :store_id');
+    $stmt->bindValue(':result_info', $result_info['status'], PDO::PARAM_INT);
+    $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
+    $stmt->execute();
+  } else {
+    $stmt = $pdo->prepare('UPDATE info SET :result_info = 0 WHERE store_id = :store_id');
+    $stmt->bindValue(':result_info', $result_info['status'], PDO::PARAM_INT);
+    $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
+    $stmt->execute();
+  }
 
-
- header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
- exit();
+  echo $result_info['status'];
+ // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
+ // exit();
 
 ?>
