@@ -50,13 +50,9 @@ for($i=0; $i<8; $i++) {
 
 <!-- 検索フォーム -->
 <form method="post" action="index.php">
-<input type="search" name="kensaku" ><input type="submit" value="検索">
-</form>
-
-<!-- 今から営業中のチェックボックボックスを作りたい -->
-<form method="post" action="index.php">
+<input type="search" name="kensaku" >
 <input type="checkbox" name="eigyou[]" value="営業中">営業中店舗のみ表示
-<input type="submit" value="表示">
+<input type="submit" value="検索">
 </form>
 
 <?php
