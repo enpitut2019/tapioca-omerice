@@ -60,12 +60,15 @@ for($i=0; $i<8; $i++) {
   $eigyou = $_POST['eigyou'];
   if($word != NULL){
     if(isset($eigyou)){
-      $stmt11 = $pdo->prepare('SELECT * FROM sample0801_db  WHERE status = 1 LIKE :word');
+      $stmt11 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
+      $stmt11->execute();
+      echo $stmt11;
+
     }
   }
-  $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
-  $stmt->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
-  $stmt->execute();
+  //$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
+  //$stmt->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
+  //$stmt->execute();
 
 
 
