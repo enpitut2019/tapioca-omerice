@@ -44,9 +44,12 @@ $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample080
 $stmt98 = $pdo->prepare('UPDATE info SET status = 1');
 $stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 
-if($stmt99) {
+// $result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)
+// var_dump($result99);
+
+//if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
-    var_dump($stmt99);
+    var_dump($result99);
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
       $stmt98 -> execute();
       if($result99['holiday'] == $monday){
@@ -56,7 +59,7 @@ if($stmt99) {
       $stmt97 -> execute();
     }
   }
-}
+//}
 
 $index = intval($date/2);
 
