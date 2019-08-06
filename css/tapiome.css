@@ -12,9 +12,7 @@
 
 
 
-.first{
-	padding-top: 12vh;
-}
+
 
 /*リンクの色はなし*/
 .link {
@@ -26,42 +24,6 @@
 }
 
 
-.button_open {
-  display       : inline-block;
-  border-radius : 20%;          /* 角丸       */
-  font-size     : 14pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 8px 10px;   /* 余白       */
-  background    : #e3ab30;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  border        : 2px solid #e3ab30;    /* 枠の指定 */
-}
-.button_open:hover {
-  color         : #e3ab30;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
-}
-
-.button_close {
-	margin-left: -10px;
-  display       : inline-block;
-  border-radius : 20%;          /* 角丸       */
-  font-size     : 14pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 8px 10px;   /* 余白       */
-  background    : #6bb6bb;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  border        : 2px solid #6bb6bb;    /* 枠の指定 */
-}
-.button_close:hover {
-  color         : #6bb6bb;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
-}
 
 
 /* PC用 */
@@ -89,6 +51,9 @@
 	}
 	.head_img{
 		margin-left: 25%;
+	}
+	.first{
+		padding-top: 12vh;
 	}
 
 	/* index.php：検索結果の枠 */
@@ -163,11 +128,42 @@
 	}
 
 
-	/* twitter用 */
-	.twitter_pc{
+	/* 投票ボタン */
+	.button_open {
+	  display       : inline-block;
+	  border-radius : 20%;          /* 角丸       */
+	  font-size     : 14pt;        /* 文字サイズ */
+	  text-align    : center;      /* 文字位置   */
+	  cursor        : pointer;     /* カーソル   */
+	  padding       : 8px 10px;   /* 余白       */
+	  background    : #e3ab30;     /* 背景色     */
+	  color         : #ffffff;     /* 文字色     */
+	  line-height   : 1em;         /* 1行の高さ  */
+	  transition    : .3s;         /* なめらか変化 */
+	  border        : 2px solid #e3ab30;    /* 枠の指定 */
 	}
-	.twitter_mobile{
-		visibility:hidden;
+	.button_open:hover {
+	  color         : #e3ab30;     /* 背景色     */
+	  background    : #ffffff;     /* 文字色     */
+	}
+
+	.button_close {
+		margin-left: -10px;
+	  display       : inline-block;
+	  border-radius : 20%;          /* 角丸       */
+	  font-size     : 14pt;        /* 文字サイズ */
+	  text-align    : center;      /* 文字位置   */
+	  cursor        : pointer;     /* カーソル   */
+	  padding       : 8px 10px;   /* 余白       */
+	  background    : #6bb6bb;     /* 背景色     */
+	  color         : #ffffff;     /* 文字色     */
+	  line-height   : 1em;         /* 1行の高さ  */
+	  transition    : .3s;         /* なめらか変化 */
+	  border        : 2px solid #6bb6bb;    /* 枠の指定 */
+	}
+	.button_close:hover {
+	  color         : #6bb6bb;     /* 背景色     */
+	  background    : #ffffff;     /* 文字色     */
 	}
 }
 
@@ -177,7 +173,7 @@
 /* スマホ用 */
 @media screen and (max-width:980px){
 	h1{
-		font-size: 10vh;
+		font-size: 300%;
 		color: #000000;
 	}
 
@@ -189,13 +185,17 @@
 	body{
 		margin-left: 5%;
 		margin-right: 5%;
-		margin-bottom: 50px;
+		margin-bottom: 100px;
 		color: #4f4f4f;
     font-family: 'ヒラギノ角ゴ Pro W3';
-		font-size: 5vh;
+		font-size: 250%;
 	}
 	.head_img{
 		margin-left: 5%;
+		margin-top: 50px;
+	}
+	.first{
+		padding-top: 6vh;
 	}
 
 	/* index.php：検索結果の枠 */
@@ -221,7 +221,7 @@
 		background: #ffffff;
 		border:solid 1px #000000;
 		margin:0 0 20px;
-		width:500px;
+		width:300px;
 	}
 	.submit01{
 		border:0;
@@ -231,7 +231,7 @@
 		background: #ffffff;
 		border:solid 1px #000000;
 		margin:0 0 20px;
-		width:90px;
+		width:180px;
 	}
 
 	/* css checkbox01 */
@@ -270,11 +270,41 @@
 	  border-right: 6px solid #009a9a;
 	}
 
-	/* twitter用 */
-	/* twitter用 */
-	.twitter_pc{
-		visibility:hidden;
+	/* 投票ボタン */
+	.button_open {
+	  display       : inline-block;
+	  border-radius : 20%;          /* 角丸       */
+	  font-size     : 200%;        /* 文字サイズ */
+	  text-align    : center;      /* 文字位置   */
+	  cursor        : pointer;     /* カーソル   */
+	  padding       : 8px 10px;   /* 余白       */
+	  background    : #e3ab30;     /* 背景色     */
+	  color         : #ffffff;     /* 文字色     */
+	  line-height   : 100px;         /* 1行の高さ  */
+	  transition    : .3s;         /* なめらか変化 */
+	  border        : 2px solid #e3ab30;    /* 枠の指定 */
 	}
-	.twitter_mobile{
+	.button_open:hover {
+	  color         : #e3ab30;     /* 背景色     */
+	  background    : #ffffff;     /* 文字色     */
+	}
+
+	.button_close {
+		margin-left: -10px;
+	  display       : inline-block;
+	  border-radius : 20%;          /* 角丸       */
+	  font-size     : 200%;        /* 文字サイズ */
+	  text-align    : center;      /* 文字位置   */
+	  cursor        : pointer;     /* カーソル   */
+	  padding       : 8px 10px;   /* 余白       */
+	  background    : #6bb6bb;     /* 背景色     */
+	  color         : #ffffff;     /* 文字色     */
+	  line-height   : 100px;         /* 1行の高さ  */
+	  transition    : .3s;         /* なめらか変化 */
+	  border        : 2px solid #6bb6bb;    /* 枠の指定 */
+	}
+	.button_close:hover {
+	  color         : #6bb6bb;     /* 背景色     */
+	  background    : #ffffff;     /* 文字色     */
 	}
 }
