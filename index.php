@@ -41,7 +41,8 @@ if($wd == 1){
 }
 
 $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
-$stmt98 = $pdo->prepare('UPDATE info SET status = 1 WHERE sample0801_db.store_name = "龍郎"');
+$stmt98 = $pdo->prepare('UPDATE info SET status = 1 WHERE sample0801_db.store_name = :store_name');
+$stmt98->bindValue(':store_name', $store_name, PDO::PARAM_STR);
 $stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 $stmt99 -> execute();
 
@@ -55,7 +56,6 @@ if($stmt99) {
       }
     }else {
       $stmt98 -> execute();
-      $stmt97 -> execute();
       var_dump($result99['status']);
     }
   }
