@@ -38,10 +38,10 @@ $date = date("H");
 
 $index = intval($date/2);
 
+// セッションの有効期限を120分に設定
+session_set_cookie_params(60 * 120);
 // セッション管理開始
-session_start([
-    'cookie_lifetime' => $7200, //2時間でリセット
-]);
+session_start();
 
 if (!isset($_SESSION['count'])) {
     // キー'count'が登録されていなければ、1を設定
