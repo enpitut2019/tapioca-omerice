@@ -41,8 +41,8 @@ if($wd == 1){
 }
 
 $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
-$stmt98 = $pdo->prepare('UPDATE info SET status = 1 WHERE info.store_id = 3');
-$stmt97 = $pdo->prepare('UPDATE info SET status = 5 WHERE info.store_id = 10');
+$stmt98 = $pdo->prepare('UPDATE info SET status = 1 WHERE info.store_id=1');
+$stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 $stmt99 -> execute();
 
 if($stmt99) {
@@ -109,7 +109,6 @@ for($i=0; $i<8; $i++) {
       $stmt11->execute();
       if($stmt11){
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
-          var_dump($result11['status']);
           if(($result11['l_time_o'] < $open_flag && $open_flag < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
             if($result11['holiday'] == $monday){
