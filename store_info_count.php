@@ -74,7 +74,8 @@ echo '定休日：'.h($result_detail_info["holiday"]).'<br>';
 echo 'ジャンル：'.h($result_detail_info["genre"]).'<br>';
 echo '価格帯：'.h($result_detail_info["price_min"]).'~'.h($result_detail_info["price_max"]).'<br>';
 echo 'TEL：'.h($result_detail_info["tel"]).'<br>';
-echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>'.h($result_detail_info["url"]).'</a>';
+// echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>'.h($result_detail_info["url"]).'</a>';
+echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>お店のURL</a>';
 echo '</p>';
 
 
@@ -145,29 +146,20 @@ $stmt_genre = $pdo->prepare('SELECT * FROM info LEFT JOIN sample0801_db ON info.
 $stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
 $stmt_genre->execute();
 if($stmt_genre) {
-  // $i = 0;
-  while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
+  $i = 0;
+  while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC) && $i < 4) {
     if($result_genre['store_id'] != $store_id ) {
-
-      echo '<a class="link" style="text-decoration: none;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
-      echo '<div class="box1">';
-      echo $result_genre['store_name'];
-      echo '</div></a>';
-      // $genre_array[$i] = $result_genre['store_id'];
-      // $i += 1;
+      // ランダムで表示
+      if(mt_rand()%2 == 0){
+        echo '<a class="link" style="text-decoration: none;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
+        echo '<div class="box1">';
+        echo $result_genre['store_name'];
+        echo '</div></a>';
+        $i+=1;
+      }
     }
   }
-//ランダムに同ジャンルのお店を表示 genre_sidはstore_id
-// $rand_ar = range(0, $i);
-// shuffle($rand_ar);
-// for($j=0;$j<5;$j++){
-//   if($j == $i) {
-//     break;
-//     }
-//   $genre_sid = $genre_array[$rand_ar[$j]];
-
-  }
-//}
+}
 
 echo '</p>';
 ?>
