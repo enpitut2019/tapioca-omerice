@@ -146,7 +146,7 @@ if($stmt_genre) {
   while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
     if($result_genre['store_id'] != $store_id ) {
       echo $result_genre['store_name'];
-      echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">詳細情報</a><br>';
+      echo '：<a class="link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">詳細情報</a><br>';
 
       // $genre_array[$i] = $result_genre['store_id'];
       // $i += 1;
