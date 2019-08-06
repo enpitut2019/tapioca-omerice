@@ -117,7 +117,8 @@ $stmt_genre->execute();
 if($stmt_genre) {
   while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
     echo $result_genre['store_name'];
-  //echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$['store_id'].'">詳細情報</a><br>';
+    echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">詳細情報</a><br>';
+    echo '<br>';
   }
 }
 ?>
