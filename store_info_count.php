@@ -118,7 +118,7 @@ $stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
 $stmt_genre->execute();
 if($stmt_genre) {
   while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
-    if($result['store_id'] != $store_id ) {
+    if($result_genre['store_id'] != $store_id ) {
       echo $result_genre['store_name'];
       echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">詳細情報</a><br>';
     }
