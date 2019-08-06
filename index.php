@@ -52,6 +52,8 @@ for($i=0; $i<8; $i++) {
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
 
+<br>
+
 <?php
 $word = $_GET["kensaku"]; //検索ワード
 $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_name LIKE \'%'.$word.'%\'');
@@ -65,6 +67,8 @@ while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
 echo 'dame';
 }
 ?>
+
+<br>
 
 <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
 
