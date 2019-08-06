@@ -44,6 +44,9 @@ $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample080
 $stmt98 = $pdo->prepare('UPDATE info SET status = 1');
 $stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 
+  var_dump($stmt99);
+    var_dump($stmt98);
+  var_dump($stmt97);
 if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
   if(($result99['l_time_o'] < $open_flag && $open_falg < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
@@ -54,7 +57,6 @@ if($stmt99) {
   }else {
     $stmt97 -> execute();
   }
-  var_dump($result99);
 }
 }
 
@@ -107,8 +109,8 @@ for($i=0; $i<8; $i++) {
       $stmt11->execute();
       if($stmt11){
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
-          var_dump($result11['l_time_o']);
-          var_dump($open_flag);
+          // var_dump($result11['l_time_o']);
+          // var_dump($open_flag);
           if(($result11['l_time_o'] < $open_flag && $open_flag < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
             $stmt98 -> execute();
