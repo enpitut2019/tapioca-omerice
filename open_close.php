@@ -38,30 +38,8 @@ $date = date("H");
 
 $index = intval($date/2);
 
-//セッションの有効期限を120分に設定
-// session_set_cookie_params(30);
-ini_set('session.gc_maxlifetime', 20);
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 1);
-// セッション管理開始
-session_start();
 
-// session_start([
-//     'cookie_lifetime' => 30,
-// ]);
 
-$session_key = '\''.$store_id.'\'';
-var_dump($_SESSION[$session_key]);
-if (!isset($_SESSION[$session_key])) {
-    // キー'$store_id'が登録されていなければ、1を設定
-    echo "ない";
-    $_SESSION[$session_key] = 1;
-} else {
-    //  キー'$store_id'が登録されていれば、その値をインクリメント
-    echo "ある";
-    $_SESSION[$session_key]++;
-}
-var_dump($_SESSION[$session_key]);
 
 if($_SESSION[$session_key] == 1) {
   if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
