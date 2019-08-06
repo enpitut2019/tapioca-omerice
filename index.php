@@ -72,13 +72,14 @@ for($i=0; $i<8; $i++) {
      } else {
        echo 'dame10';
      }
-   } else {
-     if(isset($eigyou)){
-       echo 'dame01';
-     } else {
-       echo 'dame00';
-     }
    }
+ } else {
+   if(isset($eigyou)){
+     echo 'dame01';
+   } else {
+     echo 'dame00';
+   }
+ }
   //$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
   //$stmt->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
   //$stmt->execute();
