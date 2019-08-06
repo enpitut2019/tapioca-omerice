@@ -44,30 +44,32 @@ session_set_cookie_params(60 * 120);
 session_start();
 
 if (!isset($_SESSION[$store_id])) {
-    // キー'count'が登録されていなければ、1を設定
+    // キー'$store_id'が登録されていなければ、1を設定
     $_SESSION[$store_id] = 1;
 } else {
-    //  キー'count'が登録されていれば、その値をインクリメント
+    //  キー'$store_id'が登録されていれば、その値をインクリメント
     $_SESSION[$store_id]++;
 }
 var_dump($_SESSION[$store_id]);
-if($_SESSION[$store_id] == 1) {
-if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
-  $result_vote[ $o_key[$index]]+=1;
-  // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
-  // $stmt->execute();
-  $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].' = :result_vote WHERE store_id = :store_id');
-  $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
-  $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
-  $stmt->execute();
-} else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
-  $result_vote[ $c_key[$index]]+=1;
-  $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
-  $stmt->bindValue(':result_vote', $result_vote[$c_key[$index]], PDO::PARAM_INT);
-  $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
-  $stmt->execute();
 
-if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
+if($_SESSION[$store_id] == 1) {
+  if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
+    $result_vote[ $o_key[$index]]+=1;
+    // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
+    // $stmt->execute();
+    $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].' = :result_vote WHERE store_id = :store_id');
+    $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
+    $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
+    $stmt->execute();
+  } else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
+    $result_vote[ $c_key[$index]]+=1;
+    $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
+    $stmt->bindValue(':result_vote', $result_vote[$c_key[$index]], PDO::PARAM_INT);
+    $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
+    $stmt->execute();
+  }
+
+  if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
     $stmt = $pdo->prepare('UPDATE info SET status= 1 WHERE store_id = :store_id');
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
@@ -93,7 +95,7 @@ if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vo
 
 <?php
 } else {
-echo “投票は2時間に1回までです。”;
+  echo “投票は2時間に1回までです。”;
 }
 ?>
 
