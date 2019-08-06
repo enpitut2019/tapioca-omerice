@@ -114,11 +114,12 @@ echo '</p>';
 $stmt_genre = $pdo->prepare('SELECT * FROM info LEFT JOIN sample0801_db ON info.store_id = sample0801_db.store_id WHERE genre=:genre');
 $stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
 $stmt_genre->execute();
-$result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC);
-
-var_dump($result_genre);
+if($stmt_result) {
+  while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
+    echo $result_genre['store_name'];
   //echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$['store_id'].'">詳細情報</a><br>';
-
+  }
+}
 ?>
 
 <p>
