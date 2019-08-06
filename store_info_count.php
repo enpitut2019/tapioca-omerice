@@ -42,9 +42,8 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   <h1>
     <?php
     $alert = '<script>alert(\'dame\');</script>';
-      echo h($alert);
+      echo h($result['store_name']);
     ?>
-    <!-- h($result['store_name']) -->
   </h1> <!-- あとで変数 -->
 
 <!-- 営業状態の投票 -->
