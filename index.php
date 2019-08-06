@@ -56,17 +56,30 @@ for($i=0; $i<8; $i++) {
 </form>
 
 <?php
+  $word = $_GET["kensaku"]; //検索ワード
+  $eigyou = $_POST['eigyou'];
+  if($word != NULL){
+    if(isset($eigyou)){
+      $stmt11 = $pdo->prepare('SELECT * FROM sample0801_db  WHERE status = 1 LIKE :word');
+    }
+  }
+  $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
+  $stmt->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
+  $stmt->execute();
+
+
+
   $eigyou = $_POST['eigyou'];
   if(isset($eigyou)){
     $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
     if($stmt2){
       while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
-        $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
-        $stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
-        $stmt->execute();
-        $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+        $stmt4 = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
+        $stmt4->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
+        $stmt4->execute();
+        $result2 = $stmt4-> fetch(PDO::FETCH_ASSOC);
         echo $result2['store_name'];
-        echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
+        echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result2['store_id'].'">詳細情報</a><br>';
       }
     }
   }else{
