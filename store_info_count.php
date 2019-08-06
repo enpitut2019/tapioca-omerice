@@ -14,7 +14,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 
  function h($str) { //XSSのためのラッパー関数
     return htmlspecialchars($str, ENT_QUOTES, 'UTF=8');
-}
+  }
 ?>
 
 <!DOCTYPE html>
