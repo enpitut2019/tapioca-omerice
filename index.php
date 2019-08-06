@@ -41,24 +41,21 @@ if($wd == 1){
 }
 
 $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
-$stmt98 = $pdo->prepare('UPDATE info SET status = 1 WHERE store_id = $result99[:store_id]');
-$stmt98->bindValue(':store_id', $store_id, PDO::PARAM_STR);
-$stmt97 = $pdo->prepare('UPDATE info SET status = 0');
+$stmt98 = $pdo->prepare('UPDATE info SET status = 1 ');
+$stmt97 = $pdo->prepare('UPDATE info SET status = 3');
 $stmt99->execute();
 
 if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
       $stmt98 -> execute();
-      //echo 'b';
       echo $result99['status'];
       if($result99['holiday'] == $monday){
         $stmt97 -> execute();
-        echo 'shizuku';
       }
     }else {
       $stmt97 -> execute();
-      echo 'a';
+      echo $result99['status'];
     }
   }
 }
