@@ -56,6 +56,7 @@ for($i=0; $i<8; $i++) {
 <!-- 今から営業中のチェックボックボックスを作りたい -->
 <form method="post" action="index.php">
 <input type="checkbox" name="eigyou" value="営業中">営業中店舗のみ表示
+<input type="submit" value="hyouji">
 </form>
 
 <?php
