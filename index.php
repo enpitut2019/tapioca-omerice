@@ -89,11 +89,14 @@ for($i=0; $i<8; $i++) {
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
           if(($result11['l_time_o'] < $open_flag && $open_falg < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
+            $result11['status']=1;
             if($result11['holiday'] == $monday){
               $rikiya = '営業時間外';
+              $result11['status']=0;
             }
           }else {
             $rikiya = '営業時間外';
+            $result11['status']=0;
           }
          echo '<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">'.$result11['store_name'].$rikiya.'</a><br>';
 
@@ -107,11 +110,14 @@ for($i=0; $i<8; $i++) {
          while($result10 = $stmt10 -> fetch(PDO::FETCH_ASSOC)) {
            if(($result10['l_time_o'] < $open_flag && $open_falg < $result10['l_time_c']) || ($result10['d_time_o'] < $open_flag && $open_flag < $result10['d_time_c'])) {
              $rikiya = '営業時間内';
+             $result10['status']=1;
              if($result10['holiday'] == $monday){
                $rikiya = '営業時間外';
+               $result10['status']=0;
              }
            }else {
              $rikiya = '営業時間外';
+             $result10['status']=0;
            }
           echo '<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result10['store_id']).'">'.$result10['store_name'].$rikiya.'</a><br>';
         }
@@ -126,11 +132,14 @@ for($i=0; $i<8; $i++) {
        while($result01 = $stmt01 -> fetch(PDO::FETCH_ASSOC)) {
          if(($result01['l_time_o'] < $open_flag && $open_falg < $result01['l_time_c']) || ($result01['d_time_o'] < $open_flag && $open_flag < $result01['d_time_c'])) {
            $rikiya = '営業時間内';
+           $result01['status']=1;
            if($result01['holiday'] == $monday){
              $rikiya = '営業時間外';
+             $result01['status']=0;
            }
          }else {
            $rikiya = '営業時間外';
+           $result01['status']=0;
          }
         echo '<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result01['store_id']).'">'.$result01['store_name'].$rikiya.'</a><br>';
       }
@@ -143,11 +152,14 @@ for($i=0; $i<8; $i++) {
        while($result00 = $stmt00 -> fetch(PDO::FETCH_ASSOC)) {
          if(($result00['l_time_o'] < $open_flag && $open_falg < $result00['l_time_c']) || ($result00['d_time_o'] < $open_flag && $open_flag < $result00['d_time_c'])) {
            $rikiya = '営業時間内';
+           $result00['status']=1;
            if($result00['holiday'] == $monday){
              $rikiya = '営業時間外';
+             $result00['status']=0;
            }
          }else {
            $rikiya = '営業時間外';
+           $result00['status']=0;
          }
         echo '<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result00['store_id']).'">'.$result00['store_name'].$rikiya.'</a><br>';
       }
