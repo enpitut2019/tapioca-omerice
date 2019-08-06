@@ -97,37 +97,29 @@ echo 'dame';
 ?>
 
 <br>
-
-<!-- <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
+<!--営業中の店舗表示 -->
+<!-- <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a> -->
 <br>
 
-<!-- 営業中の店舗表示 -->
-<?php
-$stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
-if($stmt2){
-  while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
-    $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
-    $stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
-    $stmt->execute();
-    $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
-    // var_dump($result);
-    // echo '</br>';
-    // var_dump($result2);
-    // echo '</br>';
-    echo $result2['store_name'];
-    echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
-  }
 
-  // if($stmt){
-  //   while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-  //     echo $result['store_name'];
-  //     echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
-  //   }
-  // }
- }else{
-    echo '営業中の店舗はありません';
-  }
-?> -->
+
+//<?php
+//$stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
+//if($stmt2){
+  //while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
+    //$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
+    //$stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
+    //$stmt->execute();
+    //$result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+    //echo $result2['store_name'];
+    //echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
+  //}
+
+ //}else{
+    //echo '営業中の店舗はありません';
+  //}
+//?>
 
 
 
