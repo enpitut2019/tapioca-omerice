@@ -112,7 +112,7 @@ echo '<br>';
 echo '</p>';
 
 echo '<p>';
-echo '↓↓↓同じジャンルのお店を探す↓↓↓'
+echo '↓↓↓同じジャンルのお店を探す↓↓↓';
 $stmt_genre = $pdo->prepare('SELECT * FROM info LEFT JOIN sample0801_db ON info.store_id = sample0801_db.store_id WHERE genre=:genre');
 $stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
 $stmt_genre->execute();
