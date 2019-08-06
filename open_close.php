@@ -46,7 +46,11 @@ session_start([
     'cookie_lifetime' => 300,
 ]);
 
-var_dump(session_get_cookie_params());
+echo "セッションチェック:　　　　", $_SESSION[$store_id],"<br>";
+echo "現在のセッション名は 　　　". session_name() ." です。<br>";
+echo "現在のセッションIDは 　　　". session_id() ." です。<br>";
+echo "現在のセッションデータは　　". session_save_path() ."に保存されています。<br>";
+
 var_dump($_SESSION[$store_id]);
 if (!isset($_SESSION[$store_id])) {
     // キー'$store_id'が登録されていなければ、1を設定
