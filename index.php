@@ -50,14 +50,11 @@ if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
       $stmt98 -> execute();
-      $result98 = $stmt98 -> fetch(PDO::FETCH_ASSOC);
       if($result99['holiday'] == $monday){
         $stmt97 -> execute();
-        $result97 = $stmt97 -> fetch(PDO::FETCH_ASSOC);
       }
     }else {
       $stmt97 -> execute();
-      $result97 = $stmt97 -> fetch(PDO::FETCH_ASSOC);
     }
   }
 }
