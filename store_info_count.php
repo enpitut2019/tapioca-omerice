@@ -129,7 +129,7 @@ echo '</p>';
 
 <!-- google map -->
 <p>
-<iframe src="https://maps.google.co.jp/maps?output=embed&q=<?php echo h($result['store_name']); ?>" style="width:100vw; height:500px;" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="https://maps.google.co.jp/maps?output=embed&q=<?php echo h($result['store_name']); ?>" class="map" frameborder="0" style="border:0" allowfullscreen></iframe>
 </p>
 
 <?php
@@ -148,15 +148,14 @@ $stmt_genre->execute();
 if($stmt_genre) {
   $i = 0;
   while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC) && $i < 4) {
-    if($result_genre['store_id'] != $store_id ) {
+    if($result_genre['store_id'] != $store_id && mt_rand()%2 == 0) {
       // ランダムで表示
-      if(mt_rand()%2 == 0){
-        echo '<a class="link" style="text-decoration: none;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
-        echo '<div class="box1">';
-        echo $result_genre['store_name'];
-        echo '</div></a>';
-        $i+=1;
-      }
+      echo '<a class="link" style="text-decoration: none;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
+      echo '<div class="box1">';
+      echo h($result_genre['store_name']);
+      echo '</div></a>';
+      echo $i;
+      $i+=1;
     }
   }
 }

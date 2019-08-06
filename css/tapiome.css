@@ -165,6 +165,10 @@
 	  color         : #6bb6bb;     /* 背景色     */
 	  background    : #ffffff;     /* 文字色     */
 	}
+	.map{
+		width:60vw;
+		height:500px;
+	}
 }
 
 
@@ -306,5 +310,9 @@
 	.button_close:hover {
 	  color         : #6bb6bb;     /* 背景色     */
 	  background    : #ffffff;     /* 文字色     */
+	}
+	.map{
+		width:90vw;
+		height:50vh;
 	}
 }
