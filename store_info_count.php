@@ -144,7 +144,7 @@ shuffle($rand_ar);
 for($j=0;$j<5;$j++){
   $genre_sid = $genre_array[$rand_ar[$j]];
   echo $result_genre[$genre_sid];
-  echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre[$genre_sid].'">詳細情報</a><br>';
+  echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$genre_sid.'">詳細情報</a><br>';
   if($j == $i) {
     break;
     }
