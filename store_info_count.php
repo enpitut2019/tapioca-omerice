@@ -139,7 +139,7 @@ echo '</p>';
 <?php
 if($result_detail_info['twitter']){
 ?>
-<a class="twitter-timeline" data-width="400" data-height="400" data-link-color="#2B7BB9" href="https://twitter.com/<?php echo h($result_detail_info['twitter']); ?>?ref_src=twsrc%5Etfw">Tweets by <?php echo h($result_detail_info['twitter']); ?></a>
+<a class="twitter-timeline" width="400" height="400" data-link-color="#2B7BB9" href="https://twitter.com/<?php echo h($result_detail_info['twitter']); ?>?ref_src=twsrc%5Etfw">Tweets by <?php echo h($result_detail_info['twitter']); ?></a>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <?php
 }
