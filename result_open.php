@@ -10,13 +10,13 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>ごっっはにゃさん検索結果</title>
+<title>営業中店舗</title>
 </head>
 <body>
   <p>
     <a href=https://tapiome.herokuapp.com/>ごっっはにゃさん</a>
   </p>
-  <h1>ごっっはにゃさん結果</h1>
+  <h1>営業中店舗</h1>
   <?php
   $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
   if($stmt2){
