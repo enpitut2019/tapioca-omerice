@@ -77,9 +77,9 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 <meta charset="UTF-8">
 <body>
   <!-- <p>ありがとうございます！</p> -->
-  <a href=https://tapiome.herokuapp.com/>
+  <center style="margin-top:50px;">
   <img class = "head_img" src="img/thanks.png" width="455px" height="55px">
-  </a>
+  </center>
   <script type="text/javascript">
   setTimeout(function(){
  window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
