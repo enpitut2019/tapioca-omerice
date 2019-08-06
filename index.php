@@ -71,7 +71,7 @@ for($i=0; $i<8; $i++) {
       $stmt11->execute();
       if($stmt11){
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
-         echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">echo h($result11['store_name']);</a><br>';
+         echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">.'$result11['store_name']'.</a><br>';
 
        }
      }
@@ -81,8 +81,7 @@ for($i=0; $i<8; $i++) {
        $stmt10->execute();
        if($stmt10){
          while($result10 = $stmt10 -> fetch(PDO::FETCH_ASSOC)) {
-          echo h($result10['store_name']);
-          echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result10['store_id']).'">詳細情報</a><br>';
+          echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result10['store_id']).'">.'$result10['store_name']'.</a><br>';
         }
       }
     }
