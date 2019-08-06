@@ -55,13 +55,13 @@ for($i=0; $i<8; $i++) {
 
 <!-- 今から営業中のチェックボックボックスを作りたい -->
 <form method="post" action="index.php">
-<input type="checkbox" name="eigyou" value="営業中">営業中店舗のみ表示
+<input type="checkbox" name="eigyou[]" value="営業中">営業中店舗のみ表示
 <input type="submit" value="表示">
 </form>
 
 <?php
-  $eigyou = $_POST["eigyou"];
-  if($eigyou = "営業中"){
+  $eigyou = $_POST['eigyou'];
+  if(isset($eigyou)){
     $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
     if($stmt2){
       while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
