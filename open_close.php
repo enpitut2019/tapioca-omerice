@@ -49,7 +49,7 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 } else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
   $result_vote[ $c_key[$index]]+=1;
   $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
-  $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
+  $stmt->bindValue(':result_vote', $result_vote[$c_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
   $stmt->execute();
 }
