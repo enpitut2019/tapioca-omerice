@@ -147,10 +147,10 @@ $stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
 $stmt_genre->execute();
 if($stmt_genre) {
   $i = 0;
-  while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC) && $i < 4) {
-    if($result_genre['store_id'] != $store_id ) {
+  while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
+    if($result_genre['store_id'] != $store_id && mt_rand()%2 == 0) {
       // ランダムで表示
-      echo '<a class="link" style="text-decoration: none;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
+      echo '<a class=" link" style="text-decoration: none;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
       echo '<div class="box1">';
       echo h($result_genre['store_name']);
       echo '</div></a>';
