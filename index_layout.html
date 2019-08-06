@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ごっっはにゃさん</title>
+<link rel="stylesheet" type="text/css" href="css/tapiome.css"></link>
+</head>
+<body>
+  <p>
+    <img src="img/title.png" width="335px" height="60">
+  </p>
+
+
+<!-- 検索フォーム -->
+<form class="form01" method="post" action="index.php">
+<input class="input01" type="text" name="kensaku" >
+<input class="submit01" type="submit" value="検索"><br>
+<label>
+  <input type="checkbox" name="eigyou" value="営業中" class="checkbox01-input">
+  <span class="checkbox01-parts">営業中店舗のみ表示</span>
+</label>
+</form>
+
+<a style="text-decoration: none;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id=2">
+  <div class="box1">
+    活龍 竹園店
+  </div>
+</a>
+<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id=1">
+  <div class="box1">
+    龍郎
+  </div>
+</a>
+<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id=3">
+  <div class="box1">
+    BAQETイーアスつくば店
+  </div>
+</a>
+
+
+<br>
+<!--営業中の店舗表示 -->
+<!-- <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a> -->
+<br>
+
+
+
+
+
+
+</body>
+</html>
