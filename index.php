@@ -40,28 +40,41 @@ if($wd == 1){
   $monday = '日曜日';
 }
 
+// 名前と営業状態のステータス・営業時間を取得
 $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
-$stmt98 = $pdo->prepare('UPDATE info SET status = 1 WHERE info.store_id=1');
-$stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 $stmt99 -> execute();
 
+// statusを1にアップデート
+$stmt98 = $pdo->prepare('UPDATE info SET status = 1 WHERE store_id=:store_id');
+
+//　statusを0にアップデート
+$stmt97 = $pdo->prepare('UPDATE info SET status = 0 WHERE store_id=:store_id');
+
+
+// 営業時間に応じて営業ステータスを更新する
 if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
+      // 営業時間内なので1
+      $stmt98->bindValue(':store_id', $store_id, PDO::PARAM_INT);
       $stmt98 -> execute();
       //var_dump($result99['status']);
-      if($result99['holiday'] == $monday){
+      if($result99['holiday'] == $monday){ // 営業時間内だけど定休日なので0
+        $stmt97->bindValue(':store_id', $store_id, PDO::PARAM_INT);
         $stmt97 -> execute();
       }
-    }else {
+    }else { //営業時間外なら0
+      $stmt97->bindValue(':store_id', $store_id, PDO::PARAM_INT);
       $stmt97 -> execute();
       var_dump($result99['status']);
     }
   }
 }
+//--
 
+
+// 時間ごとにリセット
 $index = intval($date/2);
-
 for($i=0; $i<8; $i++) {
   $j = $index-(4+$i);
   if($j<=-1){
@@ -72,6 +85,7 @@ for($i=0; $i<8; $i++) {
   $stmt_c = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$j].'= 0');
   $stmt_c->execute();
 }
+//--
 ?>
 
 
@@ -260,7 +274,7 @@ for($i=0; $i<8; $i++) {
  //}else{
     //echo '営業中の店舗はありません';
   //}
-//?>
+?>
 
 
 
