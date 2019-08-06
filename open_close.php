@@ -43,7 +43,7 @@ $index = intval($date/2);
 // セッション管理開始
 // session_start();
 session_start([
-    'cookie_lifetime' => $300,
+    'cookie_lifetime' => 300,
 ]);
 
 var_dump($_SESSION[$store_id]);
