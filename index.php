@@ -48,10 +48,15 @@ for($i=0; $i<8; $i++) {
     echo "Hello tapioka!";
 ?>
 
+<!-- 検索フォーム -->
 <form method="get" action="index.php">
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
 
+<!-- 今から営業中のチェックボックボックスを作りたい -->
+<input type="checkbox" name="eigyou" value="営業中">営業中
+
+<br>
 <br>
 
 <?php
@@ -71,7 +76,33 @@ echo 'dame';
 <br>
 
 <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
+<br>
 
+<!-- 営業中の店舗表示 -->
+<?php
+$stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
+if($stmt2){
+  while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
+    $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id = '.$result['store_id']);
+    $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+    // var_dump($result);
+    // echo '</br>';
+    // var_dump($result2);
+    // echo '</br>';
+    echo $result2['store_name'];
+    echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
+  }
+
+  // if($stmt){
+  //   while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+  //     echo $result['store_name'];
+  //     echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
+  //   }
+  // }
+ }else{
+    echo '営業中の店舗はありません';
+  }
+?>
 
 
 
