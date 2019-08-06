@@ -15,29 +15,6 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  function h($str) { //XSSのためのラッパー関数
     return htmlspecialchars($str, ENT_QUOTES, 'UTF=8');
 }
-
-
-// 複数回投票を防ぐためのセッション管理
-//セッションの有効期限を120分に設定
-// session_set_cookie_params(30);
-ini_set('session.gc_maxlifetime', 20);
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 1);
-// セッション管理開始
-session_start();
-
-$session_key = '\''.$store_id.'\'';
-var_dump($_SESSION[$session_key]);
-if (!isset($_SESSION[$session_key])) {
-    // キー'$store_id'が登録されていなければ、1を設定
-    echo "ない";
-    $_SESSION[$session_key] = 1;
-} else {
-    //  キー'$store_id'が登録されていれば、その値をインクリメント
-    echo "ある";
-    $_SESSION[$session_key]++;
-}
-var_dump($_SESSION[$session_key]);
 ?>
 
 <!DOCTYPE html>

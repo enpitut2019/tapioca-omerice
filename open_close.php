@@ -38,10 +38,45 @@ $date = date("H");
 
 $index = intval($date/2);
 
+// 複数回投票を防ぐためのセッション管理
+//セッションの有効期限を120分に設定
+// session_set_cookie_params(30);
+// ini_set('session.gc_maxlifetime', 20);
+// ini_set('session.gc_probability', 1);
+// ini_set('session.gc_divisor', 1);
+// セッション管理開始
+session_start();
+
+function now_time(){
+  return intval(date("H"))*360+intval(date("i"))*60+intval(date("s"));
+}
+
+
+$session_key = '\''.$store_id.'\'';
+// リセット
+if(now_time() - $_SESSION[$session_key] > 20) {
+  unset($_SESSION[$session_key]);
+}
+
+$flag = 0;
+
+if (!isset($_SESSION[$session_key])) {
+    // キー'$store_id'が登録されていなければ、1を設定
+    echo "ない";
+    $_SESSION[$session_key] = now_time();
+    $flag = 1;
+} else {
+    //  キー'$store_id'が登録されていれば、その値をインクリメント
+    echo "ある";
+    // $_SESSION[$session_key]++;
+    $flag = 0;
+}
+var_dump($_SESSION[$session_key]);
+var_dump($flag);
 
 
 
-if($_SESSION[$session_key] == 1) {
+if($flag == 1) {
   if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $result_vote[ $o_key[$index]]+=1;
     // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
