@@ -21,6 +21,7 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
 $result = $stmt2 -> fetch(PDO::FETCH_ASSOC);
 $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id = '.$result['store_id']);
+var_dump($result);
 
   if($stmt){
     while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
