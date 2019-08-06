@@ -51,9 +51,9 @@ if($stmt99) {
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
       $stmt98 -> execute();
       echo $result99['status'];
-      if($result99['holiday'] == $monday){
-        $stmt97 -> execute();
-      }
+      // if($result99['holiday'] == $monday){
+      //   $stmt97 -> execute();
+      // }
     }else {
       $stmt97 -> execute();
       echo 'a';
