@@ -42,8 +42,8 @@ if($wd == 1){
 
 $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
 $stmt98 = $pdo->prepare('UPDATE info SET status = 1');
-$stmt97 = $pdo->prepare('UPDATE info SET status = 3');
-$stmt99->execute();
+$stmt97 = $pdo->prepare('UPDATE info SET status = 0');
+$stmt99 -> execute();
 
 if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
