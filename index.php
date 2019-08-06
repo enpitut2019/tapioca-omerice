@@ -22,6 +22,11 @@ $c_key = array('c0_2','c2_4','c4_6','c6_8','c8_10','c10_12','c12_14','c14_16','c
 // 現在時刻の取得
 date_default_timezone_set('Asia/Tokyo');
 $date = date("H");
+$minute = date("i");
+$hour = intval($date) * 100;
+$open_flag = $hour + intval($minute);
+
+$var_dump($open_flag);
 
 $index = intval($date/2);
 
@@ -70,6 +75,7 @@ for($i=0; $i<8; $i++) {
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
          echo h($result11['store_name']);
          echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">詳細情報</a><br>';
+
        }
      }
      } else {
