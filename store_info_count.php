@@ -98,7 +98,7 @@ echo '人が営業中と言っています<br>';
 echo (h($result_vote[$c_key[$key-1]]) + h($result_vote[$c_key[$key]]));
 echo '人が閉店中と言っています';
 
-echo '<div style="font-size:80%">集計時間 :'.h($time_4h[$key-1]);
+echo '<div style="font-size:80%; margin-top:-10px">集計時間 :'.h($time_4h[$key-1]);
 echo '</div>';
 
 echo h($time[$key-1]).' ... ';
