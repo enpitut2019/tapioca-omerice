@@ -50,14 +50,12 @@ if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
       $stmt98 -> execute();
-      $result99 = $stmt98 -> fetch(PDO::FETCH_ASSOC);
       echo $result99['status'];
       if($result99['holiday'] == $monday){
         $stmt97 -> execute();
       }
     }else {
       $stmt97 -> execute();
-      $result99 = $stmt97 -> fetch(PDO::FETCH_ASSOC);
       echo $result99['status'];
     }
   }
@@ -116,14 +114,14 @@ for($i=0; $i<8; $i++) {
           // var_dump($open_flag);
           if(($result11['l_time_o'] < $open_flag && $open_flag < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
-            $stmt98 -> execute();
+            //$stmt98 -> execute();
             if($result11['holiday'] == $monday){
               $rikiya = '営業時間外';
-              $stmt97 -> execute();
+              //$stmt97 -> execute();
             }
           }else {
             $rikiya = '営業時間外';
-            $stmt97 -> execute();
+            //$stmt97 -> execute();
           }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">';
          echo '<div class="box1">'.$result11['store_name'].'<br>';
