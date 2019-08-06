@@ -54,14 +54,33 @@ for($i=0; $i<8; $i++) {
 </form>
 
 <!-- 今から営業中のチェックボックボックスを作りたい -->
-<input type="checkbox" name="eigyou" value="営業中">営業中
+<form method="post" action="index.php">
+<input type="checkbox" name="eigyou" value="営業中">営業中店舗のみ表示
+<input type="submit" value="表示">
+</form>
 
+<?php
+  $eigyou = $_POST["eigyou"];
+  if($eigyou = "営業中"){
+    $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
+    if($stmt2){
+      while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
+        $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
+        $stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+  }else{
+    echo "dame";
+  }
+?>
 <br>
 <br>
 
 <?php
 $word = $_GET["kensaku"]; //検索ワード
-$stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_name LIKE \'%'.$word.'%\'');
+$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
+$stmt->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
+$stmt->execute();
 
 if($stmt){
 while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
@@ -83,7 +102,9 @@ echo 'dame';
 $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
 if($stmt2){
   while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
-    $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id = '.$result['store_id']);
+    $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
+    $stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
+    $stmt->execute();
     $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
     // var_dump($result);
     // echo '</br>';
