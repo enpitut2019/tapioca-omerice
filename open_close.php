@@ -38,21 +38,47 @@ $date = date("H");
 
 $index = intval($date/2);
 
-if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
-  $result_vote[ $o_key[$index]]+=1;
-  // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
-  // $stmt->execute();
-  $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].' = :result_vote WHERE store_id = :store_id');
-  $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
-  $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
-  $stmt->execute();
-} else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
-  $result_vote[ $c_key[$index]]+=1;
-  $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
-  $stmt->bindValue(':result_vote', $result_vote[$c_key[$index]], PDO::PARAM_INT);
-  $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
-  $stmt->execute();
+//セッションの有効期限を120分に設定
+// session_set_cookie_params(30);
+ini_set('session.gc_maxlifetime', 20);
+ini_set('session.gc_probability', 1);
+ini_set('session.gc_divisor', 1);
+// セッション管理開始
+session_start();
+
+// session_start([
+//     'cookie_lifetime' => 30,
+// ]);
+
+$session_key = '\''.$store_id.'\'';
+var_dump($_SESSION[$session_key]);
+if (!isset($_SESSION[$session_key])) {
+    // キー'$store_id'が登録されていなければ、1を設定
+    echo "ない";
+    $_SESSION[$session_key] = 1;
+} else {
+    //  キー'$store_id'が登録されていれば、その値をインクリメント
+    echo "ある";
+    $_SESSION[$session_key]++;
 }
+var_dump($_SESSION[$session_key]);
+
+if($_SESSION[$session_key] == 1) {
+  if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
+    $result_vote[ $o_key[$index]]+=1;
+    // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
+    // $stmt->execute();
+    $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].' = :result_vote WHERE store_id = :store_id');
+    $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
+    $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
+    $stmt->execute();
+  } else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
+    $result_vote[ $c_key[$index]]+=1;
+    $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
+    $stmt->bindValue(':result_vote', $result_vote[$c_key[$index]], PDO::PARAM_INT);
+    $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
+    $stmt->execute();
+  }
 
   if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
     $stmt = $pdo->prepare('UPDATE info SET status= 1 WHERE store_id = :store_id');
@@ -67,9 +93,6 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
   }
-  // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
-  // exit();
-
 ?>
 
 <!DOCTYPE html>
@@ -80,10 +103,17 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   <center style="margin-top:50px;">
   <img class = "head_img" src="img/thanks.png" width="455px" height="55px">
   </center>
-  <script type="text/javascript">
+
+<?php
+} else {
+  echo "投票は2時間に1回までです。";
+}
+?>
+
+<!-- <script type="text/javascript">
   setTimeout(function(){
  window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
-}, 2*1000);
-</script>
+}, 3*1000);
+</script> -->
 </body>
 </html>
