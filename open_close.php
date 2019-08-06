@@ -39,31 +39,31 @@ $date = date("H");
 $index = intval($date/2);
 
 //セッションの有効期限を120分に設定
-// session_set_cookie_params(60 * 120);
+session_set_cookie_params(60 * 120);
 // セッション管理開始
-// session_start();
-session_start([
-    'cookie_lifetime' => 300,
-]);
+session_start();
+// session_start([
+//     'cookie_lifetime' => 300,
+// ]);
+//
+// echo "セッションチェック:　　　　", $_SESSION['hoge'],"<br>";
+// echo "現在のセッション名は 　　　". session_name() ." です。<br>";
+// echo "現在のセッションIDは 　　　". session_id() ." です。<br>";
+// echo "現在のセッションデータは　　". session_save_path() ."に保存されています。<br>";
 
-echo "セッションチェック:　　　　", $_SESSION[$store_id],"<br>";
-echo "現在のセッション名は 　　　". session_name() ." です。<br>";
-echo "現在のセッションIDは 　　　". session_id() ." です。<br>";
-echo "現在のセッションデータは　　". session_save_path() ."に保存されています。<br>";
-
-var_dump($_SESSION[$store_id]);
-if (!isset($_SESSION[$store_id])) {
+var_dump($_SESSION['hoge']);
+if (!isset($_SESSION['hoge'])) {
     // キー'$store_id'が登録されていなければ、1を設定
     echo "ない";
-    $_SESSION[$store_id] = 1;
+    $_SESSION['hoge'] = 1;
 } else {
     //  キー'$store_id'が登録されていれば、その値をインクリメント
     echo "ある";
-    $_SESSION[$store_id]++;
+    $_SESSION['hoge']++;
 }
-var_dump($_SESSION[$store_id]);
+var_dump($_SESSION['hoge']);
 
-if($_SESSION[$store_id] == 1) {
+if($_SESSION['hoge'] == 1) {
   if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $result_vote[ $o_key[$index]]+=1;
     // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
