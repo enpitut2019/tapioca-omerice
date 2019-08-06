@@ -38,35 +38,27 @@ $date = date("H");
 
 $index = intval($date/2);
 
-// セッションの有効期限を120分に設定
+//セッションの有効期限を120分に設定
 // session_set_cookie_params(60 * 120);
-// // セッション管理開始
+// セッション管理開始
 // session_start();
-// var_dump($_SESSION[$store_id]);
-// if (!isset($_SESSION[$store_id])) {
-//     // キー'$store_id'が登録されていなければ、1を設定
-//     echo "ない";
-//     $_SESSION[$store_id] = 1;
-// } else {
-//     //  キー'$store_id'が登録されていれば、その値をインクリメント
-//     echo "ある";
-//     $_SESSION[$store_id]++;
-// }
-// var_dump($_SESSION[$store_id]);
+session_start([
+    'cookie_lifetime' => $300,
+]);
 
-var_dump($_COOKIE[$store_id]);
-if (!isset($_COOKIE[$store_id])) {
+var_dump($_SESSION[$store_id]);
+if (!isset($_SESSION[$store_id])) {
     // キー'$store_id'が登録されていなければ、1を設定
     echo "ない";
-    setcookie($store_id, 1, 300);
+    $_SESSION[$store_id] = 1;
 } else {
     //  キー'$store_id'が登録されていれば、その値をインクリメント
     echo "ある";
-    setcookie($store_id, 2, 300);
+    $_SESSION[$store_id]++;
 }
-var_dump($_COOKIE[$store_id]);
+var_dump($_SESSION[$store_id]);
 
-if($_COOKIE[$store_id] != 1) {
+if($_SESSION[$store_id] != 1) {
   if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $result_vote[ $o_key[$index]]+=1;
     // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
