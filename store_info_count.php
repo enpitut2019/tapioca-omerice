@@ -6,7 +6,9 @@ $store_id = $_GET["store_id"];
 $url = parse_url(getenv('DATABASE_URL'));
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
-$stmt = $pdo->query('SELECT store_name FROM sample0801_db WHERE store_id = '.$store_id);
+$stmt = $pdo->prepare('SELECT store_name FROM sample0801_db WHERE store_id = :store_id');
+$stmt->bindValue(‘:store_id’, $store_id, PDO::PARAM_INT);
+$stmt->execute();
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  // var_dump($result);//store_nameが取れているか確認
 ?>
@@ -52,7 +54,9 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 
 <?php
 // 詳細情報の取得
-$stmt_detail_info = $pdo->query('SELECT * FROM info WHERE store_id = '.$store_id);
+$stmt_detail_info = $pdo->prepare('SELECT * FROM info WHERE store_id = :store_id');
+$stmt_detail_info->bindValue(‘:store_id’, $store_id, PDO::PARAM_INT);
+$stmt_detail_info->execute();
 $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
 
 echo '<p>';
@@ -67,7 +71,9 @@ echo '</p>';
 
 
 //投票数のカウント
-$stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id ='.$store_id);
+$stmt_vote = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id = :store_id');
+$stmt_vote->bindValue(‘:store_id’, $store_id, PDO::PARAM_INT);
+$stmt_vote->execute();
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
 // 投票のハッシュのキーの配列
@@ -107,7 +113,7 @@ echo '</p>';
 <iframe src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $result['store_name']; ?>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </p>
 
-<a class="twitter-timeline" href="https://twitter.com/tatsuro3311?ref_src=twsrc%5Etfw">Tweets by tatsuro3311</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 </body>
 </html>
