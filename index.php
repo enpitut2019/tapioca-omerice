@@ -110,6 +110,8 @@ for($i=0; $i<8; $i++) {
           if(($result11['l_time_o'] < $open_flag && $open_falg < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
             $stmt98 -> execute();
+            var_dump($result['l_time_o']);
+            var_dump($open_frag);
             if($result11['holiday'] == $monday){
               $rikiya = '営業時間外';
               $stmt97 -> execute();
