@@ -78,7 +78,8 @@ for($i=0; $i<8; $i++) {
           echo $result10['store_name'];
           echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result10['store_id'].'">詳細情報</a><br>';
         }
-     }
+      }
+    }
    } else {
    if(isset($eigyou)){
      echo 'dame01';
