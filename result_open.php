@@ -27,7 +27,7 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
       // echo '</br>';
       // var_dump($result2);
       // echo '</br>';
-      echo $result['store_name'];
+      echo $result2['store_name'];
       echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
     }
 
