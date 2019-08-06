@@ -90,17 +90,17 @@ if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vo
   <center style="margin-top:50px;">
   <img class = "head_img" src="img/thanks.png" width="455px" height="55px">
   </center>
-</body>
-</html>
 
 <?php
 } else {
 echo “投票は2時間に1回までです。”;
 }
+?>
 
-  <script type="text/javascript">
+<script type="text/javascript">
   setTimeout(function(){
  window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
 }, 2*1000);
 </script>
-?>
+</body>
+</html>
