@@ -53,12 +53,10 @@ $flag = 0;
 
 if (!isset($_SESSION[$session_key])) {
     // キー'$store_id'が登録されていなければ、1を設定
-    echo "ない";
     $_SESSION[$session_key] = now_time();
     $flag = 1;
 } else {
     //  キー'$store_id'が登録されていれば、その値をインクリメント
-    echo "ある";
     // $_SESSION[$session_key]++;
     $flag = 0;
 }
