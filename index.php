@@ -74,7 +74,11 @@ for($i=0; $i<8; $i++) {
       }
     }
   }else{
-    echo "dame";
+    //全部を表示
+    $stmt3 = $pdo->query('SELECT * FROM sample0801_db');
+    $result_eigyou = $stmt3 -> fetch(PDO::FETCH_ASSOC);
+    echo $result_eigyou['store_name'];
+    echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_eigyou['store_id'].'">詳細情報</a><br>';
   }
 ?>
 <br>
