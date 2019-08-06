@@ -66,38 +66,42 @@ $key = intval($date/2);
 
 // 投票数の表示
 echo '<p>';
-for ($i = 0; $i < 12; $i++) {
-  if($i != $key ) {
 
-    echo '<span class="gray">';
-    echo $time[$i].' ... ';
-    echo $result_vote[$o_key[$i]].' : ';
-    echo $result_vote[$c_key[$i]];
-    echo '</span>';
+echo $result_vote[$o_key[$key-1]];
+echo $result_vote[$o_key[$key]];
 
-  } else {
-    if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
-      echo '<strong>';
-      echo $time[$i].' ... ';
-      echo '<span class="red">'.$result_vote[$o_key[$i]].'</span> : ';
-      echo $result_vote[$c_key[$i]];
-      echo '</strong>';
-    } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
-      echo '<strong>';
-      echo $time[$i].' ... ';
-      echo $result_vote[$o_key[$i]].' : ';
-      echo '<span class="red">'.$result_vote[$c_key[$i]].'</span>';
-      echo '</strong>';
-    } else {
-      echo '<strong>';
-      echo $time[$i].' ... ';
-      echo $result_vote[$o_key[$i]].' : ';
-      echo $result_vote[$c_key[$i]];
-      echo '</strong>';
-    }
-  }
-  echo '<br>';
-}
+// for ($i = 0; $i < 12; $i++) {
+//   if($i != $key ) {
+//
+//     echo '<span class="gray">';
+//     echo $time[$i].' ... ';
+//     echo $result_vote[$o_key[$i]].' : ';
+//     echo $result_vote[$c_key[$i]];
+//     echo '</span>';
+//
+//   } else {
+//     if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
+//       echo '<strong>';
+//       echo $time[$i].' ... ';
+//       echo '<span class="red">'.$result_vote[$o_key[$i]].'</span> : ';
+//       echo $result_vote[$c_key[$i]];
+//       echo '</strong>';
+//     } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
+//       echo '<strong>';
+//       echo $time[$i].' ... ';
+//       echo $result_vote[$o_key[$i]].' : ';
+//       echo '<span class="red">'.$result_vote[$c_key[$i]].'</span>';
+//       echo '</strong>';
+//     } else {
+//       echo '<strong>';
+//       echo $time[$i].' ... ';
+//       echo $result_vote[$o_key[$i]].' : ';
+//       echo $result_vote[$c_key[$i]];
+//       echo '</strong>';
+//     }
+//   }
+//   echo '<br>';
+// }
 echo '</p>';
 
 // 詳細情報の取得
