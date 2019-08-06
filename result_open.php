@@ -26,6 +26,7 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
       var_dump($result);
       echo '</br>';
       var_dump($result2);
+      echo '</br>';
     }
 
     if($stmt){
