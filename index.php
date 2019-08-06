@@ -110,7 +110,7 @@ echo 'dame';
 
 
 
-//<?php
+<?php
 //$stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
 //if($stmt2){
   //while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
@@ -126,7 +126,7 @@ echo 'dame';
  //}else{
     //echo '営業中の店舗はありません';
   //}
-//?>
+?>
 
 
 
