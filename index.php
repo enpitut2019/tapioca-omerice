@@ -56,20 +56,21 @@ if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
       // 営業時間内なので1
-      $stmt98->bindValue(':store_id', $store_id, PDO::PARAM_INT);
+      $stmt98->bindValue(':store_id', $result99['store_id'], PDO::PARAM_INT);
       $stmt98 -> execute();
       //var_dump($result99['status']);
       if($result99['holiday'] == $monday){ // 営業時間内だけど定休日なので0
-        $stmt97->bindValue(':store_id', $store_id, PDO::PARAM_INT);
+        $stmt97->bindValue(':store_id', $result99['store_id'], PDO::PARAM_INT);
         $stmt97 -> execute();
       }
     }else { //営業時間外なら0
-      $stmt97->bindValue(':store_id', $store_id, PDO::PARAM_INT);
+      $stmt97->bindValue(':store_id', $result99['store_id'], PDO::PARAM_INT);
       $stmt97 -> execute();
-      var_dump($result99['status']);
     }
+    var_dump($result99['status']);
   }
 }
+
 //--
 
 
