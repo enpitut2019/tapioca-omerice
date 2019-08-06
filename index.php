@@ -49,7 +49,7 @@ for($i=0; $i<8; $i++) {
 ?>
 
 <!-- 検索フォーム -->
-<form method="get" action="index.php">
+<form method="post" action="index.php">
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
 
