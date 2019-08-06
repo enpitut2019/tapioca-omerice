@@ -87,7 +87,7 @@ echo '<br>';
 echo 'close :'.($result_vote[$c_key[$key-1]] + $result_vote[$c_key[$key]]);
 echo '<br>';
 
-echo '集計時間 :'.$time_4h[$key];
+echo '集計時間 :'.$time_4h[$key-1];
 echo '<br>';
 
 echo $time[$key-1].' ... ';
