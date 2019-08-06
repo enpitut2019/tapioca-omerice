@@ -26,15 +26,6 @@ $c_key = array('c0_2','c2_4','c4_6','c6_8','c8_10','c10_12','c12_14','c14_16','c
 date_default_timezone_set('Asia/Tokyo');
 $date = date("H");
 
-// 投票データの更新
-// o_key[0]=o0_2
-// o_key[1]=o2_4
-// o_key[2]=o4_6
-// ....
-// o_key[11]=o22_24
-
-// var_dump($date);
-// var_dump(intval($date));
 
 $index = intval($date/2);
 
@@ -48,13 +39,13 @@ $index = intval($date/2);
 session_start();
 
 function now_time(){
-  return intval(date("H"))*360+intval(date("i"))*60+intval(date("s"));
+  return intval(date("H"))*3600+intval(date("i"))*60+intval(date("s"));
 }
 
 
 $session_key = '\''.$store_id.'\'';
 // リセット
-if(now_time() - $_SESSION[$session_key] > 20) {
+if(now_time() - $_SESSION[$session_key] > 20 || now_time() - $_SESSION[$session_key] <= 0) {
   unset($_SESSION[$session_key]);
 }
 
@@ -71,8 +62,8 @@ if (!isset($_SESSION[$session_key])) {
     // $_SESSION[$session_key]++;
     $flag = 0;
 }
-var_dump($_SESSION[$session_key]);
-var_dump($flag);
+// var_dump($_SESSION[$session_key]);
+// var_dump($flag);
 
 
 
@@ -123,10 +114,10 @@ if($flag == 1) {
 }
 ?>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   setTimeout(function(){
  window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
 }, 3*1000);
-</script> -->
+</script>
 </body>
 </html>
