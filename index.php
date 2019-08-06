@@ -56,7 +56,7 @@ for($i=0; $i<8; $i++) {
 <!-- 今から営業中のチェックボックボックスを作りたい -->
 <input type="checkbox" name="eigyou" value="営業中">営業中
 <?php
-if($("[name=eigyou]:checked").val() = value){
+if(("[name=eigyou]:checked").val() = value){
   echo '良い';
 }else{
   echo 'だめ';
