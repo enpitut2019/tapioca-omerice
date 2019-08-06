@@ -41,15 +41,18 @@ if($wd == 1){
 }
 
 $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
+$stmt98 = $pdo->prepare('UPDATE info SET status = 1');
+$stmt97 = $pdo->prepare('UPDATE info SET status = 0');
+
 if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
   if(($result99['l_time_o'] < $open_flag && $open_falg < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
-    $result99['status']=1;
+    $result98 -> execute();
     if($result99['holiday'] == $monday){
-      $result99['status']=0;
+      $result97 -> execute();
     }
   }else {
-    $result99['status']=0;
+    $result97 -> execute();
   }
 }
 }
