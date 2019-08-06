@@ -76,7 +76,7 @@ for($i=0; $i<8; $i++) {
           }else {
             $rikiya = '営業時間外';
           }
-         echo '<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">'.$result11['store_name']$rikiya.'</a><br>';
+         echo '<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">'.$result11['store_name'].$rikiya.'</a><br>';
 
        }
      }
