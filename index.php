@@ -69,12 +69,11 @@ for($i=0; $i<8; $i++) {
          echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result11['store_id'].'">詳細情報</a><br>';
          echo '良い11';
        }
-     } 
+     }
      } else {
        echo 'dame10';
      }
-   }
- } else {
+   } else {
    if(isset($eigyou)){
      echo 'dame01';
    } else {
