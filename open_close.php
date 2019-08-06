@@ -96,14 +96,14 @@ if($_SESSION[$store_id] != 1) {
 
 <?php
 } else {
-  echo “投票は2時間に1回までです。”;
+  echo "投票は2時間に1回までです。";
 }
 ?>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   setTimeout(function(){
  window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
-}, 2*1000);
-</script> -->
+}, 3*1000);
+</script>
 </body>
 </html>
