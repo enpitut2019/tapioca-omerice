@@ -61,6 +61,12 @@ for($i=0; $i<8; $i++) {
 
 <?php
 $eigyou = $_POST['eigyou'];
+if($eigyou="営業中"){
+  echo "良い";
+}else{
+  echo "dame";
+}
+}
 var_dump($eigyou);
 
 // if(("[name=eigyou]:checked").val() = value){
