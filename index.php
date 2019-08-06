@@ -27,19 +27,19 @@ $hour = intval($date) * 100;
 $open_flag = $hour + intval($minute);
 $wd = date("w");
 if($wd == 0){
-  $monday = '月曜日'
+  $monday = '月曜日';
 }else if($wd == 1){
-  $monday = '火曜日'
+  $monday = '火曜日';
 }else if($wd == 2){
-  $monday = '水曜日'
+  $monday = '水曜日';
 }else if($wd == 3){
-  $monday = '木曜日'
+  $monday = '木曜日';
 }else if($wd == 4){
-  $monday = '金曜日'
+  $monday = '金曜日';
 }else if($wd == 5){
-  $monday = '土曜日'
+  $monday = '土曜日';
 }else{
-  $monday = '日曜日'
+  $monday = '日曜日';
 }
 
 $index = intval($date/2);
