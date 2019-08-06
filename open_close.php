@@ -42,15 +42,13 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $result_vote[ $o_key[$index]]+=1;
   // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
   // $stmt->execute();
-  $stmt = $pdo->prepare('UPDATE sample0802_open SET :o_key = :result_vote WHERE store_id = :store_id');
-  $stmt->bindValue(':o_key', $o_key[$index], PDO::PARAM_STR);
+  $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].' = :result_vote WHERE store_id = :store_id');
   $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
   $stmt->execute();
 } else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
   $result_vote[ $c_key[$index]]+=1;
-  $stmt = $pdo->prepare('UPDATE sample0802_close SET :c_key = :result_vote WHERE store_id = :store_id');
-  $stmt->bindValue(':c_key', $c_key[$index], PDO::PARAM_STR);
+  $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
   $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
   $stmt->execute();
