@@ -38,11 +38,9 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
   <div class="header">
-<p class = "head_font">
   <a href=https://tapiome.herokuapp.com/>
-  <img src="img/title.png" width="335px" height="60">
+  <img src="img/title.png" width="335px" height="60px">
   </a>
-</p>
 </div>
 
 

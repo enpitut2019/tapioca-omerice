@@ -16,12 +16,6 @@
 	padding-top: 12vh;
 }
 
-
-/*リンクの色はなし*/
-a {
-	/* text-decoration: none; */
-	/* background-color :#cccccc; */
-}
 /*リンクの色はなし*/
 .link {
 	color:#4f4f4f
@@ -31,32 +25,6 @@ a {
 	color:#ffffff
 }
 
-
-@media screen and (min-width:980px){
-
-	h1{
-		font-size: 200%;
-		color: #000000;
-		margin-bottom: -10px;
-	}
-
-	h2{
-	    margin-bottom:10px;
-	}
-
-
-	/*本文のレイアウト指定*/
-	body{
-		margin-left: 25%;
-		margin-right: 20%;
-		margin-bottom: 50px;
-		color: #4f4f4f;
-    font-family: 'ヒラギノ角ゴ Pro W3';
-		font-size: 100%;
-	}
-
-
-}
 
 .button_open {
   display       : inline-block;
@@ -96,6 +64,36 @@ a {
 }
 
 
+/* PC用 */
+@media screen and (min-width:980px){
+
+	h1{
+		font-size: 200%;
+		color: #000000;
+		margin-bottom: -10px;
+	}
+
+	h2{
+	    margin-bottom:10px;
+	}
+
+
+	/*本文のレイアウト指定*/
+	body{
+		margin-left: 25%;
+		margin-right: 20%;
+		margin-bottom: 50px;
+		color: #4f4f4f;
+    font-family: 'ヒラギノ角ゴ Pro W3';
+		font-size: 100%;
+	}
+	.head_img{
+		margin-left: 25%;
+	}
+}
+
+
+/* スマホ用 */
 @media screen and (max-width:980px){
 	h1{
 		font-size: 10vh;
@@ -115,5 +113,7 @@ a {
     font-family: 'ヒラギノ角ゴ Pro W3';
 		font-size: 5vh;
 	}
-
+	.head_img{
+		margin-left: 5%;
+	}
 }
