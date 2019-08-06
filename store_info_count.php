@@ -67,8 +67,19 @@ $key = intval($date/2);
 // 投票数の表示
 echo '<p>';
 
+echo 'open :'.$result_vote[$o_key[$key-1]] + result_vote[$o_key[$key]];
+echo '<br />';
+echo 'close :'.$result_vote[$c_key[$key-1]] + result_vote[$c_key[$key]];
+echo '<br />';
+
+echo $time[$key-1].' ... ';
 echo $result_vote[$o_key[$key-1]];
+echo $result_vote[$c_key[$key-1]];
+echo '<br />'
+
+echo $time[$key].' ... ';
 echo $result_vote[$o_key[$key]];
+echo $result_vote[$c_key[$key]];
 
 // for ($i = 0; $i < 12; $i++) {
 //   if($i != $key ) {
