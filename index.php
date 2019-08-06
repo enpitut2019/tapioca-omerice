@@ -54,7 +54,7 @@ if($stmt99) {
         $stmt97 -> execute();
       }
     }else {
-      $stmt97 -> execute();
+      $result99 = $stmt97 -> execute();
       echo $result99['status'];
     }
   }
