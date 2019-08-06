@@ -67,8 +67,23 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
   }
-
-  header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
-  exit();
+  // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
+  // exit();
 
 ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<body>
+  <!-- <p>ありがとうございます！</p> -->
+  <center style="margin-top:50px;">
+  <img class = "head_img" src="img/thanks.png" width="455px" height="55px">
+  </center>
+  <script type="text/javascript">
+  setTimeout(function(){
+ window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
+}, 2*1000);
+</script>
+</body>
+</html>
