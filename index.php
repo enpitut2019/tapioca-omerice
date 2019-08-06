@@ -48,9 +48,14 @@ for($i=0; $i<8; $i++) {
     echo "Hello tapioka!";
 ?>
 
+//検索フォーム
 <form method="get" action="index.php">
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
+
+
+//今から営業中のチェックボックボックスを作りたい
+<input type="checkbox" name="eigyou" value="営業中">営業中
 
 <br>
 
@@ -73,6 +78,7 @@ echo 'dame';
 <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
 <br>
 
+//営業中の店舗表示
 <?php
 $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
 if($stmt2){
@@ -96,8 +102,6 @@ if($stmt2){
  }else{
     echo '営業中の店舗はありません';
   }
-
- 
 ?>
 
 
