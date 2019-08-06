@@ -45,12 +45,13 @@ $stmt98 = $pdo->prepare('UPDATE info SET status = 1');
 $stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 $stmt99->execute();
 
+if($stmt98 -> execute()) {
+  echo 'true';
+}
 if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
-    $result98 = $stmt98 -> execute();
-    var_dump($result98);
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
-      //$stmt98 -> execute();
+      $stmt98 -> execute();
       echo $result99['status'];
       if($result99['holiday'] == $monday){
         $stmt97 -> execute();
