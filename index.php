@@ -44,20 +44,18 @@ $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample080
 $stmt98 = $pdo->prepare('UPDATE info SET status = 1');
 $stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 
-  var_dump($stmt99);
-    var_dump($stmt98);
-  var_dump($stmt97);
 if($stmt99) {
   while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
-  if(($result99['l_time_o'] < $open_flag && $open_falg < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
-    $stmt98 -> execute();
-    if($result99['holiday'] == $monday){
+    var_dump($result99);
+    if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
+      $stmt98 -> execute();
+      if($result99['holiday'] == $monday){
+        $stmt97 -> execute();
+      }
+    }else {
       $stmt97 -> execute();
     }
-  }else {
-    $stmt97 -> execute();
   }
-}
 }
 
 $index = intval($date/2);
@@ -135,7 +133,7 @@ for($i=0; $i<8; $i++) {
        $stmt10->execute();
        if($stmt10){
          while($result10 = $stmt10 -> fetch(PDO::FETCH_ASSOC)) {
-           if(($result10['l_time_o'] < $open_flag && $open_falg < $result10['l_time_c']) || ($result10['d_time_o'] < $open_flag && $open_flag < $result10['d_time_c'])) {
+           if(($result10['l_time_o'] < $open_flag && $open_flag < $result10['l_time_c']) || ($result10['d_time_o'] < $open_flag && $open_flag < $result10['d_time_c'])) {
              $rikiya = '営業時間内';
              $stmt98 -> execute();
              if($result10['holiday'] == $monday){
@@ -160,7 +158,7 @@ for($i=0; $i<8; $i++) {
      $stmt01->execute();
      if($stmt01){
        while($result01 = $stmt01 -> fetch(PDO::FETCH_ASSOC)) {
-         if(($result01['l_time_o'] < $open_flag && $open_falg < $result01['l_time_c']) || ($result01['d_time_o'] < $open_flag && $open_flag < $result01['d_time_c'])) {
+         if(($result01['l_time_o'] < $open_flag && $open_flag < $result01['l_time_c']) || ($result01['d_time_o'] < $open_flag && $open_flag < $result01['d_time_c'])) {
            $rikiya = '営業時間内';
            $stmt98 -> execute();
            if($result01['holiday'] == $monday){
@@ -183,7 +181,7 @@ for($i=0; $i<8; $i++) {
      $stmt00->execute();
      if($stmt00){
        while($result00 = $stmt00 -> fetch(PDO::FETCH_ASSOC)) {
-         if(($result00['l_time_o'] < $open_flag && $open_falg < $result00['l_time_c']) || ($result00['d_time_o'] < $open_flag && $open_flag < $result00['d_time_c'])) {
+         if(($result00['l_time_o'] < $open_flag && $open_flag < $result00['l_time_c']) || ($result00['d_time_o'] < $open_flag && $open_flag < $result00['d_time_c'])) {
            $rikiya = '営業時間内';
            $stmt98 -> execute();
            if($result00['holiday'] == $monday){
