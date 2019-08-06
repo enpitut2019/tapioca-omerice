@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>
+  ごっっはにゃさん|活龍 竹園店</title> <!-- あとで変数 -->
+<style>
+.red{
+  color:RED;
+}
+.gray{
+  color:#4F4F4F;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="css/tapiome.css"></link>
+</head>
+<body>
+  <div class="header">
+  <a href=https://tapiome.herokuapp.com/>
+  <img class = "head_img" src="img/title.png" width="335px" height="60px">
+  </a>
+</div>
+
+
+  <h1 class="first">
+    活龍 竹園店  </h1> <!-- あとで変数 -->
+
+<!-- 営業状態の投票 -->
+
+
+
+
+<p>ランチ：1130~1430<br>ディナー：1730~2200<br>定休日：火曜日<br>ジャンル：ラーメン<br>価格帯：0~999<br>TEL：029-851-8090<br>URL：<a class="link" href =https://tabelog.com/ibaraki/A0802/A080201/8011371/>https://tabelog.com/ibaraki/A0802/A080201/8011371/</a></p><p>現在<br>0人が営業中と言っています<br>0人が閉店中と言っています<div style="font-size:60%; margin-top:-10px">集計時間 :16:00~20:00<br>16:00~18:00 ... 営業中:0人 閉店中: 0人<br>18:00~20:00 ... 営業中: 0人 閉店中: 0人<br></div></p>
+<p>
+  <form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
+  <input type="hidden" value=2 name="store_id">
+  <input class = "button_open" type="submit" value="営業中" name="vote_open">　<!-- 営業中 -->
+  <input class = "button_close" type="submit" value="閉店中" name="vote_close">　<!-- 閉店中 -->
+  </form>
+</p>
+
+<!-- google map -->
+<p>
+<iframe src="https://maps.google.co.jp/maps?output=embed&q=活龍 竹園店" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</p>
+
+
+<a class="twitter-timeline" data-width="525" data-height="700" data-link-color="#2B7BB9" href="https://twitter.com/katsuryugroup?ref_src=twsrc%5Etfw">Tweets by katsuryugroup</a>
+<!-- <a class="twitter-timeline" data-width="700" data-height="700" data-link-color="#2B7BB9" href="https://twitter.com/katsuryugroup?ref_src=twsrc%5Etfw">Tweets by katsuryugroup</a> -->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>↓↓↓同じジャンルのお店を探す↓↓↓<br>龍郎：<a class="link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id=1">詳細情報</a><br></p>
+</body>
+</html>
