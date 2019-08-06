@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-<meta charset="UTF-8">
 <?php
 // データベースに接続
 $url = parse_url(getenv('DATABASE_URL'));
@@ -70,11 +67,19 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
   }
-  echo 'ありがとうございます！';
-
-  sleep(3);
   // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
   // exit();
 
 ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<body>
+  <script type="text:javascript">
+  setTimeout(function(){
+ window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id='.<?php echo $_POST['store_id']; ?>;
+}, 5*1000);
+</script>
+</body>
 </html>
