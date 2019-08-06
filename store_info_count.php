@@ -131,6 +131,7 @@ $stmt_genre = $pdo->prepare('SELECT * FROM info LEFT JOIN sample0801_db ON info.
 $stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
 $stmt_genre->execute();
 if($stmt_genre) {
+  $i = 0;
   while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
     if($result_genre['store_id'] != $store_id ) {
       $genre_array[$i] = $result_genre['store_id'];
