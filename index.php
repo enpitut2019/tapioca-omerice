@@ -9,8 +9,6 @@ $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1))
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
 // var_dump($_POST);
 
-
-
 // 投票数を取得
 $stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id');
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
@@ -40,6 +38,18 @@ if($wd == 1){
   $monday = '土曜日';
 }else{
   $monday = '日曜日';
+}
+
+$stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
+while($result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)) {
+  if(($result99['l_time_o'] < $open_flag && $open_falg < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
+    $result99['status']=1;
+    if($result99['holiday'] == $monday){
+      $result99['status']=0;
+    }
+  }else {
+    $result99['status']=0;
+  }
 }
 
 
