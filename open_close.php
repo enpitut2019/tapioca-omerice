@@ -76,9 +76,10 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 <html lang="ja">
 <meta charset="UTF-8">
 <body>
+  <p>ありがとうございます！</p>
   <script type="text:javascript">
   setTimeout(function(){
- window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id='.<?php echo $_POST['store_id']; ?>;
+ window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id= <?php echo $_POST['store_id']; ?>';
 }, 5*1000);
 </script>
 </body>
