@@ -169,6 +169,10 @@
 		width:60vw;
 		height:500px;
 	}
+	.twitter-size{
+		width:50vw;
+		height:500px;
+	}
 }
 
 
@@ -312,6 +316,10 @@
 	  background    : #ffffff;     /* 文字色     */
 	}
 	.map{
+		width:90vw;
+		height:50vh;
+	}
+	.twitter-size{
 		width:90vw;
 		height:50vh;
 	}
