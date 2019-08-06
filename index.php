@@ -41,7 +41,7 @@ if($wd == 1){
 }
 
 $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
-$stmt98 = $pdo->prepare('UPDATE info SET status = 1 ');
+$stmt98 = $pdo->prepare('UPDATE info SET status = 1');
 $stmt97 = $pdo->prepare('UPDATE info SET status = 3');
 $stmt99->execute();
 
