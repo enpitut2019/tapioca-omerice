@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
 <?php
 // データベースに接続
 $url = parse_url(getenv('DATABASE_URL'));
@@ -12,9 +8,8 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 // 投票数を取得
 $store_id = $_POST['store_id'];
 $stmt_vote = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id = :store_id');
-if($stmt_vote->bindValue(':store_id', $store_id, PDO::PARAM_INT)){
+$stmt_vote->bindValue(':store_id', $store_id, PDO::PARAM_INT);
 $stmt_vote->execute();
-}
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
 // hashのkeyの配列
@@ -60,4 +55,3 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
  exit();
 
 ?>
-</html>
