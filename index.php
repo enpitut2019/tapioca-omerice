@@ -41,7 +41,7 @@ if($wd == 1){
 }else{
   $monday = '日曜日';
 }
-
+var_dump($monday);
 $index = intval($date/2);
 
 for($i=0; $i<8; $i++) {
