@@ -46,7 +46,7 @@ session_start([
     'cookie_lifetime' => 300,
 ]);
 
-var_dump($store_id);
+var_dump(session_get_cookie_params());
 var_dump($_SESSION[$store_id]);
 if (!isset($_SESSION[$store_id])) {
     // キー'$store_id'が登録されていなければ、1を設定
