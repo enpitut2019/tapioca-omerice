@@ -101,7 +101,7 @@ for($i=0; $i<8; $i++) {
      if($stmt00){
        while($result00 = $stmt00 -> fetch(PDO::FETCH_ASSOC)) {
         echo h($result00['store_name']);
-        echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result00['store_id']).'">詳細情報</a><br>)';
+        echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result00['store_id']).'">詳細情報</a><br>';
       }
     }
    }
