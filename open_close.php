@@ -46,6 +46,7 @@ session_start([
     'cookie_lifetime' => 300,
 ]);
 
+var_dump($store_id);
 var_dump($_SESSION[$store_id]);
 if (!isset($_SESSION[$store_id])) {
     // キー'$store_id'が登録されていなければ、1を設定
@@ -58,7 +59,7 @@ if (!isset($_SESSION[$store_id])) {
 }
 var_dump($_SESSION[$store_id]);
 
-if($_SESSION[$store_id] != 1) {
+if($_SESSION[$store_id] == 1) {
   if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $result_vote[ $o_key[$index]]+=1;
     // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
