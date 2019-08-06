@@ -70,11 +70,11 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
   }
-  echo "ありがとうございます！";
+  echo 'ありがとうございます！';
 
   sleep(3);
-  header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
-  exit();
+  // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
+  // exit();
 
 ?>
 </html>
