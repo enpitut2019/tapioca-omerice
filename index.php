@@ -116,9 +116,9 @@ for($i=0; $i<8; $i++) {
             $result11['status']=0;
           }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">';
-         echo $result11['store_name'].'<br>';
+         echo '<div class="box1">'.$result11['store_name'].'<br>';
          echo '<span style="font-size:70%">'.$rikiya.'</span>';
-         echo '</box1></a>';
+         echo '</div></a>';
 
        }
      }
@@ -139,10 +139,10 @@ for($i=0; $i<8; $i++) {
              $rikiya = '営業時間外';
              $result10['status']=0;
            }
-           echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">';
-           echo $result10['store_name'].'<br>';
+           echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result10['store_id']).'">';
+           echo '<div class="box1">'.$result10['store_name'].'<br>';
            echo '<span style="font-size:70%">'.$rikiya.'</span>';
-           echo '</box1></a>';
+           echo '</div></a>';
         }
       }
     }
@@ -164,10 +164,10 @@ for($i=0; $i<8; $i++) {
            $rikiya = '営業時間外';
            $result01['status']=0;
          }
-         echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">';
-         echo $result01['store_name'].'<br>';
+         echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result01['store_id']).'">';
+         echo '<div class="box1">'.$result01['store_name'].'<br>';
          echo '<span style="font-size:70%">'.$rikiya.'</span>';
-         echo '</box1></a>';
+         echo '</div></a>';
       }
     }
    } else {
@@ -187,10 +187,10 @@ for($i=0; $i<8; $i++) {
            $rikiya = '営業時間外';
            $result00['status']=0;
          }
-         echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">';
-         echo $result00['store_name'].'<br>';
+         echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result00['store_id']).'">';
+         echo '<div class="box1">'.$result00['store_name'].'<br>';
          echo '<span style="font-size:70%">'.$rikiya.'</span>';
-         echo '</box1></a>';
+         echo '</div></a>';
       }
     }
    }
