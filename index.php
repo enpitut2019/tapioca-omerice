@@ -55,6 +55,7 @@ if($stmt99) {
       }
     }else {
       $stmt98 -> execute();
+      $stmt97 -> execute();
       var_dump($result99['status']);
     }
   }
