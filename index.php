@@ -98,7 +98,7 @@ echo 'dame';
 
 <br>
 
-<a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
+<!-- <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
 <br>
 
 <!-- 営業中の店舗表示 -->
@@ -127,7 +127,7 @@ if($stmt2){
  }else{
     echo '営業中の店舗はありません';
   }
-?>
+?> -->
 
 
 
