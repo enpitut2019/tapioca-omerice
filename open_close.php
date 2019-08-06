@@ -68,8 +68,7 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $stmt->execute();
   }
 
-  echo $result_info['status'];
- // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
- // exit();
+  header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
+  exit();
 
 ?>
