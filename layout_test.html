@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>
+  ごっっはにゃさん|龍郎</title> <!-- あとで変数 -->
+<style>
+.red{
+  color:RED;
+}
+.gray{
+  color:#4F4F4F;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="css/tapiome.css"></link>
+</head>
+<body>
+  <div class="header">
+<p class = "head_font">
+  <a class = "link" href=https://tapiome.herokuapp.com/>ごっっはにゃさん</a>
+</p>
+</div>
+  <h1 class = "first">
+    龍郎  </h1> <!-- あとで変数 -->
+
+<!-- 営業状態の投票 -->
+
+<p>
+  <form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
+  <input type="hidden" value=1 name="store_id">
+  <input type="submit" value="営業中" name="vote_open">　<!-- 営業中 -->
+  <input type="submit" value="閉店中" name="vote_close">　<!-- 閉店中 -->
+  </form>
+</p>
+
+
+<p>ランチ：1130~1430<br>ディナー：1730~2200<br>定休日：無し<br>ジャンル：二郎系ラーメン<br>価格帯：0~999<br>TEL：029-859-3311<br>URL：<a href =https://tabelog.com/ibaraki/A0802/A080201/8011732/>https://tabelog.com/ibaraki/A0802/A080201/8011732/</a></p><p>open :3<br>close :4<br>集計時間 :12:00~16:00<br>12:00~14:00 ... open:1 close: 0<br>14:00~16:00 ... open: 2 close: 4<br></p>
+<p>
+<iframe src="https://maps.google.co.jp/maps?output=embed&q=龍郎" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</p>
+
+<a class="twitter-timeline" data-width="350" data-height="700" data-link-color="#2B7BB9" href="https://twitter.com/tatsuro3311?ref_src=twsrc%5Etfw">Tweets by tatsuro3311</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+</html>
