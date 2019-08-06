@@ -145,7 +145,7 @@ if($result_detail_info['twitter']){
 </div>
 
 <div class="twi_pc">
-  <a class="twitter-timeline" data-width="50%" data-height="00px" data-link-color="#2B7BB9" href="https://twitter.com/<?php echo h($result_detail_info['twitter']); ?>?ref_src=twsrc%5Etfw">Tweets by <?php echo h($result_detail_info['twitter']); ?></a>
+  <a class="twitter-timeline" data-width="50%" data-height="500px" data-link-color="#2B7BB9" href="https://twitter.com/<?php echo h($result_detail_info['twitter']); ?>?ref_src=twsrc%5Etfw">Tweets by <?php echo h($result_detail_info['twitter']); ?></a>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
