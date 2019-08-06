@@ -69,17 +69,16 @@ for($i=0; $i<8; $i++) {
          echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result11['store_id'].'">詳細情報</a><br>';
          echo '良い11';
        }
-      } else {
-      echo 'dame10';
-      }
-    }
-  } else {
-    if(isset($eigyou)){
-      echo 'dame01';
-    } else {
-      echo 'dame00';
-    }
-  }
+     } else {
+       echo 'dame10';
+     }
+   } else {
+     if(isset($eigyou)){
+       echo 'dame01';
+     } else {
+       echo 'dame00';
+     }
+   }
   //$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
   //$stmt->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
   //$stmt->execute();
