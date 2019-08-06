@@ -62,9 +62,14 @@ $stmt_detail_info->bindValue(':store_id', $store_id, PDO::PARAM_INT);
 $stmt_detail_info->execute();
 $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
 
+$l_time_o = substr_replace($result_detail_info["l_time_o"], ':', 2, 0);
+$l_time_c = substr_replace($result_detail_info["l_time_c"], ':', 2, 0);
+$d_time_o = substr_replace($result_detail_info["d_time_o"], ':', 2, 0);
+$d_time_c = substr_replace($result_detail_info["d_time_c"], ':', 2, 0);
+
 echo '<p>';
-echo 'ランチ：'.h($result_detail_info["l_time_o"]).'~'.h($result_detail_info["l_time_c"]).'<br>';
-echo 'ディナー：'.h($result_detail_info["d_time_o"]).'~'.h($result_detail_info["d_time_c"]).'<br>';
+echo 'ランチ：'.h($l_time_o).'~'.h($l_time_c).'<br>';
+echo 'ディナー：'.h($d_time_o).'~'.h($d_time_c).'<br>';
 echo '定休日：'.h($result_detail_info["holiday"]).'<br>';
 echo 'ジャンル：'.h($result_detail_info["genre"]).'<br>';
 echo '価格帯：'.h($result_detail_info["price_min"]).'~'.h($result_detail_info["price_max"]).'<br>';
