@@ -46,24 +46,25 @@ session_start();
 //     'cookie_lifetime' => 300,
 // ]);
 //
-// echo "セッションチェック:　　　　", $_SESSION['hoge'],"<br>";
+// echo "セッションチェック:　　　　", $_SESSION[$session_key],"<br>";
 // echo "現在のセッション名は 　　　". session_name() ." です。<br>";
 // echo "現在のセッションIDは 　　　". session_id() ." です。<br>";
 // echo "現在のセッションデータは　　". session_save_path() ."に保存されています。<br>";
 
-var_dump($_SESSION['hoge']);
-if (!isset($_SESSION['hoge'])) {
+$session_key = '\''.$store_id.'\'';
+var_dump($_SESSION[$session_key]);
+if (!isset($_SESSION[$session_key])) {
     // キー'$store_id'が登録されていなければ、1を設定
     echo "ない";
-    $_SESSION['hoge'] = 1;
+    $_SESSION[$session_key] = 1;
 } else {
     //  キー'$store_id'が登録されていれば、その値をインクリメント
     echo "ある";
-    $_SESSION['hoge']++;
+    $_SESSION[$session_key]++;
 }
-var_dump($_SESSION['hoge']);
+var_dump($_SESSION[$session_key]);
 
-if($_SESSION['hoge'] == 1) {
+if($_SESSION[$session_key] == 1) {
   if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $result_vote[ $o_key[$index]]+=1;
     // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
