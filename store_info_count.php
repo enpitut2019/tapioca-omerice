@@ -156,6 +156,7 @@ if($stmt_genre) {
       echo '</div></a>';
       $i+=1;
     }
+    if($i >= 4) { break; }
   }
 }
 

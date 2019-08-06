@@ -278,10 +278,10 @@
 	.button_open {
 	  display       : inline-block;
 	  border-radius : 20%;          /* 角丸       */
-	  font-size     : 200%;        /* 文字サイズ */
+	  font-size     : 150%;        /* 文字サイズ */
 	  text-align    : center;      /* 文字位置   */
 	  cursor        : pointer;     /* カーソル   */
-	  padding       : 8px 10px;   /* 余白       */
+	  padding       : 8px 5px;   /* 余白       */
 	  background    : #e3ab30;     /* 背景色     */
 	  color         : #ffffff;     /* 文字色     */
 	  line-height   : 100px;         /* 1行の高さ  */
@@ -297,10 +297,10 @@
 		margin-left: -10px;
 	  display       : inline-block;
 	  border-radius : 20%;          /* 角丸       */
-	  font-size     : 200%;        /* 文字サイズ */
+	  font-size     : 150%;        /* 文字サイズ */
 	  text-align    : center;      /* 文字位置   */
 	  cursor        : pointer;     /* カーソル   */
-	  padding       : 8px 10px;   /* 余白       */
+	  padding       : 8px 5px;   /* 余白       */
 	  background    : #6bb6bb;     /* 背景色     */
 	  color         : #ffffff;     /* 文字色     */
 	  line-height   : 100px;         /* 1行の高さ  */
