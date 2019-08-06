@@ -97,17 +97,21 @@ $key = intval($date/2);
 // 投票数の表示
 echo '<p>';
 echo '現在<br>';
-echo (h($result_vote[$o_key[$key-1]]) + h($result_vote[$o_key[$key]]));
+if($key != 0) { echo (h($result_vote[$o_key[$key-1]]) + h($result_vote[$o_key[$key]])); }
+else { echo (h($result_vote[$o_key[$key+11]]) + h($result_vote[$o_key[$key]])); }
 echo '人が営業中と言っています<br>';
-echo (h($result_vote[$c_key[$key-1]]) + h($result_vote[$c_key[$key]]));
+if($key != 0) { echo (h($result_vote[$c_key[$key-1]]) + h($result_vote[$c_key[$key]])); }
+else { echo (h($result_vote[$c_key[$key+11]]) + h($result_vote[$c_key[$key]])); }
 echo '人が閉店中と言っています';
 
 echo '<div style="font-size:60%; margin-top:-10px">集計時間 :'.h($time_4h[$key-1]);
 echo '<br>';
 
 echo h($time[$key-1]).' ... ';
-echo '営業中:'.h($result_vote[$o_key[$key-1]]).'人';
-echo ' 閉店中: '.h($result_vote[$c_key[$key-1]]).'人';
+if($key != 0) { echo '営業中:'.h($result_vote[$o_key[$key-1]]).'人'; }
+else { echo '営業中:'.h($result_vote[$o_key[$key+11]]).'人'; }
+if($key != 0) { echo ' 閉店中: '.h($result_vote[$c_key[$key-1]]).'人'; }
+else { echo ' 閉店中: '.h($result_vote[$c_key[$key+11]]).'人'; }
 echo '<br>';
 echo h($time[$key]).' ... ';
 echo '営業中: '.h($result_vote[$o_key[$key]]).'人';

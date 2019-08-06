@@ -45,7 +45,7 @@ function now_time(){
 
 $session_key = '\''.$store_id.'\'';
 // リセット
-if(now_time() - $_SESSION[$session_key] > 20 || now_time() - $_SESSION[$session_key] <= 0) {
+if(now_time() - $_SESSION[$session_key] > 2*60*60 || now_time() - $_SESSION[$session_key] <= 0) {
   unset($_SESSION[$session_key]);
 }
 
@@ -115,7 +115,7 @@ if($flag == 1) {
 <script type="text/javascript">
   setTimeout(function(){
  window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
-}, 3*1000);
+}, 2*1000);
 </script>
 </body>
 </html>
