@@ -25,6 +25,22 @@ $date = date("H");
 $minute = date("i");
 $hour = intval($date) * 100;
 $open_flag = $hour + intval($minute);
+$wd = date("w");
+if($wd = 0){
+  $monday = '月曜日'
+}else if($wd = 1){
+  $monday = '火曜日'
+}else if($wd = 2){
+  $monday = '水曜日'
+}else if($wd = 3){
+  $monday = '木曜日'
+}else if($wd = 4){
+  $monday = '金曜日'
+}else if($wd = 5){
+  $monday = '土曜日'
+}else{
+  $monday = '日曜日'
+}
 
 $index = intval($date/2);
 
@@ -73,6 +89,9 @@ for($i=0; $i<8; $i++) {
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
           if(($result11['l_time_o'] < $open_flag && $open_falg < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
+            if($result11['holiday'] == $monday){
+              $rikiya = '営業時間外';
+            }
           }else {
             $rikiya = '営業時間外';
           }
