@@ -57,6 +57,7 @@ for($i=0; $i<8; $i++) {
 <input type="checkbox" name="eigyou" value="営業中">営業中
 
 <br>
+<br>
 
 <?php
 $word = $_GET["kensaku"]; //検索ワード
@@ -77,7 +78,7 @@ echo 'dame';
 <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
 <br>
 
-//営業中の店舗表示
+<!-- 営業中の店舗表示 -->
 <?php
 $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
 if($stmt2){
