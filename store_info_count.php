@@ -34,12 +34,19 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
   color:#4F4F4F;
 }
 </style>
+<link rel="stylesheet" type="text/css" href="css/tapiome.css"></link>
 </head>
 <body>
-<p>
-  <a href=https://tapiome.herokuapp.com/>ごっっはにゃさん</a>
+  <div class="header">
+<p class = "head_font">
+  <a href=https://tapiome.herokuapp.com/>
+  <img src="img/title.png" width="335px" height="60">
+  </a>
 </p>
-  <h1>
+</div>
+
+
+  <h1 class="first">
     <?php
       echo h($result['store_name']);
     ?>
@@ -47,13 +54,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 
 <!-- 営業状態の投票 -->
 
-<p>
-  <form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
-  <input type="hidden" value=<?php echo h($store_id); ?> name="store_id">
-  <input type="submit" value="営業中" name="vote_open">　<!-- 営業中 -->
-  <input type="submit" value="閉店中" name="vote_close">　<!-- 閉店中 -->
-  </form>
-</p>
+
 
 
 <?php
@@ -70,7 +71,7 @@ echo '定休日：'.h($result_detail_info["holiday"]).'<br>';
 echo 'ジャンル：'.h($result_detail_info["genre"]).'<br>';
 echo '価格帯：'.h($result_detail_info["price_min"]).'~'.h($result_detail_info["price_max"]).'<br>';
 echo 'TEL：'.h($result_detail_info["tel"]).'<br>';
-echo 'URL：<a href ='.h($result_detail_info["url"]).'>'.h($result_detail_info["url"]).'</a>';
+echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>'.h($result_detail_info["url"]).'</a>';
 echo '</p>';
 
 
@@ -113,6 +114,15 @@ echo '</p>';
 
 ?>
 
+<p>
+  <form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
+  <input type="hidden" value=<?php echo h($store_id); ?> name="store_id">
+  <input type="submit" value="営業中" name="vote_open">　<!-- 営業中 -->
+  <input type="submit" value="閉店中" name="vote_close">　<!-- 閉店中 -->
+  </form>
+</p>
+
+<!-- google map -->
 <p>
 <iframe src="https://maps.google.co.jp/maps?output=embed&q=<?php echo h($result['store_name']); ?>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </p>
