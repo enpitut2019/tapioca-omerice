@@ -40,13 +40,13 @@ for($i=0; $i<8; $i++) {
 <head>
 <meta charset="UTF-8">
 <title>ごっっはにゃさん</title>
+<link rel="stylesheet" type="text/css" href="css/tapiome.css"></link>
 </head>
 <body>
-  <h1>ごっっはにゃさん</h1>
+  <p>
+    <img src="img/title.png" width="335px" height="60">
+  </p>
 
-<?php
-    echo "Hello tapioka!";
-?>
 
 <!-- 検索フォーム -->
 <form method="post" action="index.php">
@@ -66,7 +66,7 @@ for($i=0; $i<8; $i++) {
       if($stmt11){
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
          echo $result11['store_name'];
-         echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result11['store_id'].'">詳細情報</a><br>';
+         echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result11['store_id'].'">詳細情報</a><br>';
        }
      }
      } else {
@@ -76,7 +76,7 @@ for($i=0; $i<8; $i++) {
        if($stmt10){
          while($result10 = $stmt10 -> fetch(PDO::FETCH_ASSOC)) {
           echo $result10['store_name'];
-          echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result10['store_id'].'">詳細情報</a><br>';
+          echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result10['store_id'].'">詳細情報</a><br>';
         }
       }
     }
@@ -88,7 +88,7 @@ for($i=0; $i<8; $i++) {
      if($stmt01){
        while($result01 = $stmt01 -> fetch(PDO::FETCH_ASSOC)) {
         echo $result01['store_name'];
-        echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result01['store_id'].'">詳細情報</a><br>';
+        echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result01['store_id'].'">詳細情報</a><br>';
       }
     }
    } else {
@@ -98,7 +98,7 @@ for($i=0; $i<8; $i++) {
      if($stmt00){
        while($result00 = $stmt00 -> fetch(PDO::FETCH_ASSOC)) {
         echo $result00['store_name'];
-        echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result00['store_id'].'">詳細情報</a><br>';
+        echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result00['store_id'].'">詳細情報</a><br>';
       }
     }
    }
