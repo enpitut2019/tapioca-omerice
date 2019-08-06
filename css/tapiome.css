@@ -322,5 +322,7 @@
 	.twi_pc{
 		display:none;
 	}
-	.twi_mobile{}
+	.twi_mobile{
+		display: block;
+	}
 }
