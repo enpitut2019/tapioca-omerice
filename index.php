@@ -40,7 +40,7 @@ if($wd == 1){
   $monday = '日曜日';
 }
 
-
+var_dump($open_flag);
 $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id');
 $stmt98 = $pdo->prepare('UPDATE info SET status = 1');
 $stmt97 = $pdo->prepare('UPDATE info SET status = 0');
@@ -51,9 +51,9 @@ if($stmt99) {
     if(($result99['l_time_o'] < $open_flag && $open_flag < $result99['l_time_c']) || ($result99['d_time_o'] < $open_flag && $open_flag < $result99['d_time_c'])) {
       $stmt98 -> execute();
       echo $result99['status'];
-      // if($result99['holiday'] == $monday){
-      //   $stmt97 -> execute();
-      // }
+      if($result99['holiday'] == $monday){
+        $stmt97 -> execute();
+      }
     }else {
       $stmt97 -> execute();
       echo 'a';
