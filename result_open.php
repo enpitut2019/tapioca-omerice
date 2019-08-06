@@ -37,10 +37,9 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
     //     echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
     //   }
     // }
-    else{
+   }else{
       echo '営業中の店舗はありません';
     }
-  }
 
    
   ?>
