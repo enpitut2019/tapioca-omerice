@@ -55,11 +55,15 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 }
 
   if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
-    $stmt = $pdo->prepare('UPDATE info SET status= 3 WHERE store_id = :store_id');
+    $stmt = $pdo->prepare('UPDATE info SET status= 1 WHERE store_id = :store_id');
+    $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
+    $stmt->execute();
+  } else if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) < ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
+    $stmt = $pdo->prepare('UPDATE info SET status = 0 WHERE store_id = :store_id');
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
   } else {
-    $stmt = $pdo->prepare('UPDATE info SET status = 0 WHERE store_id = :store_id');
+    $stmt = $pdo->prepare('UPDATE info SET status = 2 WHERE store_id = :store_id');
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
   }
