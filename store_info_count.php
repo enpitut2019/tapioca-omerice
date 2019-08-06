@@ -94,51 +94,18 @@ echo $time[$key-1].' ... ';
 echo 'open:'.$result_vote[$o_key[$key-1]];
 echo ' close: '.$result_vote[$c_key[$key-1]];
 echo '<br>';
-
 echo $time[$key].' ... ';
 echo 'open: '.$result_vote[$o_key[$key]];
 echo ' close: '.$result_vote[$c_key[$key]];
 echo '<br>';
 
-// for ($i = 0; $i < 12; $i++) {
-//   if($i != $key ) {
-//
-//     echo '<span class="gray">';
-//     echo $time[$i].' ... ';
-//     echo $result_vote[$o_key[$i]].' : ';
-//     echo $result_vote[$c_key[$i]];
-//     echo '</span>';
-//
-//   } else {
-//     if($result_vote[$o_key[$i]] > $result_vote[$c_key[$i]]){
-//       echo '<strong>';
-//       echo $time[$i].' ... ';
-//       echo '<span class="red">'.$result_vote[$o_key[$i]].'</span> : ';
-//       echo $result_vote[$c_key[$i]];
-//       echo '</strong>';
-//     } else if($result_vote[$o_key[$i]] < $result_vote[$c_key[$i]]){
-//       echo '<strong>';
-//       echo $time[$i].' ... ';
-//       echo $result_vote[$o_key[$i]].' : ';
-//       echo '<span class="red">'.$result_vote[$c_key[$i]].'</span>';
-//       echo '</strong>';
-//     } else {
-//       echo '<strong>';
-//       echo $time[$i].' ... ';
-//       echo $result_vote[$o_key[$i]].' : ';
-//       echo $result_vote[$c_key[$i]];
-//       echo '</strong>';
-//     }
-//   }
-//   echo '<br>';
-// }
 echo '</p>';
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.181008651956!2d140.10809181526997!3d36.08907538010117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60220c7aa6a464e5%3A0xf609d3c850af20b!2z44Op44O844Oh44OzIOm-jemDjg!5e0!3m2!1sja!2sjp!4v1565054489175!5m2!1sja!2sjp" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 ?>
 
-
+<p>
+<iframe src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $result['store_name']; ?>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</p>
 
 </body>
 </html>
