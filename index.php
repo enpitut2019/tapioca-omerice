@@ -115,13 +115,16 @@ for($i=0; $i<8; $i++) {
           // var_dump($open_flag);
           if(($result11['l_time_o'] < $open_flag && $open_flag < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
+            $stmt98 -> execute();
             $result98 = $stmt98 -> fetch(PDO::FETCH_ASSOC);
             if($result11['holiday'] == $monday){
               $rikiya = '営業時間外';
+              $stmt97 -> execute();
               $result97 = $stmt97 -> fetch(PDO::FETCH_ASSOC);
             }
           }else {
             $rikiya = '営業時間外';
+            $stmt97 -> execute();
             $result97 = $stmt97 -> fetch(PDO::FETCH_ASSOC);
           }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">';
