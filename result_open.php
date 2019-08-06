@@ -19,12 +19,13 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
   <h1>ごっっはにゃさん結果</h1>
 <?php
 $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
-$result = $stmt2 -> fetch(PDO::FETCH_ASSOC);
-$stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id = '.$result['store_id']);
-$result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
-var_dump($result);
-echo '</br>';
-var_dump($result2);
+if($stmt2){
+  while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+    $stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_id = '.$result['store_id']);
+    $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+    var_dump($result);
+    echo '</br>';
+    var_dump($result2);
 
   if($stmt){
     while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
@@ -34,6 +35,8 @@ var_dump($result2);
   }else{
     echo '営業中の店舗はありません';
   }
+}
+
  
 ?>
 
