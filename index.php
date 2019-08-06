@@ -26,7 +26,7 @@ $minute = date("i");
 $hour = intval($date) * 100;
 $open_flag = $hour + intval($minute);
 
-$var_dump($open_flag);
+var_dump($open_flag);
 
 $index = intval($date/2);
 
