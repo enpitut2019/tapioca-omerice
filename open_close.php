@@ -39,9 +39,13 @@ $date = date("H");
 $index = intval($date/2);
 
 //セッションの有効期限を120分に設定
-session_set_cookie_params(60);
+// session_set_cookie_params(30);
 // セッション管理開始
-session_start();
+// session_start();
+
+session_start([
+    'cookie_lifetime' => 30,
+]);
 
 $session_key = '\''.$store_id.'\'';
 var_dump($_SESSION[$session_key]);
