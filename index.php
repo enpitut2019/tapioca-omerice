@@ -59,7 +59,7 @@ for($i=0; $i<8; $i++) {
 </form>
 
 <?php
-$eigyou = $_POST['eigyou'];
+$eigyou = $_POST['eigyou'][0];
 var_dump($eigyou);
 
 // if(("[name=eigyou]:checked").val() = value){
