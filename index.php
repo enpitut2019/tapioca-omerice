@@ -48,13 +48,12 @@ for($i=0; $i<8; $i++) {
     echo "Hello tapioka!";
 ?>
 
-//検索フォーム
+<!-- 検索フォーム -->
 <form method="get" action="index.php">
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
 
-
-//今から営業中のチェックボックボックスを作りたい
+<!-- 今から営業中のチェックボックボックスを作りたい -->
 <input type="checkbox" name="eigyou" value="営業中">営業中
 
 <br>
