@@ -47,7 +47,7 @@ a {
 
 	/*本文のレイアウト指定*/
 	body{
-		margin-left: 20%;
+		margin-left: 25%;
 		margin-right: 20%;
 		margin-bottom: 50px;
 		color: #4f4f4f;
@@ -57,13 +57,50 @@ a {
 
 	/*ヘッダのフォント設定*/
 	.head_font{
-		padding-left: 20%;
+		padding-left: 25%;
 		font-family: HelveticaNeue-Thin, "sans-serif";
 		font-weight: lighter;
 		color: #000000;
 		margin-top: 3vh;
 		font-size: 3vh;
 	}
+}
+
+.button_open {
+  display       : inline-block;
+  border-radius : 20%;          /* 角丸       */
+  font-size     : 14pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 8px 10px;   /* 余白       */
+  background    : #e3ab30;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #e3ab30;    /* 枠の指定 */
+}
+.button_open:hover {
+  color         : #e3ab30;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.button_close {
+	margin-left: -10px;
+  display       : inline-block;
+  border-radius : 20%;          /* 角丸       */
+  font-size     : 14pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 8px 10px;   /* 余白       */
+  background    : #6bb6bb;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #6bb6bb;    /* 枠の指定 */
+}
+.button_close:hover {
+  color         : #6bb6bb;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 }
 
 

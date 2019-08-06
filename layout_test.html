@@ -28,16 +28,19 @@
 
 <!-- 営業状態の投票 -->
 
-<p>
-  <form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
-  <input type="hidden" value=1 name="store_id">
-  <input type="submit" value="営業中" name="vote_open">　<!-- 営業中 -->
-  <input type="submit" value="閉店中" name="vote_close">　<!-- 閉店中 -->
-  </form>
-</p>
+
 
 
 <p>ランチ：1130~1430<br>ディナー：1730~2200<br>定休日：無し<br>ジャンル：二郎系ラーメン<br>価格帯：0~999<br>TEL：029-859-3311<br>URL：<a class = "link" href =https://tabelog.com/ibaraki/A0802/A080201/8011732/>https://tabelog.com/ibaraki/A0802/A080201/8011732/</a></p><p>open :3<br>close :4<br>集計時間 :12:00~16:00<br>12:00~14:00 ... open:1 close: 0<br>14:00~16:00 ... open: 2 close: 4<br></p>
+
+<p>
+  <form method="POST" action="open_close.php"> <!-- open_close.phpに営業中か閉店中かを送る-->
+  <input type="hidden" value=1 name="store_id">
+  <input class="button_open" type="submit" value="営業中" name="vote_open">　<!-- 営業中 -->
+  <input class="button_close" type="submit" value="閉店中" name="vote_close">　<!-- 閉店中 -->
+  </form>
+</p>
+
 <p>
 <iframe src="https://maps.google.co.jp/maps?output=embed&q=龍郎" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </p>
