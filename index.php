@@ -70,7 +70,7 @@ if($stmt99) {
       $stmt97->bindValue(':store_id', $result99['store_id'], PDO::PARAM_INT);
       $stmt97 -> execute();
     }
-    var_dump($result99['status']);
+    // var_dump($result99['status']);
   }
 }
 
