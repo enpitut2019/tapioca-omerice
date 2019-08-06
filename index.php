@@ -26,8 +26,6 @@ $minute = date("i");
 $hour = intval($date) * 100;
 $open_flag = $hour + intval($minute);
 
-var_dump($open_flag);
-
 $index = intval($date/2);
 
 for($i=0; $i<8; $i++) {
@@ -73,8 +71,7 @@ for($i=0; $i<8; $i++) {
       $stmt11->execute();
       if($stmt11){
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
-         echo h($result11['store_name']);
-         echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">詳細情報</a><br>';
+         echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">echo h($result11['store_name']);</a><br>';
 
        }
      }
