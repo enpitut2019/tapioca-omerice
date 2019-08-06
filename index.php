@@ -49,28 +49,48 @@ for($i=0; $i<8; $i++) {
 ?>
 
 <!-- 検索フォーム -->
-<form method="get" action="index.php">
-<input type="search" name="kensaku" ><input type="submit" value="検索">
-</form>
-
-<!-- 今から営業中のチェックボックボックスを作りたい -->
 <form method="post" action="index.php">
+<input type="search" name="kensaku" >
 <input type="checkbox" name="eigyou" value="営業中">営業中店舗のみ表示
-<input type="submit" value="表示">
+<input type="submit" value="検索">
 </form>
 
 <?php
-  $eigyou = $_POST["eigyou"];
-  if($eigyou = "営業中"){
+  $word = $_GET["kensaku"]; //検索ワード
+  $eigyou = $_POST['eigyou'];
+  if($word != NULL){
+    if(isset($eigyou)){
+      $stmt11 = $pdo->prepare('SELECT * FROM sample0801_db  WHERE status = 1 LIKE :word');
+    }
+  }
+  $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
+  $stmt->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
+  $stmt->execute();
+
+
+
+  $eigyou = $_POST['eigyou'];
+  if(isset($eigyou)){
     $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
     if($stmt2){
       while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
-        $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
-        $stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
-        $stmt->execute();
-        $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+        $stmt4 = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
+        $stmt4->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
+        $stmt4->execute();
+        $result2 = $stmt4-> fetch(PDO::FETCH_ASSOC);
+        echo $result2['store_name'];
+        echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result2['store_id'].'">詳細情報</a><br>';
+      }
+    }
   }else{
-    echo "dame";
+    //全部を表示
+    $stmt3 = $pdo->query('SELECT * FROM sample0801_db');
+    if($stmt3){
+      while($result_eigyou = $stmt3 -> fetch(PDO::FETCH_ASSOC)){
+        echo $result_eigyou['store_name'];
+        echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_eigyou['store_id'].'">詳細情報</a><br>';
+      }
+    }
   }
 ?>
 <br>
@@ -93,37 +113,29 @@ echo 'dame';
 ?>
 
 <br>
-
-<a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
+<!--営業中の店舗表示 -->
+<!-- <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a> -->
 <br>
 
-<!-- 営業中の店舗表示 -->
-<?php
-$stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
-if($stmt2){
-  while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
-    $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
-    $stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
-    $stmt->execute();
-    $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
-    // var_dump($result);
-    // echo '</br>';
-    // var_dump($result2);
-    // echo '</br>';
-    echo $result2['store_name'];
-    echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
-  }
 
-  // if($stmt){
-  //   while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-  //     echo $result['store_name'];
-  //     echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
-  //   }
-  // }
- }else{
-    echo '営業中の店舗はありません';
-  }
-?>
+
+<?php
+//$stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
+//if($stmt2){
+  //while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
+    //$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
+    //$stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
+    //$stmt->execute();
+    //$result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+    //echo $result2['store_name'];
+    //echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
+  //}
+
+ //}else{
+    //echo '営業中の店舗はありません';
+  //}
+//?>
 
 
 
