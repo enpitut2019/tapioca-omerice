@@ -42,6 +42,7 @@ if($wd == 1){
   $monday = '日曜日';
 }
 
+
 $index = intval($date/2);
 
 for($i=0; $i<8; $i++) {
