@@ -111,21 +111,6 @@ echo '<br>';
 
 echo '</p>';
 
-echo '<p>';
-echo '↓↓↓同じジャンルのお店を探す↓↓↓<br>';
-$stmt_genre = $pdo->prepare('SELECT * FROM info LEFT JOIN sample0801_db ON info.store_id = sample0801_db.store_id WHERE genre=:genre');
-$stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
-$stmt_genre->execute();
-if($stmt_genre) {
-  while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
-    if($result_genre['store_id'] != $store_id ) {
-      echo $result_genre['store_name'];
-      echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">詳細情報</a><br>';
-    }
-  }
-}
-
-echo '</p>';
 ?>
 
 <p>
@@ -139,6 +124,26 @@ if($result_detail_info['twitter']){
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <?php
 }
+
+echo '<p>';
+echo '↓↓↓同じジャンルのお店を探す↓↓↓<br>';
+$stmt_genre = $pdo->prepare('SELECT * FROM info LEFT JOIN sample0801_db ON info.store_id = sample0801_db.store_id WHERE genre=:genre');
+$stmt_genre->bindValue(':genre', $result_detail_info['genre'], PDO::PARAM_STR);
+$stmt_genre->execute();
+if($stmt_genre) {
+  while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
+    if($result_genre['store_id'] != $store_id ) {
+      $genre_array[$i] = $result_genre['store_id'];
+      $i += 1;
+    }
+  }
+  echo $genre_array[0];
+  // echo $result_genre['store_name'];
+  // echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">詳細情報</a><br>';
+
+}
+
+echo '</p>';
 ?>
 
 </body>
