@@ -57,7 +57,7 @@ if($stmt99) {
   }
 }
 }
-
+var_dump($result99);
 
 $index = intval($date/2);
 
