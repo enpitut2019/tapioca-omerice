@@ -42,16 +42,17 @@ $index = intval($date/2);
 session_set_cookie_params(60 * 120);
 // セッション管理開始
 session_start();
-
+var_dump($_SESSION[$store_id]);
 if (!isset($_SESSION[$store_id])) {
     // キー'$store_id'が登録されていなければ、1を設定
+    echo "ない";
     $_SESSION[$store_id] = 1;
 } else {
     //  キー'$store_id'が登録されていれば、その値をインクリメント
+    echo "ある";
     $_SESSION[$store_id]++;
 }
 var_dump($_SESSION[$store_id]);
-
 if($_SESSION[$store_id] == 1) {
   if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $result_vote[ $o_key[$index]]+=1;
