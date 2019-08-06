@@ -23,6 +23,9 @@ $date = date("H");
 $minute = date("i");
 $hour = intval($date) * 100;
 $open_flag = $hour + intval($minute);
+if(0 <= $open_flag && $open_flag <= 500){
+  $open_flag += 2400;
+}
 $wd = date("w");
 if($wd == 1){
   $monday = '月曜日';
