@@ -107,5 +107,7 @@ echo '</p>';
 <iframe src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $result['store_name']; ?>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </p>
 
+<a class="twitter-timeline" href="https://twitter.com/tatsuro3311?ref_src=twsrc%5Etfw">Tweets by tatsuro3311</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 </body>
 </html>
