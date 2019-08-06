@@ -10,7 +10,9 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 // var_dump($_POST);
 
 // 投票数を取得
-$stmt_vote = $pdo->query('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id ='.$_POST['store_id']);
+$stmt_vote = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id = ?');
+$stmt_vote->bindValue(1, $_POST['store_id'], PDO::PARAM_INT);
+$execute();
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
 // hashのkeyの配列
@@ -35,11 +37,20 @@ $index = intval($date)/2;
 
 if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $result_vote[ $o_key[$index]]+=1;
-  $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
+  // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
+  // $stmt->execute();
+  $stmt = $pdo->prepare('UPDATE sample0802_open SET ? = ? WHERE store_id = ?';
+  $stmt->bindParam(1, $o_key[$index], PDO::PARAM_STRING);
+  $stmt->bindValue(2, $result_vote[$o_key[$index]], PDO::PARAM_INT);
+  $stmt->bindValue(3, $_POST['store_id'], PDO::PARAM_INT);
   $stmt->execute();
 } else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
   $result_vote[ $c_key[$index]]+=1;
-  $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].'='.$result_vote[$c_key[$index]].'WHERE store_id='.$_POST['store_id']);
+  // $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].'='.$result_vote[$c_key[$index]].'WHERE store_id='.$_POST['store_id']);
+  $stmt = $pdo->prepare('UPDATE sample0802_close SET ? = ? WHERE store_id = ?';
+  $stmt->bindParam(1, $c_key[$index], PDO::PARAM_STRING);
+  $stmt->bindValue(2, $result_vote[$o_key[$index]], PDO::PARAM_INT);
+  $stmt->bindValue(3, $_POST['store_id'], PDO::PARAM_INT);
   $stmt->execute();
 }
 
