@@ -38,6 +38,20 @@ $date = date("H");
 
 $index = intval($date/2);
 
+// セッション管理開始
+session_start([
+    'cookie_lifetime' => $7200, //2時間でリセット
+]);
+
+if (!isset($_SESSION['count'])) {
+    // キー'count'が登録されていなければ、1を設定
+    $_SESSION['count'] = 1;
+} else {
+    //  キー'count'が登録されていれば、その値をインクリメント
+    $_SESSION['count']++;
+}
+
+if($_SESSION['count'] == 1) {
 if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $result_vote[ $o_key[$index]]+=1;
   // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
@@ -52,9 +66,8 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $stmt->bindValue(':result_vote', $result_vote[$c_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
   $stmt->execute();
-}
 
-  if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
+if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
     $stmt = $pdo->prepare('UPDATE info SET status= 1 WHERE store_id = :store_id');
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
@@ -67,9 +80,6 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
   }
-  // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
-  // exit();
-
 ?>
 
 <!DOCTYPE html>
@@ -80,10 +90,17 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   <center style="margin-top:50px;">
   <img class = "head_img" src="img/thanks.png" width="455px" height="55px">
   </center>
+</body>
+</html>
+
+<?php
+} else {
+echo “投票は2時間に1回までです。”;
+}
+
   <script type="text/javascript">
   setTimeout(function(){
  window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
 }, 2*1000);
 </script>
-</body>
-</html>
+?>
