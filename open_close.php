@@ -15,7 +15,6 @@ $stmt_vote = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN sample0802_ope
 $stmt_vote->bindValue(':store_id', $dtore_id, PDO::PARAM_INT);
 $execute();
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
-var_dump($result_vote);
 
 // hashのkeyの配列
 $o_key = array('o0_2','o2_4','o4_6','o6_8','o8_10','o10_12','o12_14','o14_16','o16_18','o18_20','o20_22','o22_24');
@@ -41,8 +40,7 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $result_vote[ $o_key[$index]]+=1;
   // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
   // $stmt->execute();
-  $stmt = $pdo->prepare('UPDATE sample0802_open SET :o_key = :result_vote WHERE store_id = :store_id');
-  $stmt->bindParam(':o_key', $o_key[$index], PDO::PARAM_STRING);
+  $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].' = :result_vote WHERE store_id = :store_id');
   $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
   var_dump($stmt);
@@ -50,8 +48,7 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 } else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
   $result_vote[ $c_key[$index]]+=1;
   // $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].'='.$result_vote[$c_key[$index]].'WHERE store_id='.$_POST['store_id']);
-  $stmt = $pdo->prepare('UPDATE sample0802_close SET :c_key = :result_vote WHERE store_id = :store_id');
-  $stmt->bindParam(':c_key', $c_key[$index], PDO::PARAM_STRING);
+  $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
   $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
   var_dump($stmt);
