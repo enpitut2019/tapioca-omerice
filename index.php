@@ -55,11 +55,11 @@ for($i=0; $i<8; $i++) {
 
 <!-- 今から営業中のチェックボックボックスを作りたい -->
 <form method="post" action="index.php">
-<input type="checkbox" name="eigyou" value="営業中">営業中
+<input type="checkbox" name="eigyou[]" value="営業中">営業中
 </form>
 
 <?php
-$eigyou = $_POST['eigyou'][0];
+$eigyou = $_POST['eigyou'];
 var_dump($eigyou);
 
 // if(("[name=eigyou]:checked").val() = value){
