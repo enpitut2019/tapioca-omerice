@@ -44,7 +44,7 @@ $stmt99 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample080
 $stmt98 = $pdo->prepare('UPDATE info SET status = 1');
 $stmt97 = $pdo->prepare('UPDATE info SET status = 0');
 
-$result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC)
+$result99 = $stmt99 -> fetch(PDO::FETCH_ASSOC);
 var_dump($result99);
 
 if($stmt99) {
