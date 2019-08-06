@@ -43,15 +43,15 @@ session_set_cookie_params(60 * 120);
 // セッション管理開始
 session_start();
 
-if (!isset($_SESSION['count'])) {
+if (!isset($_SESSION[$store_id])) {
     // キー'count'が登録されていなければ、1を設定
-    $_SESSION['count'] = 1;
+    $_SESSION[$store_id] = 1;
 } else {
     //  キー'count'が登録されていれば、その値をインクリメント
-    $_SESSION['count']++;
+    $_SESSION[$store_id]++;
 }
-
-if($_SESSION['count'] == 1) {
+var_dump($_SESSION[$store_id]);
+if($_SESSION[$store_id] == 1) {
 if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $result_vote[ $o_key[$index]]+=1;
   // $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].'='.$result_vote[$o_key[$index]].'WHERE store_id='.$_POST['store_id']);
@@ -97,10 +97,10 @@ echo “投票は2時間に1回までです。”;
 }
 ?>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   setTimeout(function(){
  window.location.href = 'https://tapiome.herokuapp.com/store_info_count.php?store_id=<?php echo $_POST['store_id']; ?>';
 }, 2*1000);
-</script>
+</script> -->
 </body>
 </html>
