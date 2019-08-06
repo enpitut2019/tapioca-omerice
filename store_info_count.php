@@ -41,7 +41,6 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 </p>
   <h1>
     <?php
-    $alert = '<script>alert(\'dame\');</script>';
       echo h($result['store_name']);
     ?>
   </h1> <!-- あとで変数 -->
