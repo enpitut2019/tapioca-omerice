@@ -134,7 +134,7 @@ echo '</p>';
 <?php
 if($result_detail_info['twitter']){
 ?>
-<a class="twitter-timeline" data-width="350" data-height="700" data-link-color="#2B7BB9" href="https://twitter.com/<?php echo h($result_detail_info['twitter']); ?>?ref_src=twsrc%5Etfw">Tweets by <?php echo h($result_detail_info['twitter']); ?></a>
+<a class="twitter-timeline" data-width="525" data-height="700" data-link-color="#2B7BB9" href="https://twitter.com/<?php echo h($result_detail_info['twitter']); ?>?ref_src=twsrc%5Etfw">Tweets by <?php echo h($result_detail_info['twitter']); ?></a>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <?php
 }
@@ -148,9 +148,11 @@ if($stmt_genre) {
   // $i = 0;
   while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
     if($result_genre['store_id'] != $store_id ) {
-      echo $result_genre['store_name'];
-      echo '：<a class="link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">詳細情報</a><br>';
 
+      echo '：<a class="link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
+       echo '<div class="box1">';
+      echo $result_genre['store_name'];
+      echo '</div></a><br>';
       // $genre_array[$i] = $result_genre['store_id'];
       // $i += 1;
     }
