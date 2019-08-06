@@ -60,20 +60,18 @@ for($i=0; $i<8; $i++) {
 </form>
 
 <?php
-$eigyou = $_POST["eigyou"];
-if($eigyou = "営業中"){
-  echo "良い";
-}else{
-  echo "dame";
-}
-
-var_dump($eigyou);
-
-// if(("[name=eigyou]:checked").val() = value){
-//   echo '良い';
-// }else{
-//   echo 'だめ';
-// }
+  $eigyou = $_POST["eigyou"];
+  if($eigyou = "営業中"){
+    $stmt2 = $pdo->query('SELECT * FROM info WHERE status = 1');
+    if($stmt2){
+      while($result = $stmt2 -> fetch(PDO::FETCH_ASSOC)) {
+        $stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_id = :store_id');
+        $stmt->bindValue(':store_id', $result['store_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $result2 = $stmt -> fetch(PDO::FETCH_ASSOC);
+  }else{
+    echo "dame";
+  }
 ?>
 <br>
 <br>
