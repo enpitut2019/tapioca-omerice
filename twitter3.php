@@ -6,10 +6,10 @@ $keyword_list = array("ポケモン","パズドラ");
 //最大検索数
 $countmax = 10;
 //twitterAppsで取得
-$consumerKey = '*****';
-$consumerSecret = '*****';
-$accessToken = '*****';
-$accessTokenSecret = '*****';
+$consumerKey = 'lHLmAILskvafc4FaZS5Q3VcJA';
+$consumerSecret = 'gX6Umd9HiC4rCJMK0K3O60ObXHUlu8OexmRbkwZanXnGWyvaK8';
+$accessToken = '872286707508330496-5VoTe7nMKOWBDspljt0n124fRejhNXF';
+$accessTokenSecret = '8VSlmw7tdctNLADqiI40mHwau2x6Ic1gn9rvYTq01pjQJ';
 $to = new TwitterOAuth(
     $consumerKey,
     $consumerSecret,
