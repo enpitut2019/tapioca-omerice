@@ -82,7 +82,15 @@ for($i=0; $i<8; $i++) {
     }
    } else {
    if(isset($eigyou)){
-     echo 'dame01';
+     $stmt01 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id WHERE status=1');
+     $stmt01->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
+     $stmt01->execute();
+     if($stmt01){
+       while($result01 = $stmt01 -> fetch(PDO::FETCH_ASSOC)) {
+        echo $result01['store_name'];
+        echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result01['store_id'].'">詳細情報</a><br>';
+      }
+    }
    } else {
      echo 'dame00';
    }
