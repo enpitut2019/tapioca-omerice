@@ -73,9 +73,8 @@ var_dump($eigyou);
 
 <?php
 $word = $_GET["kensaku"]; //検索ワード
-$word = '龍';
-$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE %:word%');
-$stmt->bindValue(':word', $word, PDO::PARAM_STR);
+$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
+$stmt->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
 $stmt->execute();
 
 if($stmt){
