@@ -78,8 +78,8 @@ for($i=0; $i<8; $i++) {
        $stmt10->execute();
        if($stmt10){
          while($result10 = $stmt10 -> fetch(PDO::FETCH_ASSOC)) {
-          echo h($result10['store_name']);
-          echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result10['store_id']).'">詳細情報</a><br>';
+          //echo h($result10['store_name']);
+          //echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result10['store_id']).'">詳細情報</a><br>';
         }
       }
     }
@@ -90,8 +90,8 @@ for($i=0; $i<8; $i++) {
      $stmt01->execute();
      if($stmt01){
        while($result01 = $stmt01 -> fetch(PDO::FETCH_ASSOC)) {
-        echo h($result01['store_name']);
-        echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result01['store_id']).'">詳細情報</a><br>';
+        //echo h($result01['store_name']);
+        //echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result01['store_id']).'">詳細情報</a><br>';
       }
     }
    } else {
@@ -100,8 +100,8 @@ for($i=0; $i<8; $i++) {
      $stmt00->execute();
      if($stmt00){
        while($result00 = $stmt00 -> fetch(PDO::FETCH_ASSOC)) {
-        echo h($result00['store_name']);
-        echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result00['store_id']).'">詳細情報</a><br>);
+        //echo h($result00['store_name']);
+        //echo '：<a class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result00['store_id']).'">詳細情報</a><br>);
       }
     }
    }
