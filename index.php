@@ -56,7 +56,7 @@ for($i=0; $i<8; $i++) {
 </form>
 
 <?php
-  $word = $_GET["kensaku"]; //検索ワード
+  $word = $_POST['kensaku']; //検索ワード
   $eigyou = $_POST['eigyou'];
   if($word != NULL){
     if(isset($eigyou)){
