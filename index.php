@@ -108,7 +108,7 @@ for($i=0; $i<8; $i++) {
       $stmt11->execute();
       if($stmt11){
         while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
-          // var_dump($result11['l_time_o']);
+          var_dump($result11['status']);
           // var_dump($open_flag);
           if(($result11['l_time_o'] < $open_flag && $open_flag < $result11['l_time_c']) || ($result11['d_time_o'] < $open_flag && $open_flag < $result11['d_time_c'])) {
             $rikiya = '営業時間内';
