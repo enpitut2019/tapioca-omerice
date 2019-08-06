@@ -55,7 +55,7 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 }
 
   if(($result_vote[$o_key[$index-1]] + $result_vote[$o_key[$index]]) > ($result_vote[$c_key[$index-1]] + $result_vote[$c_key[$index]])){
-    $stmt = $pdo->prepare('UPDATE info SET :result_info = 1 WHERE store_id = :store_id');
+    $stmt = $pdo->prepare('UPDATE info SET :result_info = 3 WHERE store_id = :store_id');
     $stmt->bindValue(':result_info', $result_info['status'], PDO::PARAM_INT);
     $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
     $stmt->execute();
