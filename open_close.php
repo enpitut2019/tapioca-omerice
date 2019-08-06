@@ -43,7 +43,6 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $stmt = $pdo->prepare('UPDATE sample0802_open SET '.$o_key[$index].' = :result_vote WHERE store_id = :store_id');
   $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
-  var_dump($stmt);
   $stmt->execute();
 } else if(strcmp($_POST['vote_close'], '閉店中') == 0) { // 閉店中
   $result_vote[ $c_key[$index]]+=1;
@@ -51,14 +50,13 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
   $stmt = $pdo->prepare('UPDATE sample0802_close SET '.$c_key[$index].' = :result_vote WHERE store_id = :store_id');
   $stmt->bindValue(':result_vote', $result_vote[$o_key[$index]], PDO::PARAM_INT);
   $stmt->bindValue(':store_id', $_POST['store_id'], PDO::PARAM_INT);
-  var_dump($stmt);
   $stmt->execute();
 }
 
 
 
- // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
- // exit();
+ header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
+ exit();
 
 ?>
 </html>
