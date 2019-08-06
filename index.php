@@ -102,7 +102,7 @@ for($i=0; $i<8; $i++) {
 </head>
 <body>
   <p>
-    <img src="img/title.png" width="335px" height="60">
+    <img src="img/title.png" width="335px" height="60px">
   </p>
 
 
