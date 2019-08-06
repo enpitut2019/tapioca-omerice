@@ -11,8 +11,10 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 
 // 投票数を取得
 $store_id = $_POST['store_id'];
+var_dump($store_id);
 $stmt_vote = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id = :store_id');
 $stmt_vote->bindValue(':store_id', $store_id, PDO::PARAM_INT);
+var_dump($stmt_vote);
 $execute();
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
@@ -57,8 +59,8 @@ if(strcmp($_POST['vote_open'], '営業中') == 0) { // 営業中
 
 
 
- header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
- exit();
+ // header('Location:https://tapiome.herokuapp.com/store_info_count.php?store_id='.$_POST['store_id']);
+ // exit();
 
 ?>
 </html>
