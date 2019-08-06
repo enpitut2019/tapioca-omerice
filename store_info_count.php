@@ -136,8 +136,13 @@ echo '</p>';
 
 ?>
 
+<p>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.181008651956!2d140.10809181526997!3d36.08907538010117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60220c7aa6a464e5%3A0xf609d3c850af20b!2z44Op44O844Oh44OzIOm-jemDjg!5e0!3m2!1sja!2sjp!4v1565054489175!5m2!1sja!2sjp" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</p>
 
+<p>
+<iframe src="https://maps.google.co.jp/maps?output=embed&q=ラーメン龍郎"></iframe>
+</p>
 
 </body>
 </html>
