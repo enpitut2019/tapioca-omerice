@@ -7,7 +7,7 @@ $url = parse_url(getenv('DATABASE_URL'));
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 $pdo = new PDO($dsn, $url['user'], $url['pass']);
 $stmt = $pdo->prepare('SELECT store_name FROM sample0801_db WHERE store_id = :store_id');
-$stmt->bindValue(‘:store_id’, $store_id, PDO::PARAM_INT);
+$stmt->bindValue(':store_id', $store_id, PDO::PARAM_INT);
 $stmt->execute();
 $result = $stmt -> fetch(PDO::FETCH_ASSOC);
  // var_dump($result);//store_nameが取れているか確認
@@ -55,7 +55,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <?php
 // 詳細情報の取得
 $stmt_detail_info = $pdo->prepare('SELECT * FROM info WHERE store_id = :store_id');
-$stmt_detail_info->bindValue(‘:store_id’, $store_id, PDO::PARAM_INT);
+$stmt_detail_info->bindValue(':store_id', $store_id, PDO::PARAM_INT);
 $stmt_detail_info->execute();
 $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
 
@@ -72,7 +72,7 @@ echo '</p>';
 
 //投票数のカウント
 $stmt_vote = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN sample0802_open ON sample0801_db.store_id = sample0802_open.store_id left join sample0802_close on sample0801_db.store_id = sample0802_close.store_id WHERE sample0801_db.store_id = :store_id');
-$stmt_vote->bindValue(‘:store_id’, $store_id, PDO::PARAM_INT);
+$stmt_vote->bindValue(':store_id', $store_id, PDO::PARAM_INT);
 $stmt_vote->execute();
 $result_vote = $stmt_vote -> fetch(PDO::FETCH_ASSOC);
 
