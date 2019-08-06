@@ -63,9 +63,15 @@ for($i=0; $i<8; $i++) {
       $stmt11 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id WHERE store_name like :word AND status=1');
       $stmt11->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
       $stmt11->execute();
-      echo $stmt11;
-    } else {
+      if($stmt){
+        while($result11 = $stmt11 -> fetch(PDO::FETCH_ASSOC)) {
+         echo $result11['store_name'];
+         echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result11['store_id'].'">詳細情報</a><br>';
+         echo '良い';
+       }
+      } else {
       echo 'dame';
+      }
     }
   }
   //$stmt = $pdo->prepare('SELECT * FROM sample0801_db WHERE store_name LIKE :word');
