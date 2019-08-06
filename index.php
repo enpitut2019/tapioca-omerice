@@ -11,9 +11,23 @@
     echo "Hello tapioka!";
 ?>
 
-<form method="get" action="result.php">
+<form method="get" action="index.php">
 <input type="search" name="kensaku" ><input type="submit" value="検索">
 </form>
+
+<?php
+$word = $_GET["kensaku"]; //検索ワード
+$stmt = $pdo->query('SELECT * FROM sample0801_db WHERE store_name LIKE \'%'.$word.'%\'');
+
+if($stmt){
+while($result = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+  echo $result['store_name'];
+  echo '：<a href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result['store_id'].'">詳細情報</a><br>';
+}
+}else{
+echo 'dame';
+}
+?>
 
 <a href = "https://tapiome.herokuapp.com/result_open.php">営業中店舗</a>
 
