@@ -137,7 +137,12 @@ for($i=0; $i<8; $i++) {
           }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result11['store_id']).'">';
          echo '<div class="box1">'.$result11['store_name'].'<br>';
-         echo '<span style="font-size:70%">'.$rikiya.'</span>';
+         if(strcmp($eikiya, '営業時間内')){
+           echo '<span style="font-size:70%; color:#009a9a">'.$rikiya.'</span>';
+         } else {
+           echo '<span style="font-size:70%">'.$rikiya.'</span>';
+         }
+
          echo '</div></a>';
 
        }
@@ -158,7 +163,11 @@ for($i=0; $i<8; $i++) {
            }
            echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result10['store_id']).'">';
            echo '<div class="box1">'.$result10['store_name'].'<br>';
-           echo '<span style="font-size:70%">'.$rikiya.'</span>';
+           if(strcmp($eikiya, '営業時間内')){
+             echo '<span style="font-size:70%; color:#009a9a">'.$rikiya.'</span>';
+           } else {
+             echo '<span style="font-size:70%">'.$rikiya.'</span>';
+           }
            echo '</div></a>';
         }
       }
@@ -180,7 +189,11 @@ for($i=0; $i<8; $i++) {
          }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result01['store_id']).'">';
          echo '<div class="box1">'.$result01['store_name'].'<br>';
-         echo '<span style="font-size:70%">'.$rikiya.'</span>';
+         if(strcmp($eikiya, '営業時間内')){
+           echo '<span style="font-size:70%; color:#009a9a">'.$rikiya.'</span>';
+         } else {
+           echo '<span style="font-size:70%">'.$rikiya.'</span>';
+         }
          echo '</div></a>';
       }
     }
@@ -200,7 +213,11 @@ for($i=0; $i<8; $i++) {
          }
          echo '<a style="text-decoration: none;" class = "link" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.h($result00['store_id']).'">';
          echo '<div class="box1">'.$result00['store_name'].'<br>';
-         echo '<span style="font-size:70%">'.$rikiya.'</span>';
+         if(strcmp($eikiya, '営業時間内')){
+           echo '<span style="font-size:70%; color:#009a9a">'.$rikiya.'</span>';
+         } else {
+           echo '<span style="font-size:70%">'.$rikiya.'</span>';
+         }
          echo '</div></a>';
       }
     }

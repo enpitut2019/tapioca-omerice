@@ -77,16 +77,16 @@ if(intval($result_detail_info["d_time_c"]) < 1000) {
 }
 
 // 0字の0詰め
-if(intval($result_detail_info["l_time_o"]) < 1000) {
+if(intval($result_detail_info["l_time_o"]) == 0) {
   $result_detail_info["l_time_o"] = '0000';
 }
-if(intval($result_detail_info["l_time_c"]) < 1000) {
+if(intval($result_detail_info["l_time_c"]) == 0) {
   $result_detail_info["l_time_c"] = '0000';
 }
-if(intval($result_detail_info["d_time_o"]) < 1000) {
+if(intval($result_detail_info["d_time_o"]) == 0) {
   $result_detail_info["d_time_o"] = '0000';
 }
-if(intval($result_detail_info["d_time_c"]) < 1000) {
+if(intval($result_detail_info["d_time_c"]) == 0) {
   $result_detail_info["d_time_c"] = '0000';
 }
 
