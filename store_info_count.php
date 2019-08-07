@@ -39,7 +39,7 @@ $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 <body>
   <div class="header">
   <a href=https://tapiome.herokuapp.com/>
-  <img class = "head_img" src="img/title.png" width="335px" height="60px">
+  <img class = "head_img" src="img/title_logo.png" width="335px" height="60px">
   </a>
 </div>
 
