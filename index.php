@@ -118,7 +118,7 @@ if (isset($_POST['kensaku'])) {
   <input class="input01" type="text" name="kensaku" value="<?php echo h($default) ?>">
   <input class="submit01" type="submit" value="検索"><br>
   <label>
-    <input type="checkbox" name="eigyou" value="営業中" class="checkbox01-input" onclick="return mySubmit('myForm', 'form.html', 'POST');">
+    <input type="checkbox" name="eigyou" value="営業中" class="checkbox01-input">
     <span class="checkbox01-parts">営業中店舗のみ表示</span>
   </label>
   </form>
