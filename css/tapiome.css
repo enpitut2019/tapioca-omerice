@@ -1,5 +1,5 @@
 .header{
-	height: 389px; /* 高さ */
+	height: 60px; /* 高さ */
 	width: 100%; /* 長さ */
 	background-color: #ffffff;
 	position: fixed; /* ヘッダーを固定(これが重要) */
