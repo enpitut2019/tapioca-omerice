@@ -105,6 +105,8 @@ echo 'TEL：'.h($result_detail_info["tel"]).'<br>';
 // echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>'.h($result_detail_info["url"]).'</a>';
 echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>お店のURL</a>';
 echo '</p>';
+var_dump(split('/',$result_detail_info["url"]));
+echo '<br>';
 
 
 //投票数のカウント
