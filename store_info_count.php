@@ -100,7 +100,7 @@ echo 'ランチ：'.h($l_time_o).'~'.h($l_time_c).'<br>';
 echo 'ディナー：'.h($d_time_o).'~'.h($d_time_c).'<br>';
 echo '定休日：'.h($result_detail_info["holiday"]).'<br>';
 echo 'ジャンル：'.h($result_detail_info["genre"]).'<br>';
-echo '価格帯：'.h($result_detail_info["price_min"]).'~'.h($result_detail_info["price_max"]).'<br>';
+echo '価格帯：'.h($result_detail_info["price_min"]).'~'.h($result_detail_info["price_max"]).'円<br>';
 echo 'TEL：'.h($result_detail_info["tel"]).'<br>';
 // echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>'.h($result_detail_info["url"]).'</a>';
 echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>お店のURL</a>';
