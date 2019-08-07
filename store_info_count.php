@@ -66,13 +66,13 @@ if (intval($result_detail_info["l_time_o"]) < 10) {
   $result_detail_info["l_time_o"] = '0'.$result_detail_info["l_time_o"];
 }
 if (intval($result_detail_info["l_time_c"]) < 10) {
-  $result_detail_info["l_time_c"] = '0'.$result_detail_info["l_time_o"];
+  $result_detail_info["l_time_c"] = '0'.$result_detail_info["l_time_c"];
 }
 if (intval($result_detail_info["d_time_o"]) < 10) {
-  $result_detail_info["c_time_o"] = '0'.$result_detail_info["l_time_o"];
+  $result_detail_info["d_time_o"] = '0'.$result_detail_info["d_time_o"];
 }
 if (intval($result_detail_info["c_time_c"]) < 10) {
-  $result_detail_info["d_time_c"] = '0'.$result_detail_info["l_time_o"];
+  $result_detail_info["d_time_c"] = '0'.$result_detail_info["d_time_c"];
 }
 
 $l_time_o = substr_replace($result_detail_info["l_time_o"], ':', 2, 0);
