@@ -111,7 +111,7 @@ if (isset($_POST['kensaku'])) {
 } else {
   $default = "";
 }
-if( isset($_POST['eigyou']) && strcmp($_POST['eigyou'], '営業中')) {
+if( strcmp($_POST['eigyou'], '営業中')) {
   $checked = "checked";
 } else {
   $checked = "";
