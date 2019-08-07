@@ -62,7 +62,7 @@ $stmt_detail_info->bindValue(':store_id', $store_id, PDO::PARAM_INT);
 $stmt_detail_info->execute();
 $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
 
-
+// 3桁時間は0詰め
 if(intval($result_detail_info["l_time_o"]) < 1000) {
   $result_detail_info["l_time_o"] = '0'.$result_detail_info["l_time_o"];
 }
@@ -74,6 +74,20 @@ if(intval($result_detail_info["d_time_o"]) < 1000) {
 }
 if(intval($result_detail_info["d_time_c"]) < 1000) {
   $result_detail_info["d_time_c"] = '0'.$result_detail_info["d_time_c"];
+}
+
+// 0字の0詰め
+if(intval($result_detail_info["l_time_o"]) < 1000) {
+  $result_detail_info["l_time_o"] = '0000';
+}
+if(intval($result_detail_info["l_time_c"]) < 1000) {
+  $result_detail_info["l_time_c"] = '0000';
+}
+if(intval($result_detail_info["d_time_o"]) < 1000) {
+  $result_detail_info["d_time_o"] = '0000';
+}
+if(intval($result_detail_info["d_time_c"]) < 1000) {
+  $result_detail_info["d_time_c"] = '0000';
 }
 
 $l_time_o = substr_replace($result_detail_info["l_time_o"], ':', 2, 0);
