@@ -139,9 +139,7 @@ $start_time[0] = $start_time[0].'~現在';
 echo '<div style="font-size:60%; margin-top:-10px">集計時間 :'.h($start_time[0]);
 echo '<br>';
 
-$start_time = explode("~", $time[$key-1]);
-$start_time[0] = $start_time[0].'~現在';
-echo h($start_time[0]).' ... ';
+echo h($time[$key-1]).' ... ';
 if($key != 0) { echo '営業中:'.h($result_vote[$o_key[$key-1]]).'人'; }
 else { echo '営業中:'.h($result_vote[$o_key[$key+11]]).'人'; }
 if($key != 0) { echo ' 閉店中: '.h($result_vote[$c_key[$key-1]]).'人'; }
