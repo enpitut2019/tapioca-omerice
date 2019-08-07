@@ -63,11 +63,23 @@ $stmt_detail_info->execute();
 $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
 
 
+if(intval($result_detail_info["l_time_o"]) < 1000) {
+  $result_detail_info["l_time_o"] = '0'.$result_detail_info["l_time_o"];
+}
+if(intval($result_detail_info["l_time_c"]) < 1000) {
+  $result_detail_info["l_time_c"] = '0'.$result_detail_info["l_time_c"];
+}
+if(intval($result_detail_info["d_time_o"]) < 1000) {
+  $result_detail_info["d_time_o"] = '0'.$result_detail_info["d_time_o"];
+}
+if(intval($result_detail_info["d_time_c"]) < 1000) {
+  $result_detail_info["d_time_c"] = '0'.$result_detail_info["d_time_c"];
+}
 
-$l_time_o = substr_replace($result_detail_info["l_time_o"], ':0', 0, -1);
-$l_time_c = substr_replace($result_detail_info["l_time_c"], ':0', 0, -1);
-$d_time_o = substr_replace($result_detail_info["d_time_o"], ':0', 0, -1);
-$d_time_c = substr_replace($result_detail_info["d_time_c"], ':0', 0, -1);
+$l_time_o = substr_replace($result_detail_info["l_time_o"], ':', 2, 0);
+$l_time_c = substr_replace($result_detail_info["l_time_c"], ':', 2, 0);
+$d_time_o = substr_replace($result_detail_info["d_time_o"], ':', 2, 0);
+$d_time_c = substr_replace($result_detail_info["d_time_c"], ':', 2, 0);
 
 echo '<p>';
 echo 'ランチ：'.h($l_time_o).'~'.h($l_time_c).'<br>';
