@@ -190,7 +190,7 @@ if($stmt_genre) {
   while($result_genre = $stmt_genre -> fetch(PDO::FETCH_ASSOC)) {
     if($result_genre['store_id'] != $store_id && mt_rand()%2 == 0) {
       // ランダムで表示
-      echo '<a class=" link" style="text-decoration: none;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
+      echo '<a style="text-decoration: none; color:#000000;" href ="https://tapiome.herokuapp.com/store_info_count.php?store_id='.$result_genre['store_id'].'">';
       echo '<div class="box1">';
       echo h($result_genre['store_name']);
       echo '</div></a>';
