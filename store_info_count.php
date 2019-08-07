@@ -62,6 +62,19 @@ $stmt_detail_info->bindValue(':store_id', $store_id, PDO::PARAM_INT);
 $stmt_detail_info->execute();
 $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
 
+if (intval($result_detail_info["l_time_o"]) < 10) {
+  $result_detail_info["l_time_o"] = '0'.$result_detail_info["l_time_o"];
+}
+if (intval($result_detail_info["l_time_c"]) < 10) {
+  $result_detail_info["l_time_c"] = '0'.$result_detail_info["l_time_o"];
+}
+if (intval($result_detail_info["d_time_o"]) < 10) {
+  $result_detail_info["c_time_o"] = '0'.$result_detail_info["l_time_o"];
+}
+if (intval($result_detail_info["c_time_c"]) < 10) {
+  $result_detail_info["d_time_c"] = '0'.$result_detail_info["l_time_o"];
+}
+
 $l_time_o = substr_replace($result_detail_info["l_time_o"], ':', 2, 0);
 $l_time_c = substr_replace($result_detail_info["l_time_c"], ':', 2, 0);
 $d_time_o = substr_replace($result_detail_info["d_time_o"], ':', 2, 0);
