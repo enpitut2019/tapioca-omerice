@@ -300,7 +300,7 @@
 	  padding       : 8px 5px;   /* 余白       */
 	  background    : #e3ab30;     /* 背景色     */
 	  color         : #ffffff;     /* 文字色     */
-	  line-height   : 100px;         /* 1行の高さ  */
+	  line-height   : 5vh;         /* 1行の高さ  */
 	  transition    : .3s;         /* なめらか変化 */
 	  border        : 2px solid #e3ab30;    /* 枠の指定 */
 	}
