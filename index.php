@@ -105,10 +105,18 @@ for($i=0; $i<8; $i++) {
     <img src="img/title_logo.png" width="389px" height="60px">
   </p>
 
+<?php
+if (isset($_POST['kensaku'])) {
+  $default = $_POST['kensaku'];
+} else {
+  $default = "";
+}
+
+?>
 
   <!-- 検索フォーム -->
   <form class="form01" method="post" action="index.php">
-  <input class="input01" type="text" name="kensaku" >
+  <input class="input01" type="text" name="kensaku" placeholder="<?php echo h($default) ?>">
   <input class="submit01" type="submit" value="検索"><br>
   <label>
     <input type="checkbox" name="eigyou" value="営業中" class="checkbox01-input">
