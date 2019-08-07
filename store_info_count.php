@@ -134,16 +134,23 @@ if($key != 0) { echo (h($result_vote[$c_key[$key-1]]) + h($result_vote[$c_key[$k
 else { echo (h($result_vote[$c_key[$key+11]]) + h($result_vote[$c_key[$key]])); }
 echo '人が閉店中と言っています';
 
-echo '<div style="font-size:60%; margin-top:-10px">集計時間 :'.h($time_4h[$key-1]);
+$start_time = explode("~", $time_4h[$key-1]);
+$start_time[0] = $start_time[0].'~現在';
+echo '<div style="font-size:60%; margin-top:-10px">集計時間 :'.h($start_time[0]);
 echo '<br>';
 
-echo h($time[$key-1]).' ... ';
+$start_time = explode("~", $time[$key-1]);
+$start_time[0] = $start_time[0].'~現在';
+echo h($start_time[0]).' ... ';
 if($key != 0) { echo '営業中:'.h($result_vote[$o_key[$key-1]]).'人'; }
 else { echo '営業中:'.h($result_vote[$o_key[$key+11]]).'人'; }
 if($key != 0) { echo ' 閉店中: '.h($result_vote[$c_key[$key-1]]).'人'; }
 else { echo ' 閉店中: '.h($result_vote[$c_key[$key+11]]).'人'; }
 echo '<br>';
-echo h($time[$key]).' ... ';
+
+$start_time = explode("~", $time[$key]);
+$start_time[0] = $start_time[0].'~現在';
+echo h($start_time[0]).' ... ';
 echo '営業中: '.h($result_vote[$o_key[$key]]).'人';
 echo ' 閉店中: '.h($result_vote[$c_key[$key]]).'人';
 echo '<br>';
