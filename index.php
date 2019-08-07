@@ -122,7 +122,7 @@ for($i=0; $i<8; $i++) {
   $eigyou = $_POST['eigyou'];
   if($word != NULL){
     if(isset($eigyou)){
-      $stmt11 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id WHERE store_name like :word AND status=1 OR genre like :word');
+      $stmt11 = $pdo->prepare('SELECT * FROM sample0801_db LEFT JOIN info ON sample0801_db.store_id = info.store_id WHERE (store_name like :word OR genre like :word) AND status=1');
       $stmt11->bindValue(':word', '%'.$word.'%', PDO::PARAM_STR);
       $stmt11->execute();
       if($stmt11){
