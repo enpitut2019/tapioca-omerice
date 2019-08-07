@@ -64,10 +64,10 @@ $result_detail_info = $stmt_detail_info -> fetch(PDO::FETCH_ASSOC);
 
 
 
-$l_time_o = substr_replace($result_detail_info["l_time_o"], ':', 2, -1);
-$l_time_c = substr_replace($result_detail_info["l_time_c"], ':', 2, -1);
-$d_time_o = substr_replace($result_detail_info["d_time_o"], ':', 2, -1);
-$d_time_c = substr_replace($result_detail_info["d_time_c"], ':', 2, -1);
+$l_time_o = substr_replace($result_detail_info["l_time_o"], ':0', 2, -1);
+$l_time_c = substr_replace($result_detail_info["l_time_c"], ':0', 2, -1);
+$d_time_o = substr_replace($result_detail_info["d_time_o"], ':0', 2, -1);
+$d_time_c = substr_replace($result_detail_info["d_time_c"], ':0', 2, -1);
 
 echo '<p>';
 echo 'ランチ：'.h($l_time_o).'~'.h($l_time_c).'<br>';
