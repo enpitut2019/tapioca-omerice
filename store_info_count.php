@@ -104,7 +104,7 @@ echo '価格帯：'.h($result_detail_info["price_min"]).'~'.h($result_detail_inf
 echo 'TEL：'.h($result_detail_info["tel"]).'<br>';
 // echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>'.h($result_detail_info["url"]).'</a>';
 $url = explode("/", $result_detail_info["url"]);
-echo 'URL：<a class="link" href ='.h($url[0].'//'.$url[2]).'>お店のURL</a>';
+echo 'URL：<a class="link" href ='.h($result_detail_info["url"]).'>'.h($url[0].'//'.$url[2]).'</a>';
 echo '</p>';
 
 
