@@ -215,7 +215,7 @@
 		margin-top: 50px;
 	}
 	.first{
-		padding-top: 6vh;
+		padding-top: 115px;
 	}
 
 	/* index.php：検索結果の枠 */
@@ -224,7 +224,7 @@
     margin: 2em 0;
     font-weight: bold;
     border: solid 1px #000000;
-		margin-bottom:-50px;
+		margin-bottom:-3vh;
 		color: #000000;
 	}
 	.box1:hover{
